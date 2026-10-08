@@ -1,0 +1,24 @@
+name: Commit message check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  check-commits:
+    name: Enforce Conventional Commits
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install commitizen
+        run: pip install commitizen
+
+      - name: Check all commits on this PR
+        run: cz check --rev-range origin/${{ github.base_ref }}..HEAD

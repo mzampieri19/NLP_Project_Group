@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments / secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Office lock files
+~$*.docx
+
+# Data / model artifacts (adjust as needed)
+*.ckpt
+*.pt
+*.bin
+data/raw/
