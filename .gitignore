@@ -26,3 +26,9 @@ env/
 *.pt
 *.bin
 data/raw/
+
+# Trash
+.Trash-0/
+
+# Ruff Cache
+.ruff_cache/
