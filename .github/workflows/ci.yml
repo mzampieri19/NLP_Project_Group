@@ -19,3 +19,5 @@ jobs:
 
       - name: Run pre-commit hooks
         uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --config config/.pre-commit-config.yaml --all-files
