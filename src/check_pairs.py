@@ -1,4 +1,4 @@
-"""Flag problems in the generated pairs; writes a review sheet for you + Nikhil.
+"""Flag problems in the generated pairs; writes a review sheet.
 
 Usage: python check_pairs.py --work work/
 
