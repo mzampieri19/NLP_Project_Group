@@ -1,11 +1,91 @@
-example_id,auto_flags,original,control,ev,facts_advice_preserved (y/n),needs_correction (y/n),notes
-pair_001,facts_changed?:ev:low_overlap(0.15),I hear you saying that your boyfriend broke up with you. Is that correct,You’re saying that you broke up with your boyfriend because he cheated on you. Is that correct?,"It sounds like this has been really painful. To clarify, did you break up with your boyfriend because he cheated on you?",,,
-pair_002,len_control_vs_ev(13 vs 27),"I sometimes get nervous when I have to speak up about something that is important to me, can you relate?",Sometimes people get nervous when speaking up about something important. Can you relate?,It sounds like this fear is making it hard to speak up. I sometimes get nervous when I need to discuss something important to me—can you relate?,,,
-pair_003,facts_changed?:control:low_overlap(0.23),Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"Keep a water bottle beside you while studying, focus as much as possible, and choose a quiet place to study.","It makes sense to want a study routine that helps you feel more confident. Keep a water bottle beside you, try to focus, and choose a quiet, peaceful place to study.",,,
-pair_004,,"Just feel confident that you have fulfilled the assignment according to the guidelines. Extra questions from students are wildcards and you can only handle them within the scope of the assignment. If someone's like WELL WHY AREN'T THERE PURPLE PANDAS THEN, JEFF?! you're gonna have to just laugh lol","Focus on whether you’ve completed the assignment according to the guidelines. Questions from other students are unpredictable, and you can only address them within the assignment’s scope. If someone asks something irrelevant like, “Well, why aren’t there purple pandas then, Jeff?” you can simply laugh it off.","It makes sense that trying to anticipate every possible question feels stressful. Trust that you’ve completed the assignment according to the guidelines. Questions from other students can be unpredictable, and you can only address them within the assignment’s scope. If someone asks something totally out of left field, like, “Well, why aren’t there purple pandas then, Jeff?!” sometimes you just have to laugh it off.",,,
-pair_005,facts_changed?:control:low_overlap(0.11); len_control_vs_ev(14 vs 25),It sounds like things ended in an unresolved way. That can make it feel like there is no real conclusion.,"Things ended without resolution, which can leave you without a clear sense of closure.","It sounds like things ended without the closure you needed, which can be painful and leave you feeling like there was never a real conclusion.",,,
-pair_006,,"I'm sorry to hear that. Unfortunately I didn't receive the message you had typed, would you like to talk about it?","Unfortunately, I didn’t receive the message you typed. Would you like to tell me about what’s happening with your daughter?","I’m sorry—you must be frustrated having to repeat yourself. Unfortunately, I didn’t receive the message you typed. Would you still like to talk about what’s going on with your daughter?",,,
-pair_007,len_vs_original:control(14 vs 24); len_control_vs_ev(14 vs 25),I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I have a 10-year-old daughter, so I’m seeing remote teaching from the other side.","I can understand how tough and stressful that must feel right now. I have a 10-year-old daughter, so I’m seeing it from the other side.",,,
-pair_008,facts_changed?:control:low_overlap(0.20); facts_changed?:ev:low_overlap(0.24),"Yes, job applications can feel particularly demeaning to complete. Personally, I get frustrated with all the repetition and then repetitive rejection. It seems like I had no value. But you have to consider that there are dozens of different reasons why you don't get selected for a job, and quite a few of them have nothing to do with you , either as a person or as an employee.","Job applications often involve repetitive forms followed by repeated rejections. Keep in mind that there are many reasons you may not be selected for a position, and several may have nothing to do with you as a person or as an employee.","Repeatedly filling out applications only to face rejection can feel exhausting and discouraging, and it makes sense that you’re struggling to keep going. Still, there are many reasons you might not be selected for a job, and quite a few have nothing to do with your worth as a person or your abilities as an employee.",,,
-pair_009,facts_changed?:control:low_overlap(0.20); facts_changed?:ev:low_overlap(0.12); len_control_vs_ev(14 vs 27),You are a strong person. You are almost there to win. Your family is always there with you.,"You’re on your way to overcoming it, and your family is there for you.","It’s understandable to feel nervous this early on, but you’re strong and on your way to beating this. Your family is with you, even from a distance.",,,
-pair_010,facts_changed?:ev:low_overlap(0.23); len_control_vs_ev(24 vs 44); control_has_validation?,"oh goodness, im in the deep south. even tho its close to winter it definitely does not feel that way. what are some disturbances that you deal with currently?","I’m in the Deep South, and even though winter is approaching, it definitely doesn’t feel like it. What disturbances are you currently dealing with?","That sounds really frustrating, especially when you’re already feeling worried and sad. I’m in the Deep South, and even though winter is close, it definitely doesn’t feel like it here. What kinds of disturbances are making it hard for you to focus right now?",,,
+example_id,auto_flags,original_strategy,context,original,control,ev,new_words_control,new_words_ev,facts_advice_preserved (y/n),needs_correction (y/n),notes
+pair_001,ev_no_ack?,Restatement or Paraphrasing,"Seeker: Hi there, I was hoping to get some support. I'm having a hard time with things.
+Supporter: Ho, Can you please tell me specifically what things you are having a hard time with.
+Seeker: I broke up with my boyfriend because he cheated on me.",I hear you saying that your boyfriend broke up with you. Is that correct,Are you saying that your boyfriend broke up with you? Is that correct?,"I hear that you broke up with your boyfriend because he cheated, and you’re having a hard time.",,you're,,,
+pair_002,ev_no_ack?,Question,"Seeker: I'm in depression because i have fair of i will lost my job
+Supporter: Why do you believe you will loose your job?
+Seeker: because lots of people in my office they lost their job because of this job crises situation of covid
+Supporter: This Covid crisis has been effecting so many lives, I totally understand,
+Seeker: how is your situation? yes all effect because of this Covid
+Supporter: I have been holding on and trying to see the positivity daily. I practice gratitude to show I appreciate what I do have
+Seeker: yes I'm also trying to come out from this situation
+Supporter: Have you thought about talking to your boss?
+Seeker: no i'm trying to talk but i couldn't
+Supporter: i'm sorry , why were you not able to talk?
+Seeker: I'm just thinking but i couldn't i don't no why
+Supporter: I sometimes get nervous when I have to speak up about something that is important to me, can you relate?
+Seeker: I think because i have fear of maybe i lost my job that's why",You will feel like you will loose your job if you speak up?,Do you think you will lose your job if you speak up?,It sounds frightening; do you feel that speaking up might cause you to lose your job?,lose,"cause, frighten, lose, might, sound",,,
+pair_003,len_vs_original:ev(14 vs 26); ev_no_ack?,Information,"Seeker: HI how are you today
+Supporter: HELLO going good what about you
+Seeker: Doing well, thanks.
+Supporter: how was your day
+Seeker: Not too bad.
+Supporter: it sounds good
+Seeker: I'm taking some classes and I didn't do well on my midterms.
+Supporter: Don't worry my friend there will be peaks and downs in life same in exam too prepare hard for your next exam surely you ll shine
+Seeker: I hope so. I don't have a lot of hope.
+Supporter: do u attend your classes regularly?
+Seeker: Yes for the most part. Unless a family emergency arises.
+Supporter: That's great. Did u love your studies?
+Seeker: I guess so. I want to have a good career.
+Supporter: That's a good idea. Even I had this problem during my studies
+Seeker: I think it's a common problem, but I don't feel good about it.
+Supporter: Then my friend suggested me to study at early morning rather than evening and nights.
+Seeker: That's a good idea. I feel more productive in the morning.
+Supporter: that's great
+Seeker: I might try that.",Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"Keep a water bottle beside you while studying, concentrate as much as possible, and choose a peaceful place to study.","Understandably, you feel bad; keep a water bottle behind you and concentrate somewhere peaceful.","beside, keep, much, possible, while","keep, somewhere, understandably",,,
+pair_004,len_vs_original:ev(15 vs 49); control_much_longer(43 vs 15),"Providing Suggestions, Others","Supporter: Good afternoon, how can I help you today?
+Seeker: Hi there, I am just stressed about giving a presentation tomorrow
+Supporter: That is understandable, public speaking is one of the most commonly cited fears for people. Is it for work or for school?
+Seeker: This presentation is for school I am indeed worried about public speaking
+Supporter: I actually majored in communication and have a great deal of experience with public speaking.
+Seeker: That's interesting, I find public speaking to be especially difficult
+Supporter: Yes, the physical nervousness that can manifest is powerful. I would highly recommend finding a quiet place to calm and focus your mind for at least five minutes before your presentation. At least a minute's worth of breathing, and drink plenty of water.
+Seeker: That very helpful advice, I think another stressful factor is being able to field questions effectively
+Supporter: Ah, yes, that is a hard one. You are expected to be an expert. But you can only prepare so much.
+Seeker: Agreed, and there is always that fear that you won't know an answer
+Supporter: ""That is a really great question that I've never considered! Maybe XYZ? I can check on that and get back to you with a sure answer though!"" There's no shame in being able to say that you understand why someone would ask the question(whatever it may be) but that you don't have a full or even partial answer right now. Because you're also going to get like, the hecklers and the people who want to look intelligent by asking asinine questions
+Seeker: I can understand that, as a I try to prepare for the presentation it's stressing me out about all of the different types of potential questions. But the advice you gave is very good","Just feel confident that you have fulfilled the assignment according to the guidelines. Extra questions from students are wildcards and you can only handle them within the scope of the assignment. If someone's like WELL WHY AREN'T THERE PURPLE PANDAS THEN, JEFF?! you're gonna have to just laugh lol","Focus on fulfilling the assignment according to the guidelines. Extra questions from students are wildcards, and you can only address them within the scope of the assignment. If someone says, “WELL WHY AREN’T THERE PURPLE PANDAS THEN, JEFF?!” you’ll just have to laugh.","Trust you fulfilled assignment guidelines; unpredictable questions are stressful, so stay within scope and laugh.","addres, says, you'll","stay, trust, unpredictable",,,
+pair_005,ev_no_ack?,Information,"Supporter: Hello. How are you today?
+Seeker: Hey , it's good to see you , thanks for the meeting
+Supporter: Happy to be here. Is there anything on your mind?
+Seeker: Well I've been better, I'm not doing that great. It' just all this stuff with him. I am still thinking about it all the time.
+Supporter: This is a hard time of year for many people. It sounds like you are thinking about a specific person a lot of the time.
+Seeker: Ugh. That's the worst.
+Supporter: Is there anything you can think of that would help you to feel better?
+Seeker: Yeah. I hate the way it ended. I really cared about him and feel like the part is still there.
+Supporter: It sounds like things ended in an unresolved way. That can make it feel like there is no real conclusion.
+Seeker: Hey! are you there?","yes, there is a lag in the system. it takes a while for the response to upload","Yes, there is a lag in the system. It takes a while for the response to upload.","Yes, I’m here; the system is lagging, so responses take a while to upload.",,"lagg, respons, take",,,
+pair_006,,Others,"Supporter: Hi there, how are you today?
+Seeker: been better how are you?
+Supporter: I'm doing well, thanks. Is something bothering you?
+Seeker: That's good. yes about my daughter. I typed it all in already.","I'm sorry to hear that. Unfortunately I didn't receive the message you had typed, would you like to talk about it?","Unfortunately, I didn't receive the message you typed. Would you like to talk about it?","I’m sorry you’re having a difficult time. Unfortunately, I didn’t receive your message; would you like to share it again?",,"again, difficult, hav, share, time, you're",,,
+pair_007,,Self-disclosure,"Supporter: Hi there, how are you doing?
+Seeker: im am under alot stress
+Supporter: Would you like to go into the reasons you are feeling stressful?
+Seeker: i feel like i am letting my students down
+Supporter: Oh no, are you doing remote teaching now?
+Seeker: yes and it is hard to feel like i am adequately reaching them",I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I have a daughter who is 10, so I’m seeing it from the other side.","It’s understandable that this feels really tough right now. I have a daughter who’s 10, so I’m seeing it from the other side.","i'm, who","i'm, it's, understandable, who'",,,
+pair_008,len_vs_original:ev(15 vs 69); control_much_longer(52 vs 15),"Self-disclosure, Affirmation and Reassurance","Supporter: Good afternoon! What can I help you with today?
+Seeker: Hello every since I lost my job I have felt sad and useless
+Supporter: That is an extremely tough situation to go through, I'm sorry to hear that.
+Seeker: Application after application I get rejected, it makes it hard to even fill out more","Yes, job applications can feel particularly demeaning to complete. Personally, I get frustrated with all the repetition and then repetitive rejection. It seems like I had no value. But you have to consider that there are dozens of different reasons why you don't get selected for a job, and quite a few of them have nothing to do with you , either as a person or as an employee.","Personally, I get frustrated by all the repetition and repeated rejection, and I feel like I have no value. But there are dozens of reasons why you might not be selected for a job, and quite a few have nothing to do with you, either as a person or as an employee.","Applications and rejection feel demeaning; I get frustrated, but dozens of reasons aren’t about you.","might, repeat","about, aren't",,,
+pair_009,facts_changed?:ev:low_overlap(0.12),Others,"Seeker: Hello, I am feeling very sad because I tested positive for Covid this week. I am in quarantine away from my family.
+Supporter: sorry to hear about that. So your test results were positive. Did I get it right?
+Seeker: Yes, I tested positive for the Covid virus on Wednesday.
+Supporter: It must be hard to stay alone. Are you having fever or any other sever symptoms. Hope there is someone to take care of you for a while at least.
+Seeker: I'm by myself in my house. My wife took the kids to stay with her father until my quarantine period is over. I have mainly cold symptoms - body aches, stuffy head, sore throat. Nothing too serious so far.
+Supporter: I had COVID last month with mild symptoms. Good to know that you don't have any sever symptoms. You will recover fast.
+Seeker: I hope so. I'm on the older side (not senior citizen yet) with high blood pressure, so I'm a little nervous about how it will affect me.
+Supporter: I can understand staying alone will be devastating. Keep monitoring your oxygen level. If that is normal, you don't have to worry. You can read watch tv or can do video calling to your family.
+Seeker: Thanks for the advice. We're doing a lot of video calls so I can see everyone. That helps.
+Supporter: I wish for your fast recovery. Hope this COVID situation end soon somehow.
+Seeker: That's what is so frustrating - I feel like a couple more months or so and I'd have the vaccine. Made it a year, then get infected during the stretch run of this pandemic.",Very true! It is kind of never ending. There should be some permanent solution for it.,There should be a permanent solution for it.,"It’s understandably frustrating after making it this far; hopefully, there’ll be a permanent solution soon.",,"after, hopefully, it's, mak, there'll, understandably",,,
+pair_010,,"Others, Reflection of feelings","Supporter: hello how are you?
+Seeker: Hi, I am feeling sad. My friend's father passed away day before because of COVID-19 disease.
+Supporter: I could see how that would be very upsetting and make you sad. do you have family near by for comfort and support?
+Seeker: Yes, my friends has flown back. But I could not go because of all the restrictions. I am unable to pay last respects in person that was very close to me.
+Supporter: im so sorry to hear of this issue. do you have other outlets like getting out into nature? i find a good walk or a nice book helps with easing my mind.
+Seeker: I could try distracting myself. But my main worry is what if my parents catch corona-virus? The thought makes me very nervous and depressed.
+Supporter: i could see why that may worry you. as it would worry me also. as my parents are older in age and i have young children. i just realize that life must go on regardless of given situation. always look to the positive. it is best to find something to ease your mind rather it be facetiming family, reading, yoga, or even getting fresh air hows the weather where you are located?
+Seeker: I am in mid-west Canada and it's snowing like crazy. Winter has arrived already with full force. Going out is not an option So I am trying to watch some movies or study some research papers for my semester exams But there are many disturbances and I can't focus","oh goodness, im in the deep south. even tho its close to winter it definitely does not feel that way. what are some disturbances that you deal with currently?","I’m in the deep south. Even though it’s close to winter, it definitely does not feel that way. What disturbances are you currently dealing with?","Oh goodness, I’m in the deep south, and it definitely doesn’t feel close to winter. I hear you’re feeling nervous and depressed. What disturbances are you dealing with currently?","i'm, though","doesn't, i'm, you're",,,

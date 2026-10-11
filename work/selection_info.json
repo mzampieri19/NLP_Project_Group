@@ -4,6 +4,9 @@
   "n": 200,
   "speakers": "seeker/supporter",
   "merge_consecutive_turns": true,
-  "skip_pure_affirmation": true,
+  "skip_strategies_if_only": [
+    "Affirmation and Reassurance",
+    "Reflection of feelings"
+  ],
   "filters": "supporter block after seeker block; 8-120 words; block index>=3; not last 2 blocks; not greeting/farewell"
 }

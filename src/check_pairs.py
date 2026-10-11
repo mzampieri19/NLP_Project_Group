@@ -1,45 +1,76 @@
-"""Flag problems in the generated pairs; writes a review sheet.
+"""Flag problems in the generated pairs; writes a review sheet for you + Nikhil.
 
 Usage: python check_pairs.py --work work/
 
-Flags (flag only, never auto-fixed; do not pad outputs to equalize length):
-  missing/empty     output absent or blank
-  format            preamble, markdown, quotes, or role label
-  facts_changed?    numbers/proper nouns in original missing from rewrite, or very low overlap
-  len_vs_original   rewrite far from original length (allowing one short sentence)
-  len_control_vs_ev control and EV differ a lot in length
-  ev_no_ack?        EV has no feeling-acknowledgement cue (rough proxy)
-  control_has_validation?  Control should have NO validation; flagged if emotion cues remain
-These are heuristics. The review is for you and Nikhil to read, not for the script to decide.
+The sheet now includes the conversation CONTEXT and the original ESConv strategy
+label (joined from selected_turns.jsonl) so you can judge added details yourself.
+
+Auto-flags (heuristics only. They never edit anything, and a clean row is NOT proof):
+  missing/empty          output absent or blank
+  format                 preamble, markdown, quotes, role labels
+  facts_changed?         numbers/proper nouns from the original missing in the rewrite,
+                         or very low content-word overlap (paraphrases can trip this)
+  self_disclosure_dropped  original speaks in first person ("I...", "my...") but the
+                         rewrite has no first person (the supporter's own experience got lost)
+  len_vs_original        far from original length (Control may be much shorter: validation removed)
+  ev_much_longer / control_much_longer   EV and Control differ by >20 words
+  ev_no_ack?             EV has no feeling-acknowledgement language
+  control_has_validation?  Control still has explicit validation phrases
+Info columns (not flags):
+  new_words_control / new_words_ev  content words in the rewrite that appear in neither the
+                         original nor the context. Scan these for INVENTED details
+                         (e.g. 'daughter', 'distance'). Noisy: synonyms show up too, and
+                         EV's validation sentence will legitimately add words.
 """
 
 import argparse
 import csv
 import json
+import os
 import re
 import statistics as st
 
-CUES = [
-    "sounds",
-    "feel",
-    "feeling",
-    "understandable",
+# explicit validation phrases (strict: used to flag Control)
+VALID_PHRASES = [
+    "that sounds",
+    "it sounds like",
+    "sounds really",
     "makes sense",
+    "understandable",
+    "i hear you",
+    "i'm sorry",
+    "i am sorry",
+    "must be",
+    "must feel",
+    "no wonder",
+    "can understand",
+    "can imagine",
+    "can see how",
+    "it's okay to",
+    "it is okay to",
+    "your feelings",
+    "anyone would",
+    "completely natural",
+    "that's so hard",
+    "that's really hard",
+]
+# broader: acceptable evidence that EV acknowledges a feeling
+EV_ACK = VALID_PHRASES + [
     "frustrat",
-    "hard",
-    "difficult",
+    "painful",
     "stress",
+    "exhaust",
+    "discourag",
     "overwhelm",
     "anxious",
     "worried",
-    "sorry",
-    "tough",
-    "painful",
-    "discourag",
-    "upset",
     "scary",
     "lonely",
-    "sad",
+    "upset",
+    "hurt",
+    "tough",
+    "difficult",
+    "hard to",
 ]
 STOP = set(
     "a an the and or but of to in on for with is are was were be been it this that "
@@ -55,22 +86,46 @@ JUNK = [
     r"^[\"“]",
     r"^(control|ev|supporter|response)\s*:",
 ]
+FIRST = re.compile(r"\b(i|i'm|i've|i'd|i'll|my|me|myself)\b")
+
+
+def plain(s):
+    return s.replace("’", "'").replace("“", '"').replace("”", '"')
 
 
 def words(s):
     return s.split()
 
 
+def stem(w):
+    return re.sub(r"(ing|ed|es|s)$", "", w) if len(w) > 4 else w
+
+
 def cw(s):
-    return {w for w in re.findall(r"[a-z']+", s.lower()) if w not in STOP}
+    return {stem(w) for w in re.findall(r"[a-z']+", plain(s).lower()) if w not in STOP}
 
 
 def nums(s):
     return set(re.findall(r"\d+", s))
 
 
-def caps(s):  # capitalized words not at sentence start (rough proper-noun proxy)
-    return set(re.findall(r"(?<![.!?]\s)(?<!^)\b[A-Z][a-z]+", s))
+def caps(s):
+    return set(re.findall(r"(?<![.!?]\s)(?<!^)\b[A-Z][a-z]+", plain(s)))
+
+
+# first-person phrases that are validation, not the supporter's own experience
+VALIDATION_I = re.compile(
+    r"\bi('m| am)( so| really)? sorry\b|\bi (hear|understand|feel for|"
+    r"can (understand|see|imagine|relate))\b"
+)
+
+
+def has_first(s):
+    return bool(FIRST.search(VALIDATION_I.sub(" ", plain(s).lower())))
+
+
+def new_words(rewrite, original, context, k=10):
+    return ", ".join(sorted(cw(rewrite) - cw(original) - cw(context))[:k])
 
 
 def main():
@@ -78,10 +133,19 @@ def main():
     ap.add_argument("--work", required=True)
     a = ap.parse_args()
     rows = [json.loads(loads) for loads in open(f"{a.work}/pilot_pairs_raw.jsonl")]
-    out, counts = [], {}
-    ratios_c, ratios_e = [], []
+    strat = {}
+    sp = f"{a.work}/selected_turns.jsonl"
+    if os.path.exists(sp):
+        strat = {
+            json.loads(loads)["example_id"]: ", ".join(
+                json.loads(loads).get("original_strategies", [])
+            )
+            for loads in open(sp)
+        }
+
+    out, counts, gaps = [], {}, []
     for r in rows:
-        o, c, e = r["original_response"], r["control_response"], r["ev_response"]
+        o, c, e, ctx = r["original_response"], r["control_response"], r["ev_response"], r["context"]
         flags = []
         for name, t in (("control", c), ("ev", e)):
             if not t.strip():
@@ -91,27 +155,47 @@ def main():
                 flags.append(f"format:{name}")
             if nums(o) - nums(t):
                 flags.append(f"facts_changed?:{name}:numbers")
-            if caps(o) - caps(t) and len(caps(o) - caps(t)) >= 1:
+            if caps(o) - caps(t):
                 flags.append(f"facts_changed?:{name}:names")
             ov = len(cw(o) & cw(t)) / max(1, len(cw(o) | cw(t)))
-            if ov < 0.25:
+            if ov < 0.15:
                 flags.append(f"facts_changed?:{name}:low_overlap({ov:.2f})")
+            if has_first(o) and not has_first(t):
+                flags.append(f"self_disclosure_dropped:{name}")
             lo, lt = len(words(o)), len(words(t))
-            if lt > lo * 1.3 + 25 or lt < lo * 0.6:
+            lower = 0.4 if name == "control" else 0.6  # Control shrinks when validation is removed
+            if lt > lo * 1.3 + 25 or lt < lo * lower:
                 flags.append(f"len_vs_original:{name}({lt} vs {lo})")
-        lc, le = len(words(c)), len(words(e))
         if c.strip() and e.strip():
-            ratios_c.append(lc / max(1, len(words(o))))
-            ratios_e.append(le / max(1, len(words(o))))
-            if abs(le - lc) > 30 or le > lc * 1.6:
-                flags.append(f"len_control_vs_ev({lc} vs {le})")
-            if not any(k in e.lower() for k in CUES):
+            lc, le = len(words(c)), len(words(e))
+            gaps.append(le - lc)
+            if le - lc > 20:
+                flags.append(f"ev_much_longer({lc} vs {le})")
+            elif lc - le > 20:
+                flags.append(f"control_much_longer({lc} vs {le})")
+            if not any(k in plain(e).lower() for k in EV_ACK):
                 flags.append("ev_no_ack?")
-            if any(k in c.lower() for k in CUES):
+            if any(k in plain(c).lower() for k in VALID_PHRASES):
                 flags.append("control_has_validation?")
         for f in flags:
-            counts[f.split(":")[0].split("(")[0]] = counts.get(f.split(":")[0].split("(")[0], 0) + 1
-        out.append([r["example_id"], "; ".join(flags), o, c, e, "", "", ""])
+            key = re.split(r"[:(]", f)[0]
+            counts[key] = counts.get(key, 0) + 1
+        out.append(
+            [
+                r["example_id"],
+                "; ".join(flags),
+                strat.get(r["example_id"], ""),
+                ctx,
+                o,
+                c,
+                e,
+                new_words(c, o, ctx),
+                new_words(e, o, ctx),
+                "",
+                "",
+                "",
+            ]
+        )
 
     with open(f"{a.work}/review_sheet.csv", "w", newline="") as f:
         w = csv.writer(f)
@@ -119,9 +203,13 @@ def main():
             [
                 "example_id",
                 "auto_flags",
+                "original_strategy",
+                "context",
                 "original",
                 "control",
                 "ev",
+                "new_words_control",
+                "new_words_ev",
                 "facts_advice_preserved (y/n)",
                 "needs_correction (y/n)",
                 "notes",
@@ -129,11 +217,10 @@ def main():
         )
         w.writerows(out)
     print(f"{len(rows)} pairs checked. Flag counts: {counts or 'none'}")
-    if ratios_c:
+    if gaps:
         print(
-            "Mean length vs original: "
-            f"control {st.mean(ratios_c):.2f}x, "
-            f"ev {st.mean(ratios_e):.2f}x"
+            f"EV minus Control length: mean {st.mean(gaps):+.1f} words, "
+            f"EV longer in {sum(g > 0 for g in gaps)}/{len(gaps)} pairs"
         )
     print(f"Wrote {a.work}/review_sheet.csv")
 

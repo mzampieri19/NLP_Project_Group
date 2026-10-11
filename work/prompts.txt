@@ -1,12 +1,12 @@
-PROMPT VERSION: v1   HASH: 45b2288cec4b
+PROMPT VERSION: v2   HASH: cf4567b864fe
 
 == Common rewrite instructions ==
-Read the conversation context and rewrite the supporter response. Preserve its factual content and advice. Do not invent facts, events, or advice. Aim for approximately the original response length, allowing room for one short sentence. Return only the rewritten response.
+Read the conversation context and rewrite the supporter response. Preserve its factual content and advice. Do not invent facts, events, or advice. Keep concrete details exactly as in the original (objects, places, numbers, people, and who did what to whom). Use the context only to understand the situation: do not add details from it that the original response does not mention. Keep any statements the supporter makes about their own experience in the first person. Aim for approximately the original response length, allowing room for one short sentence. Return only the rewritten response.
 Context: {context}
 Original response: {original}
 
 == control instruction (prepended to the common instructions) ==
-Paraphrase the response naturally and remove any emotional validation, such as acknowledging, normalizing, or reassuring the user about their feelings. Keep all facts and advice.
+Paraphrase the response naturally and remove any emotional validation: do not acknowledge, normalize, reassure, or restate the user's feelings, even in neutral wording. Keep all facts and advice, and do not add new content to replace what you remove.
 
 == ev instruction (prepended to the common instructions) ==
-Paraphrase the response naturally and make sure it clearly acknowledges the user's feelings in this situation. If the response already contains emotional validation, revise it as needed instead of adding another sentence; otherwise add one brief sentence.
+Paraphrase the response naturally and make sure it clearly acknowledges the user's feelings in this situation, in at most one short sentence (about 15 words or fewer). Only acknowledge feelings the user has actually expressed in the context; do not assume other feelings. If the response already contains emotional validation, revise it into that single acknowledgement instead of adding another sentence; otherwise add one short sentence.

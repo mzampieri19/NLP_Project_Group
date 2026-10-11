@@ -1,5 +1,25 @@
 """Generate Control and Standard EV rewrites (two INDEPENDENT requests per example).
 
+Workflow (matches Michael's steps):
+  1. python generate_pairs.py --work work/ --config gen_config.json --limit 10
+     -> inspect the 10 pairs with Nikhil (look at work/pilot_pairs_raw.jsonl)
+  2. Edit prompts if needed, bump PROMPT_VERSION, delete work/raw_outputs.jsonl
+     and re-run step 1 until Nikhil is happy.
+  3. Prompts are now FROZEN. Run again without --limit for the rest:
+     python generate_pairs.py --work work/ --config gen_config.json
+
+Safety rails:
+  - Resumable: finished (example_id, condition) pairs are skipped.
+  - Refuses to continue if the prompt hash changed since the first call.
+  - Aborts if the model name returned by the API differs from earlier calls
+    ("do not switch models halfway").
+  - Control request never sees the EV output and vice versa.
+
+gen_config.json example:
+  {"model": "gpt-5.6-sol",            # API model id (check the API docs)
+   "displayed_model_name": "FILL IN", # name shown in the console/docs
+   "api_params": {}}                  # ONLY settings the model supports; the
+                                      # same dict is used for both conditions
 Needs: pip install openai ; env var OPENAI_API_KEY.
 Adjust call_model() if the API shape for this model differs.
 """
@@ -16,13 +36,24 @@ import time
 
 log = logging.getLogger("generate_pairs")
 
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2"
 
+# v2 changes vs v1 (from review of the first 10 pairs):
+#  - concrete details, roles, and "who did what" must stay exactly as in the original
+#  - context is for understanding only; do not import details from it
+#  - first-person statements about the supporter's own experience stay first-person
+#  - EV acknowledgement is one short sentence, only about feelings the user expressed
+#  - Control must not restate feelings even in neutral wording, or add replacement content
 COMMON = (
     "Read the conversation context and rewrite the supporter response. "
     "Preserve its factual content and advice. Do not invent facts, events, "
-    "or advice. Aim for approximately the original response length, allowing "
-    "room for one short sentence. Return only the rewritten response.\n"
+    "or advice. Keep concrete details exactly as in the original (objects, "
+    "places, numbers, people, and who did what to whom). Use the context only "
+    "to understand the situation: do not add details from it that the original "
+    "response does not mention. Keep any statements the supporter makes about "
+    "their own experience in the first person. Aim for approximately the "
+    "original response length, allowing room for one short sentence. "
+    "Return only the rewritten response.\n"
     "Context: {context}\n"
     "Original response: {original}"
 )
@@ -30,14 +61,18 @@ COMMON = (
 CONDITION = {
     "control": (
         "Paraphrase the response naturally and remove any emotional "
-        "validation, such as acknowledging, normalizing, or reassuring "
-        "the user about their feelings. Keep all facts and advice."
+        "validation: do not acknowledge, normalize, reassure, or restate the "
+        "user's feelings, even in neutral wording. Keep all facts and advice, "
+        "and do not add new content to replace what you remove."
     ),
     "ev": (
-        "Paraphrase the response naturally and make sure it clearly "
-        "acknowledges the user's feelings in this situation. If the response "
-        "already contains emotional validation, revise it as needed instead of "
-        "adding another sentence; otherwise add one brief sentence."
+        "Paraphrase the response naturally and make sure it clearly acknowledges "
+        "the user's feelings in this situation, in at most one short sentence "
+        "(about 15 words or fewer). Only acknowledge feelings the user has "
+        "actually expressed in the context; do not assume other feelings. If the "
+        "response already contains emotional validation, revise it into that single "
+        "acknowledgement instead of adding another sentence; otherwise add one "
+        "short sentence."
     ),
 }
 
@@ -76,9 +111,9 @@ def call_with_retries(cfg, text, label, max_attempts=5):
         except Exception as e:
             name = type(e).__name__
             if name in NO_RETRY or attempt == max_attempts:
-                log.error("%s FAILED", label)
-                log.error("(%s, attempt %d/%d)", name, attempt, max_attempts)
-                log.error("%s", e)
+                log.error(
+                    "%s FAILED (%s, attempt %d/%d): %s", label, name, attempt, max_attempts, e
+                )
                 raise
             wait = 2**attempt
             log.warning(
@@ -172,7 +207,9 @@ def main():
                 seen_models.add(model)
                 if len(seen_models) > 1:
                     log.error("Model name changed mid-batch: %s", seen_models)
-                    sys.exit(f"Model name changed mid-batch: {seen_models}.")
+                    sys.exit(
+                        f"Model name changed mid-batch: {seen_models}. Stop and tell the team."
+                    )
                 warn = []
                 if not text.strip():
                     n_empty += 1

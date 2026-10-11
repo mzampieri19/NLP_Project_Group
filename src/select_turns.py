@@ -2,7 +2,32 @@
 
 Usage:
   python select_turns.py --esconv ESConv.json --out work/ [--train_ids train_ids.json]
-                         [--no_merge] [--keep_pure_affirmation] [--n 200]
+                         [--no_merge] [--skip_strategies ...] [--n 200]
+
+Verified against a real ESConv record:
+  - File = JSON list of conversations. Each has "dialog": a list of
+    {"speaker": "seeker" | "supporter", "annotation": {...}, "content": str}
+    plus emotion_type, problem_type, situation, etc.
+  - Supporter turns carry annotation["strategy"] (Question, Providing Suggestions,
+    Information, Affirmation and Reassurance, Self-disclosure, ...).
+  - The SAME speaker often has several consecutive turns, e.g.
+      supporter: "I can understand that."
+      supporter: "Is there another job that would pay you close to what you make?"
+    By default consecutive same-speaker turns are MERGED into one block, so a
+    "response" is everything the supporter said before the seeker spoke again.
+    (--no_merge treats every raw turn as its own response.)
+  - Records have no ID field, so conversation_id = index in the list. Everyone
+    must use the SAME ESConv.json file version for IDs to line up.
+
+Design choices (confirm with the team):
+  - One response per conversation -> Harini excludes exactly 200 conversations.
+  - Responses whose strategies are ONLY "Affirmation and Reassurance" and/or
+    "Reflection of feelings" are skipped by default: they are validation, so Control
+    (validation removed) has nothing to keep, and EV has little to add. Change the
+    list with --skip_strategies, or pass the flag with no values to skip nothing.
+    Mixed responses (e.g. reassurance + a suggestion) are kept.
+  - "Training split": pass --train_ids if the team has an official list; otherwise
+    a seeded random 80/10/10 conversation split is used.
 """
 
 import argparse
@@ -27,7 +52,7 @@ CUES = (
     "thank you for",
     "thanks for",
 )
-PURE_AFFIRM = {"Affirmation and Reassurance"}
+DEFAULT_SKIP = ["Affirmation and Reassurance", "Reflection of feelings"]
 
 
 def norm(s):
@@ -54,7 +79,7 @@ def fmt(bs):
     )
 
 
-def usable(bs, i, keep_affirm):
+def usable(bs, i, skip):
     b = bs[i]
     if b["speaker"] != "supporter" or i < 3 or i >= len(bs) - 2:
         return False
@@ -64,7 +89,7 @@ def usable(bs, i, keep_affirm):
         return False
     if b["text"].lower().startswith(CUES):
         return False
-    if not keep_affirm and b["strategies"] and set(b["strategies"]) <= PURE_AFFIRM:
+    if skip and b["strategies"] and set(b["strategies"]) <= skip:
         return False
     return True
 
@@ -76,7 +101,13 @@ def main():
     ap.add_argument("--train_ids")
     ap.add_argument("--n", type=int, default=200)
     ap.add_argument("--no_merge", action="store_true")
-    ap.add_argument("--keep_pure_affirmation", action="store_true")
+    ap.add_argument(
+        "--skip_strategies",
+        nargs="*",
+        default=DEFAULT_SKIP,
+        help="skip responses whose strategies are ALL in this list; "
+        "pass the flag with no values to skip nothing",
+    )
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     rng = random.Random(SEED)
@@ -94,7 +125,7 @@ def main():
     rows = []
     for cid in train:
         bs = blocks(convs[cid]["dialog"], merge=not a.no_merge)
-        cands = [i for i in range(len(bs)) if usable(bs, i, a.keep_pure_affirmation)]
+        cands = [i for i in range(len(bs)) if usable(bs, i, set(a.skip_strategies))]
         if not cands:
             continue
         i = rng.choice(cands)
@@ -106,7 +137,7 @@ def main():
                 "original_response": bs[i]["text"],
                 "original_strategies": bs[i]["strategies"],
             }
-        )
+        )  # kept here only; not in final export
         if len(rows) == a.n:
             break
 
@@ -129,7 +160,7 @@ def main():
             "n": a.n,
             "speakers": "seeker/supporter",
             "merge_consecutive_turns": not a.no_merge,
-            "skip_pure_affirmation": not a.keep_pure_affirmation,
+            "skip_strategies_if_only": a.skip_strategies,
             "filters": f"supporter block after seeker block; {MIN_W}-{MAX_W} words; "
             "block index>=3; not last 2 blocks; not greeting/farewell",
         },
@@ -137,11 +168,7 @@ def main():
         indent=2,
     )
     print(
-        "Selected",
-        a.n,
-        "responses from",
-        len({r["conversation_id"] for r in rows}),
-        "conversations",
+        f"Selected {a.n} responses from {len({r['conversation_id'] for r in rows})} conversations"
     )
 
 
