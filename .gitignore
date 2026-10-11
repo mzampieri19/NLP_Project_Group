@@ -32,3 +32,6 @@ data/raw/
 
 # Ruff Cache
 .ruff_cache/
+
+# Data
+data/
