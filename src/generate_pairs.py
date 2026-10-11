@@ -1,25 +1,5 @@
 """Generate Control and Standard EV rewrites (two INDEPENDENT requests per example).
 
-Workflow (matches Michael's steps):
-  1. python generate_pairs.py --work work/ --config gen_config.json --limit 10
-     -> inspect the 10 pairs with Nikhil (look at work/pilot_pairs_raw.jsonl)
-  2. Edit prompts if needed, bump PROMPT_VERSION, delete work/raw_outputs.jsonl
-     and re-run step 1 until Nikhil is happy.
-  3. Prompts are now FROZEN. Run again without --limit for the rest:
-     python generate_pairs.py --work work/ --config gen_config.json
-
-Safety rails:
-  - Resumable: finished (example_id, condition) pairs are skipped.
-  - Refuses to continue if the prompt hash changed since the first call.
-  - Aborts if the model name returned by the API differs from earlier calls
-    ("do not switch models halfway").
-  - Control request never sees the EV output and vice versa.
-
-gen_config.json example:
-  {"model": "gpt-5.6-sol",            # API model id (check the API docs)
-   "displayed_model_name": "FILL IN", # name shown in the console/docs
-   "api_params": {}}                  # ONLY settings the model supports; the
-                                      # same dict is used for both conditions
 Needs: pip install openai ; env var OPENAI_API_KEY.
 Adjust call_model() if the API shape for this model differs.
 """
@@ -28,8 +8,13 @@ import argparse
 import datetime
 import hashlib
 import json
+import logging
 import os
+import statistics
 import sys
+import time
+
+log = logging.getLogger("generate_pairs")
 
 PROMPT_VERSION = "v1"
 
@@ -62,10 +47,58 @@ def build_request(cond, context, original):
 
 
 def call_model(cfg, text):
+    """One API call. Returns (text, returned_model_name, response_id, info_dict)."""
     from openai import OpenAI
 
     r = OpenAI().responses.create(model=cfg["model"], input=text, **cfg.get("api_params", {}))
-    return r.output_text.strip(), getattr(r, "model", cfg["model"]), getattr(r, "id", None)
+    u = getattr(r, "usage", None)
+    det = getattr(u, "output_tokens_details", None)
+    info = {
+        "input_tokens": getattr(u, "input_tokens", None),
+        "output_tokens": getattr(u, "output_tokens", None),
+        "reasoning_tokens": getattr(det, "reasoning_tokens", None),
+        "status": getattr(r, "status", None),
+        "incomplete_reason": getattr(getattr(r, "incomplete_details", None), "reason", None),
+    }
+    return r.output_text.strip(), getattr(r, "model", cfg["model"]), getattr(r, "id", None), info
+
+
+NO_RETRY = {"AuthenticationError", "PermissionDeniedError", "BadRequestError", "NotFoundError"}
+
+
+def call_with_retries(cfg, text, label, max_attempts=5):
+    """Wraps call_model with logged retries. Returns (result_tuple, n_retries, latency_s)."""
+    for attempt in range(1, max_attempts + 1):
+        t0 = time.time()
+        try:
+            res = call_model(cfg, text)
+            return res, attempt - 1, time.time() - t0
+        except Exception as e:
+            name = type(e).__name__
+            if name in NO_RETRY or attempt == max_attempts:
+                log.error("%s FAILED", label)
+                log.error("(%s, attempt %d/%d)", name, attempt, max_attempts)
+                log.error("%s", e)
+                raise
+            wait = 2**attempt
+            log.warning(
+                "%s attempt %d/%d failed (%s: %s); retrying in %ds",
+                label,
+                attempt,
+                max_attempts,
+                name,
+                str(e)[:200],
+                wait,
+            )
+            time.sleep(wait)
+
+
+def setup_logging(work):
+    log.setLevel(logging.INFO)
+    fmt = logging.Formatter("%(asctime)s %(levelname)-7s %(message)s", "%H:%M:%S")
+    for h in (logging.StreamHandler(), logging.FileHandler(f"{work}/generate.log")):
+        h.setFormatter(fmt)
+        log.addHandler(h)
 
 
 def prompt_hash():
@@ -88,6 +121,7 @@ def main():
     ap.add_argument("--config", required=True)
     ap.add_argument("--limit", type=int)
     a = ap.parse_args()
+    setup_logging(a.work)
     cfg = json.load(open(a.config))
     turns = [json.loads(loads) for loads in open(f"{a.work}/selected_turns.jsonl")]
     if a.limit:
@@ -103,19 +137,61 @@ def main():
         )
     seen_models = {r["response_model"] for r in rows}
 
+    todo = [(t, c) for t in turns for c in ("control", "ev") if (t["example_id"], c) not in done]
+    log.info(
+        "START model=%s params=%s prompt=%s/%s",
+        cfg["model"],
+        cfg.get("api_params", {}),
+        PROMPT_VERSION,
+        prompt_hash(),
+    )
+    log.info(
+        "%d examples in scope; %d calls already done; %d calls to make now",
+        len(turns),
+        len(done),
+        len(todo),
+    )
+    lat, tin, tout, treas = [], 0, 0, 0
+    n_retries = n_empty = n_incomplete = 0
+    run_start = time.time()
+
     with open(raw_path, "a") as f:
         for t in turns:
             for cond in ("control", "ev"):  # independent requests
                 if (t["example_id"], cond) in done:
                     continue
-                text, model, rid = call_model(
-                    cfg, build_request(cond, t["context"], t["original_response"])
+                label = f"[{len(lat) + 1}/{len(todo)}] {t['example_id']}/{cond}"
+                (text, model, rid, info), retries, secs = call_with_retries(
+                    cfg, build_request(cond, t["context"], t["original_response"]), label
                 )
+                n_retries += retries
+                lat.append(secs)
+                tin += info.get("input_tokens") or 0
+                tout += info.get("output_tokens") or 0
+                treas += info.get("reasoning_tokens") or 0
                 seen_models.add(model)
                 if len(seen_models) > 1:
-                    sys.exit(
-                        f"Model name changed mid-batch:\n{seen_models}. Stop and tell the team."
-                    )
+                    log.error("Model name changed mid-batch: %s", seen_models)
+                    sys.exit(f"Model name changed mid-batch: {seen_models}.")
+                warn = []
+                if not text.strip():
+                    n_empty += 1
+                    warn.append("EMPTY OUTPUT")
+                if info.get("status") not in (None, "completed"):
+                    n_incomplete += 1
+                    warn.append(f"status={info['status']} ({info.get('incomplete_reason')})")
+                eta = (len(todo) - len(lat)) * statistics.mean(lat)
+                log.info(
+                    "%s ok %.1fs in=%s out=%s reasoning=%s words=%d eta~%.0fs %s",
+                    label,
+                    secs,
+                    info.get("input_tokens"),
+                    info.get("output_tokens"),
+                    info.get("reasoning_tokens"),
+                    len(text.split()),
+                    eta,
+                    ("WARN: " + ", ".join(warn)) if warn else "",
+                )
                 row = {
                     "example_id": t["example_id"],
                     "condition": cond,
@@ -166,9 +242,31 @@ def main():
         open(f"{a.work}/generation_settings.json", "w"),
         indent=2,
     )
-    n_control = sum(1 for k in by if k[1] == "control")
-    n_examples = len(by) // 2
-    print(f"{len(rows)} outputs saved; {n_examples if False else n_control} examples have control.")
+    n_pairs = sum(1 for k in by if k[1] == "control" and (k[0], "ev") in by)
+    log.info(
+        "DONE in %.0fs. %d calls this run, %d retries, %d empty, %d incomplete.",
+        time.time() - run_start,
+        len(lat),
+        n_retries,
+        n_empty,
+        n_incomplete,
+    )
+    if lat:
+        ls = sorted(lat)
+        log.info(
+            "Latency s: mean %.1f, median %.1f, p95 %.1f, max %.1f",
+            statistics.mean(lat),
+            statistics.median(lat),
+            ls[int(0.95 * (len(ls) - 1))],
+            ls[-1],
+        )
+        log.info("Tokens this run: input %d, output %d (of which reasoning %d)", tin, tout, treas)
+    log.info(
+        "%d outputs saved in total; %d complete pairs. Log: %s/generate.log",
+        len(rows),
+        n_pairs,
+        a.work,
+    )
 
 
 if __name__ == "__main__":

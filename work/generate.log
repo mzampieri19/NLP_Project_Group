@@ -1,0 +1,26 @@
+18:51:16 INFO    START model=gpt-5.6-sol params={'reasoning': {'effort': 'low'}} prompt=v1/45b2288cec4b
+18:51:16 INFO    10 examples in scope; 0 calls already done; 20 calls to make now
+18:51:18 INFO    [1/20] pair_001/control ok 2.8s in=165 out=24 reasoning=0 words=17 eta~54s
+18:51:20 INFO    [2/20] pair_001/ev ok 1.3s in=175 out=29 reasoning=0 words=22 eta~37s
+18:51:22 INFO    [3/20] pair_002/control ok 2.3s in=295 out=19 reasoning=0 words=13 eta~36s
+18:51:25 INFO    [4/20] pair_002/ev ok 3.5s in=305 out=35 reasoning=0 words=27 eta~40s
+18:51:27 INFO    [5/20] pair_003/control ok 2.0s in=367 out=27 reasoning=0 words=20 eta~36s
+18:51:29 INFO    [6/20] pair_003/ev ok 1.7s in=377 out=40 reasoning=0 words=31 eta~32s
+18:51:31 INFO    [7/20] pair_004/control ok 1.5s in=518 out=63 reasoning=0 words=47 eta~28s
+18:51:33 INFO    [8/20] pair_004/ev ok 2.3s in=528 out=84 reasoning=0 words=65 eta~26s
+18:51:35 INFO    [9/20] pair_005/control ok 1.7s in=272 out=20 reasoning=0 words=14 eta~23s
+18:51:57 INFO    [10/20] pair_005/ev ok 22.4s in=282 out=31 reasoning=0 words=25 eta~41s
+18:51:58 INFO    [11/20] pair_006/control ok 1.4s in=168 out=29 reasoning=0 words=20 eta~35s
+18:52:00 INFO    [12/20] pair_006/ev ok 1.8s in=178 out=42 reasoning=0 words=30 eta~30s
+18:52:02 INFO    [13/20] pair_007/control ok 1.4s in=198 out=24 reasoning=0 words=14 eta~25s
+18:52:04 INFO    [14/20] pair_007/ev ok 2.7s in=208 out=36 reasoning=0 words=25 eta~21s
+18:52:27 INFO    [15/20] pair_008/control ok 22.4s in=239 out=50 reasoning=0 words=42 eta~24s
+18:52:29 INFO    [16/20] pair_008/ev ok 2.0s in=249 out=68 reasoning=0 words=56 eta~18s
+18:52:30 INFO    [17/20] pair_009/control ok 1.2s in=585 out=21 reasoning=0 words=14 eta~13s
+18:52:53 INFO    [18/20] pair_009/ev ok 22.6s in=595 out=37 reasoning=0 words=27 eta~11s
+18:52:54 INFO    [19/20] pair_010/control ok 1.6s in=435 out=34 reasoning=0 words=24 eta~5s
+18:52:57 INFO    [20/20] pair_010/ev ok 2.4s in=445 out=57 reasoning=0 words=44 eta~0s
+18:52:57 INFO    DONE in 101s. 20 calls this run, 0 retries, 0 empty, 0 incomplete.
+18:52:57 INFO    Latency s: mean 5.1, median 2.0, p95 22.4, max 22.6
+18:52:57 INFO    Tokens this run: input 6584, output 770 (of which reasoning 0)
+18:52:57 INFO    20 outputs saved in total; 10 complete pairs. Log: work/generate.log

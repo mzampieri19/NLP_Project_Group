@@ -1,0 +1,12 @@
+PROMPT VERSION: v1   HASH: 45b2288cec4b
+
+== Common rewrite instructions ==
+Read the conversation context and rewrite the supporter response. Preserve its factual content and advice. Do not invent facts, events, or advice. Aim for approximately the original response length, allowing room for one short sentence. Return only the rewritten response.
+Context: {context}
+Original response: {original}
+
+== control instruction (prepended to the common instructions) ==
+Paraphrase the response naturally and remove any emotional validation, such as acknowledging, normalizing, or reassuring the user about their feelings. Keep all facts and advice.
+
+== ev instruction (prepended to the common instructions) ==
+Paraphrase the response naturally and make sure it clearly acknowledges the user's feelings in this situation. If the response already contains emotional validation, revise it as needed instead of adding another sentence; otherwise add one brief sentence.

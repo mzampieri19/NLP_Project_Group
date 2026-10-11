@@ -1,0 +1,17 @@
+{
+  "displayed_model_name": "GPT-5.6 Sol",
+  "api_model_id": "gpt-5.6-sol",
+  "model_names_returned_by_api": [
+    "gpt-5.6-sol"
+  ],
+  "api_params_used_for_both_conditions": {
+    "reasoning": {
+      "effort": "low"
+    }
+  },
+  "generation_date_first_call_utc": "2026-10-11T22:51:18.880867",
+  "prompt_version": "v1",
+  "prompt_hash": "45b2288cec4b",
+  "requests": "2 independent requests per example (control, ev)",
+  "n_outputs_so_far": 20
+}
