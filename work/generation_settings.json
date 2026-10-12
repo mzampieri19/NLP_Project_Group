@@ -9,9 +9,9 @@
       "effort": "low"
     }
   },
-  "generation_date_first_call_utc": "2026-10-11T23:41:52.393305",
-  "prompt_version": "v2",
-  "prompt_hash": "cf4567b864fe",
+  "generation_date_first_call_utc": "2026-10-12T00:00:30.369286",
+  "prompt_version": "v3",
+  "prompt_hash": "d24b23ec7e85",
   "requests": "2 independent requests per example (control, ev)",
   "n_outputs_so_far": 20
 }

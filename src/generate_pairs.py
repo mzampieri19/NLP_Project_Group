@@ -36,14 +36,15 @@ import time
 
 log = logging.getLogger("generate_pairs")
 
-PROMPT_VERSION = "v2"
+PROMPT_VERSION = "v3"
 
-# v2 changes vs v1 (from review of the first 10 pairs):
-#  - concrete details, roles, and "who did what" must stay exactly as in the original
-#  - context is for understanding only; do not import details from it
-#  - first-person statements about the supporter's own experience stay first-person
-#  - EV acknowledgement is one short sentence, only about feelings the user expressed
-#  - Control must not restate feelings even in neutral wording, or add replacement content
+# Version history (full log in prompt_version_log.md):
+#  v2: added detail/role preservation, context-for-understanding-only, first person kept
+#  v3: v2's "<=15 words" cap was applied to the WHOLE EV reply (compressed 3 of 10).
+#      Cap now applies only to the acknowledgement sentence; EV must keep full length.
+#      Control also drops the supporter's own EMOTIONS ("I get frustrated too") but
+#      keeps factual self-disclosure ("I have a daughter who is 10"), keeps tense/meaning.
+#      EV acknowledgement may only name a feeling, not restate facts (no context imports).
 COMMON = (
     "Read the conversation context and rewrite the supporter response. "
     "Preserve its factual content and advice. Do not invent facts, events, "
@@ -62,17 +63,21 @@ CONDITION = {
     "control": (
         "Paraphrase the response naturally and remove any emotional "
         "validation: do not acknowledge, normalize, reassure, or restate the "
-        "user's feelings, even in neutral wording. Keep all facts and advice, "
-        "and do not add new content to replace what you remove."
+        "user's feelings, and do not share the supporter's own feelings about "
+        'the situation (e.g. "I get frustrated too"). Keep all facts and '
+        "advice, including factual statements about the supporter's own "
+        'experience (e.g. "I have a daughter who is 10"). Keep verb tense and '
+        "the meaning of each remaining sentence. Do not add new content to "
+        "replace what you remove."
     ),
     "ev": (
-        "Paraphrase the response naturally and make sure it clearly acknowledges "
-        "the user's feelings in this situation, in at most one short sentence "
-        "(about 15 words or fewer). Only acknowledge feelings the user has "
-        "actually expressed in the context; do not assume other feelings. If the "
-        "response already contains emotional validation, revise it into that single "
-        "acknowledgement instead of adding another sentence; otherwise add one "
-        "short sentence."
+        "Paraphrase the response naturally, keeping its full length and detail, "
+        "and add or revise one short acknowledgement sentence (about 15 words or "
+        "fewer) of a feeling the user has expressed in the conversation. Do not "
+        "shorten or compress the rest of the response. The acknowledgement should "
+        "name a feeling only; it must not state facts about what happened. If the "
+        "response already contains emotional validation, revise it into that "
+        "single acknowledgement instead of adding another."
     ),
 }
 

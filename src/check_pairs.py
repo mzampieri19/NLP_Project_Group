@@ -16,11 +16,13 @@ Auto-flags (heuristics only. They never edit anything, and a clean row is NOT pr
   ev_much_longer / control_much_longer   EV and Control differ by >20 words
   ev_no_ack?             EV has no feeling-acknowledgement language
   control_has_validation?  Control still has explicit validation phrases
+  control_self_emotion?    Control has the supporter sharing their OWN feeling ("I get frustrated")
+  question_dropped         original contained a question mark, the rewrite does not
 Info columns (not flags):
-  new_words_control / new_words_ev  content words in the rewrite that appear in neither the
-                         original nor the context. Scan these for INVENTED details
-                         (e.g. 'daughter', 'distance'). Noisy: synonyms show up too, and
-                         EV's validation sentence will legitimately add words.
+  new_words_control / new_words_ev  words in the rewrite not in the original. Plain words appear
+                         in neither original nor context (possible INVENTION); word(ctx) means it
+                         was imported from the context. Noisy: synonyms show up, and EV's
+                         acknowledgement sentence legitimately adds words.
 """
 
 import argparse
@@ -71,6 +73,35 @@ EV_ACK = VALID_PHRASES + [
     "tough",
     "difficult",
     "hard to",
+    "hard time",
+    "i hear that",
+    "frighten",
+    "understandabl",
+    "nervous",
+    "depress",
+    "sad ",
+    "grief",
+    "afraid",
+    "fear",
+    "devastat",
+    "heartbreak",
+    "sounds ",
+]
+EMOTION_WORDS = [
+    "frustrat",
+    "sad",
+    "anxious",
+    "nervous",
+    "upset",
+    "stress",
+    "depress",
+    "worried",
+    "scared",
+    "angry",
+    "hurt",
+    "lonely",
+    "overwhelm",
+    "exhaust",
 ]
 STOP = set(
     "a an the and or but of to in on for with is are was were be been it this that "
@@ -124,8 +155,26 @@ def has_first(s):
     return bool(FIRST.search(VALIDATION_I.sub(" ", plain(s).lower())))
 
 
-def new_words(rewrite, original, context, k=10):
-    return ", ".join(sorted(cw(rewrite) - cw(original) - cw(context))[:k])
+def new_words(rewrite, original, context, k=12):
+    """Words in the rewrite not in the original. Plain = in neither original nor context
+    (possible invention). word(ctx) = imported from the context (suspicious in Control)."""
+    o, x = cw(original), cw(context)
+    seen, out = set(), []
+    for w in re.findall(r"[a-z']+", plain(rewrite).lower()):
+        st_ = stem(w)
+        if w in STOP or st_ in o or st_ in seen:
+            continue
+        seen.add(st_)
+        out.append(f"{w}(ctx)" if st_ in x else w)
+    return ", ".join(out[:k])
+
+
+def self_emotion(s):
+    """Supporter shares their OWN feeling: first person + emotion word in one sentence."""
+    for sent in re.split(r"(?<=[.!?;])\s+", plain(s).lower()):
+        if has_first(sent) and any(e in sent for e in EMOTION_WORDS):
+            return True
+    return False
 
 
 def main():
@@ -137,10 +186,8 @@ def main():
     sp = f"{a.work}/selected_turns.jsonl"
     if os.path.exists(sp):
         strat = {
-            json.loads(loads)["example_id"]: ", ".join(
-                json.loads(loads).get("original_strategies", [])
-            )
-            for loads in open(sp)
+            json.loads(l)["example_id"]: ", ".join(json.loads(l).get("original_strategies", []))
+            for l in open(sp)
         }
 
     out, counts, gaps = [], {}, []
@@ -162,6 +209,10 @@ def main():
                 flags.append(f"facts_changed?:{name}:low_overlap({ov:.2f})")
             if has_first(o) and not has_first(t):
                 flags.append(f"self_disclosure_dropped:{name}")
+            if "?" in o and "?" not in t:
+                flags.append(f"question_dropped:{name}")
+            if name == "control" and self_emotion(t):
+                flags.append("control_self_emotion?")
             lo, lt = len(words(o)), len(words(t))
             lower = 0.4 if name == "control" else 0.6  # Control shrinks when validation is removed
             if lt > lo * 1.3 + 25 or lt < lo * lower:
