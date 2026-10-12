@@ -26,10 +26,13 @@ Design choices (confirm with the team):
     (validation removed) has nothing to keep, and EV has little to add. Change the
     list with --skip_strategies, or pass the flag with no values to skip nothing.
     Mixed responses (e.g. reassurance + a suggestion) are kept.
+  - REPLACING bad examples: python select_turns.py --esconv ESConv.json --out work/ \
+        --exclude_ids pair_005 pair_008
+    Drops those ids, swaps in new turns (new ids, same list positions, new conversations),
+    updates conversation_ids_to_exclude.json, and keeps a backup of the old selection.
   - "Training split": pass --train_ids if the team has an official list; otherwise
     a seeded random 80/10/10 conversation split is used.
 """
-
 import argparse
 import json
 import os
@@ -37,21 +40,9 @@ import random
 
 SEED = 42
 MIN_W, MAX_W = 8, 120
-CUES = (
-    "hello",
-    "hi ",
-    "hi,",
-    "hey",
-    "good morning",
-    "good evening",
-    "bye",
-    "goodbye",
-    "take care",
-    "have a great",
-    "have a good",
-    "thank you for",
-    "thanks for",
-)
+CUES = ("hello", "hi ", "hi,", "hey", "good morning", "good evening", "bye",
+        "goodbye", "take care", "have a great", "have a good", "thank you for",
+        "thanks for")
 DEFAULT_SKIP = ["Affirmation and Reassurance", "Reflection of feelings"]
 
 
@@ -74,9 +65,8 @@ def blocks(dialog, merge):
 
 
 def fmt(bs):
-    return "\n".join(
-        f"{'Seeker' if b['speaker'] == 'seeker' else 'Supporter'}: {b['text']}" for b in bs
-    )
+    return "\n".join(f"{'Seeker' if b['speaker']=='seeker' else 'Supporter'}: {b['text']}"
+                     for b in bs)
 
 
 def usable(bs, i, skip):
@@ -94,6 +84,57 @@ def usable(bs, i, skip):
     return True
 
 
+def replace_mode(a, convs, train):
+    """Swap out specific bad examples, keeping everything else (and list positions) unchanged.
+    Replacements get NEW ids (max+1...) and come from conversations not already used."""
+    path = f"{a.out}/selected_turns.jsonl"
+    info = json.load(open(f"{a.out}/selection_info.json"))
+    merge = info.get("merge_consecutive_turns", True)
+    skip = set(info.get("skip_strategies_if_only", DEFAULT_SKIP))
+    rows = [json.loads(l) for l in open(path)]
+    drop = set(a.exclude_ids)
+    missing = drop - {r["example_id"] for r in rows}
+    assert not missing, f"unknown example ids: {sorted(missing)}"
+
+    blocked = {r["conversation_id"] for r in rows}      # kept AND dropped conversations
+    pool = [c for c in train if c not in blocked]
+    rr = random.Random(f"replace-{SEED}-{'-'.join(sorted(drop))}")
+    rr.shuffle(pool)
+    next_id = max(int(r["example_id"].split("_")[1]) for r in rows) + 1
+
+    new_rows, swaps = [], []
+    for r in rows:
+        if r["example_id"] not in drop:
+            new_rows.append(r); continue
+        for cid in pool:
+            bs = blocks(convs[cid]["dialog"], merge=merge)
+            cands = [i for i in range(len(bs)) if usable(bs, i, skip)]
+            if not cands:
+                continue
+            pool.remove(cid)
+            i = random.Random(f"{SEED}-{cid}").choice(cands)
+            nid = f"pair_{next_id:03d}"; next_id += 1
+            new_rows.append({"conversation_id": cid, "turn_index": i, "context": fmt(bs[:i]),
+                             "original_response": bs[i]["text"],
+                             "original_strategies": bs[i]["strategies"], "example_id": nid})
+            swaps.append({"dropped": r["example_id"], "new": nid})
+            break
+        else:
+            raise RuntimeError("ran out of usable conversations")
+
+    os.replace(path, f"{a.out}/selected_turns.before_replace.jsonl")
+    with open(path, "w") as f:
+        for r in new_rows:
+            f.write(json.dumps(r) + "\n")
+    json.dump(sorted(r["conversation_id"] for r in new_rows),
+              open(f"{a.out}/conversation_ids_to_exclude.json", "w"))
+    info.setdefault("replacements", []).extend(swaps)
+    json.dump(info, open(f"{a.out}/selection_info.json", "w"), indent=2)
+    print("Replaced:", ", ".join(f"{s['dropped']} -> {s['new']}" for s in swaps))
+    print("Delete raw outputs for the dropped ids only if you are NOT regenerating from scratch "
+          "(pairs are assembled from selected_turns.jsonl, so dropped ids won't appear in pairs).")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--esconv", required=True)
@@ -101,13 +142,12 @@ def main():
     ap.add_argument("--train_ids")
     ap.add_argument("--n", type=int, default=200)
     ap.add_argument("--no_merge", action="store_true")
-    ap.add_argument(
-        "--skip_strategies",
-        nargs="*",
-        default=DEFAULT_SKIP,
-        help="skip responses whose strategies are ALL in this list; "
-        "pass the flag with no values to skip nothing",
-    )
+    ap.add_argument("--exclude_ids", nargs="+",
+                    help="REPLACE MODE: drop these example ids (e.g. pair_005 pair_008) from an "
+                         "existing selection in --out and swap in new turns at the same positions")
+    ap.add_argument("--skip_strategies", nargs="*", default=DEFAULT_SKIP,
+                    help="skip responses whose strategies are ALL in this list; "
+                         "pass the flag with no values to skip nothing")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     rng = random.Random(SEED)
@@ -116,10 +156,11 @@ def main():
     if a.train_ids:
         train, split_src = list(json.load(open(a.train_ids))), f"file:{a.train_ids}"
     else:
-        ids = list(range(len(convs)))
-        rng.shuffle(ids)
+        ids = list(range(len(convs))); rng.shuffle(ids)
         train = sorted(ids[: int(0.8 * len(ids))])
         split_src = "seeded random 80/10/10 fallback (seed 42)"
+    if a.exclude_ids:
+        return replace_mode(a, convs, train)
     rng.shuffle(train)
 
     rows = []
@@ -129,15 +170,9 @@ def main():
         if not cands:
             continue
         i = rng.choice(cands)
-        rows.append(
-            {
-                "conversation_id": cid,
-                "turn_index": i,
-                "context": fmt(bs[:i]),
-                "original_response": bs[i]["text"],
-                "original_strategies": bs[i]["strategies"],
-            }
-        )  # kept here only; not in final export
+        rows.append({"conversation_id": cid, "turn_index": i,
+                     "context": fmt(bs[:i]), "original_response": bs[i]["text"],
+                     "original_strategies": bs[i]["strategies"]})  # kept here only; not in final export
         if len(rows) == a.n:
             break
 
@@ -149,27 +184,15 @@ def main():
     with open(f"{a.out}/selected_turns.jsonl", "w") as f:
         for r in rows:
             f.write(json.dumps(r) + "\n")
-    json.dump(
-        sorted(r["conversation_id"] for r in rows),
-        open(f"{a.out}/conversation_ids_to_exclude.json", "w"),
-    )
-    json.dump(
-        {
-            "seed": SEED,
-            "split_source": split_src,
-            "n": a.n,
-            "speakers": "seeker/supporter",
-            "merge_consecutive_turns": not a.no_merge,
-            "skip_strategies_if_only": a.skip_strategies,
-            "filters": f"supporter block after seeker block; {MIN_W}-{MAX_W} words; "
-            "block index>=3; not last 2 blocks; not greeting/farewell",
-        },
-        open(f"{a.out}/selection_info.json", "w"),
-        indent=2,
-    )
-    print(
-        f"Selected {a.n} responses from {len({r['conversation_id'] for r in rows})} conversations"
-    )
+    json.dump(sorted(r["conversation_id"] for r in rows),
+              open(f"{a.out}/conversation_ids_to_exclude.json", "w"))
+    json.dump({"seed": SEED, "split_source": split_src, "n": a.n,
+               "speakers": "seeker/supporter", "merge_consecutive_turns": not a.no_merge,
+               "skip_strategies_if_only": a.skip_strategies,
+               "filters": f"supporter block after seeker block; {MIN_W}-{MAX_W} words; "
+                          "block index>=3; not last 2 blocks; not greeting/farewell"},
+              open(f"{a.out}/selection_info.json", "w"), indent=2)
+    print(f"Selected {a.n} responses from {len({r['conversation_id'] for r in rows})} conversations")
 
 
 if __name__ == "__main__":
