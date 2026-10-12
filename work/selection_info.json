@@ -8,5 +8,15 @@
     "Affirmation and Reassurance",
     "Reflection of feelings"
   ],
-  "filters": "supporter block after seeker block; 8-120 words; block index>=3; not last 2 blocks; not greeting/farewell"
+  "filters": "supporter block after seeker block; 8-120 words; block index>=3; not last 2 blocks; not greeting/farewell",
+  "replacements": [
+    {
+      "dropped": "pair_005",
+      "new": "pair_201"
+    },
+    {
+      "dropped": "pair_008",
+      "new": "pair_202"
+    }
+  ]
 }

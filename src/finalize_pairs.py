@@ -13,59 +13,36 @@ Outputs:
                                     exactly: example_id, conversation_id, context,
                                     original_response, control_response, ev_response)
 """
+import argparse, csv, datetime, json, shutil
 
-import argparse
-import csv
-import datetime
-import json
-import shutil
-
-FIELDS = [
-    "example_id",
-    "conversation_id",
-    "context",
-    "original_response",
-    "control_response",
-    "ev_response",
-]
+FIELDS = ["example_id", "conversation_id", "context", "original_response",
+          "control_response", "ev_response"]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--work", required=True)
     ap.add_argument("--corrections")
-    ap.add_argument("--out", default="work/pilot_pairs.jsonl")
+    ap.add_argument("--out", default="pilot_pairs.jsonl")
     a = ap.parse_args()
 
     shutil.copy(f"{a.work}/pilot_pairs_raw.jsonl", f"{a.work}/pilot_pairs_original.jsonl")
-    rows = {
-        json.loads(loads)["example_id"]: json.loads(loads)
-        for loads in open(f"{a.work}/pilot_pairs_raw.jsonl")
-    }
+    rows = {json.loads(l)["example_id"]: json.loads(l)
+            for l in open(f"{a.work}/pilot_pairs_raw.jsonl")}
 
     log = []
     if a.corrections:
-        for c in csv.DictReader(open(a.corrections)):
+        for c in csv.DictReader(open(a.corrections, encoding="utf-8-sig", newline="")):
             r = rows[c["example_id"]]
             assert c["field"] in ("control_response", "ev_response"), c
-            log.append(
-                [
-                    c["example_id"],
-                    c["field"],
-                    r[c["field"]],
-                    c["corrected_text"],
-                    c["reason"],
-                    c.get("corrected_by", ""),
-                    datetime.date.today().isoformat(),
-                ]
-            )
+            log.append([c["example_id"], c["field"], r[c["field"]], c["corrected_text"],
+                        c["reason"], c.get("corrected_by", ""),
+                        datetime.date.today().isoformat()])
             r[c["field"]] = c["corrected_text"].strip()
 
-    with open(f"{a.work}/change_log.csv", "w", newline="") as f:
+    with open(f"{a.work}/change_log.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(
-            ["example_id", "field", "old_text", "new_text", "reason", "corrected_by", "date"]
-        )
+        w.writerow(["example_id", "field", "old_text", "new_text", "reason", "corrected_by", "date"])
         w.writerows(log)
 
     ids = list(rows)

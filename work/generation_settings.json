@@ -13,5 +13,5 @@
   "prompt_version": "v4",
   "prompt_hash": "e8f15a6042ac",
   "requests": "2 independent requests per example (control, ev)",
-  "n_outputs_so_far": 20
+  "n_outputs_so_far": 404
 }
