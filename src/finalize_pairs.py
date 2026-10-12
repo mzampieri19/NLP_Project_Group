@@ -34,7 +34,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--work", required=True)
     ap.add_argument("--corrections")
-    ap.add_argument("--out", default="pilot_pairs.jsonl")
+    ap.add_argument("--out", default="work/pilot_pairs.jsonl")
     a = ap.parse_args()
 
     shutil.copy(f"{a.work}/pilot_pairs_raw.jsonl", f"{a.work}/pilot_pairs_original.jsonl")
