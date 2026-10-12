@@ -48,8 +48,11 @@ generate-pairs-all:
 check-pairs:
 	python3 src/check_pairs.py --work work
 
+finalize-pairs:
+	python3 src/finalize_pairs.py --work work
+
 process: # selects pairs, generates new sets, checks pairs
-	make select-pairs generate-pairs-10 check-pairs
+	make select-pairs generate-pairs-10 check-pairs finalize-pairs
 
 docker-build: ## Build the dev environment image
 	docker build -f docker/Dockerfile -t nlp-project-group .
