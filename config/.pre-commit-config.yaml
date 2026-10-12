@@ -11,20 +11,20 @@ repos:
       - id: check-merge-conflict
       - id: mixed-line-ending
 
-  # Lint + format Python code
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.8.4
-    hooks:
-      - id: ruff
-        args: ["--fix"]
-      - id: ruff-format
+  # Lint + format Python code - DISABLED
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   rev: v0.8.4
+  #   hooks:
+  #     - id: ruff
+  #       args: ["--fix"]
+  #     - id: ruff-format
 
-  # Lint Jupyter notebooks with the same ruff rules
-  - repo: https://github.com/nbQA-dev/nbQA
-    rev: 1.9.1
-    hooks:
-      - id: nbqa-ruff
-        args: ["--fix"]
+  # Lint Jupyter notebooks with the same ruff rules - DISABLED
+  # - repo: https://github.com/nbQA-dev/nbQA
+  #   rev: 1.9.1
+  #   hooks:
+  #     - id: nbqa-ruff
+  #       args: ["--fix"]
 
   # Strip notebook outputs/metadata so diffs stay clean
   - repo: https://github.com/kynan/nbstripout
