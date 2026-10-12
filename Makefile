@@ -34,6 +34,23 @@ check: ## Run all pre-commit hooks against every file (what CI runs)
 commit: ## Interactively build a Conventional Commit message
 	$(BIN)/cz commit
 
+### Pipeline
+
+select-pairs:
+	python3 src/select_turns.py --esconv data/ESConv.json --out work
+
+generate-pairs-10:
+	python3 src/generate_pairs.py --work work --config src/gen_config.json --limit 10
+
+generate-pairs-all:
+	python3 src/generate_pairs.py --work work --config src/gen_config.json
+
+check-pairs:
+	python3 src/check_pairs.py --work work
+
+process: # selects pairs, generates new sets, checks pairs
+	make select-pairs generate-pairs-10 check-pairs
+
 docker-build: ## Build the dev environment image
 	docker build -f docker/Dockerfile -t nlp-project-group .
 
