@@ -1,0 +1,31 @@
+{
+  "base_model": "Qwen/Qwen3-8B",
+  "system_prompt": "You are the Supporter in an emotional-support conversation. Respond to the Seeker's latest message with one natural Supporter reply.",
+  "seed": 42,
+  "max_length": 4096,
+  "num_train_epochs": 3.0,
+  "per_device_train_batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "learning_rate": 0.0002,
+  "weight_decay": 0.0,
+  "warmup_ratio": 0.03,
+  "lr_scheduler_type": "cosine",
+  "logging_steps": 5,
+  "save_strategy": "epoch",
+  "gradient_checkpointing": true,
+  "bf16": true,
+  "tf32": true,
+  "quantization": {
+    "load_in_4bit": true,
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "bnb_4bit_compute_dtype": "bfloat16"
+  },
+  "lora": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": "all-linear",
+    "bias": "none"
+  }
+}

@@ -1,15 +1,13 @@
 # Prompt version log (for the appendix table)
 
-Fill in the date for each round as you go.
-
 | Version | Date | Pairs reviewed | What changed | Why |
 |---|---|---|---|---|
-| v1 | [ ] | [ ] | Control: "remove any emotional validation... keep all facts and advice". EV: acknowledge feelings, revise existing validation instead of adding a sentence. | Initial version from the assignment. |
-| v2 | [ ] | 10 | Both: keep concrete details/roles exactly, use context for understanding only, keep first person. Control: do not restate feelings even neutrally, no replacement content. EV: one short acknowledgement (about 15 words or fewer), only feelings the user expressed. | v1 review: invented details, role reversal, dropped self-disclosure, long EV, Control kept validation. |
-| v3 | [ ] | 10 | EV: 15-word cap applies ONLY to the acknowledgement; EV keeps the full response; acknowledgement names a feeling only. Control: also drop the supporter's own emotions, keep factual self-disclosure, keep tense and meaning. | v2 review: the cap was applied to the whole EV reply (3 of 10 compressed); Control kept "I get frustrated too"; EV imported a fact from context. |
-| v4 | [ ] | 10 | Both: keep verb tense, use the original's own words for concrete details, keep the force of each suggestion ("try to"/"should"/"you have to"). EV: acknowledgement goes first; REPLACE existing validation, never stack two validating sentences. | v3 review: EV stacked a new acknowledgement on existing validation (008); word swaps ("behind"->"beside") and force changes ("feel confident"->"make sure") persisted in both conditions. |
+| v1 | 2026-10-11 | 10 | Control: "remove any emotional validation... keep all facts and advice". EV: acknowledge feelings, revise existing validation instead of adding a sentence. | Initial version from the assignment. |
+| v2 | 2026-10-11 | 10 | Both: keep concrete details/roles exactly, use context for understanding only, keep first person. Control: do not restate feelings even neutrally, no replacement content. EV: one short acknowledgement (about 15 words or fewer), only feelings the user expressed. | v1 review: invented details, role reversal, dropped self-disclosure, long EV, Control kept validation. |
+| v3 | 2026-10-11 | 10 | EV: 15-word cap applies ONLY to the acknowledgement; EV keeps the full response; acknowledgement names a feeling only. Control: also drop the supporter's own emotions, keep factual self-disclosure, keep tense and meaning. | v2 review: the cap was applied to the whole EV reply (3 of 10 compressed); Control kept "I get frustrated too"; EV imported a fact from context. |
+| v4 | 2026-10-11 | 10 | Both: keep verb tense, use the original's own words for concrete details, keep the force of each suggestion ("try to"/"should"/"you have to"). EV: acknowledgement goes first; REPLACE existing validation, never stack two validating sentences. | v3 review: EV stacked a new acknowledgement on existing validation (008); word swaps ("behind"->"beside") and force changes ("feel confident"->"make sure") persisted in both conditions. |
 
-Pairs replaced as unsuitable (no feeling to validate, or already mostly validation): pair_005, pair_008 -> [new ids]. Reason: [fill in]
+Pairs replaced as unsuitable: `pair_005 -> pair_201` because the context did not provide a suitable expressed feeling to validate; `pair_008 -> pair_202` because the source response was already mostly validation and could not support a meaningful matched Control rewrite.
 
 ## Current prompts (v4)
 
@@ -31,8 +29,8 @@ Paraphrase the response naturally, keeping its full length and detail. Put one s
 ## Stopping rule (agree with Nikhil)
 Freeze after v4 regardless; fix remaining one-offs through corrections.csv and report the number of hand edits.
 
-## Open team decisions
-- Emotional self-disclosure is removed from Control, factual self-disclosure kept. [confirm with Nikhil]
-- Skipped at selection: only "Affirmation and Reassurance" / "Reflection of feelings". [confirm]
-- Is a length gap between EV and Control acceptable? Report it either way. [confirm]
-- Reassurance phrased as advice (e.g. "feel confident that..."): does Control keep it, or remove it as validation? [confirm]
+## Frozen pilot decisions
+- Emotional self-disclosure is removed from Control; factual self-disclosure is kept.
+- Selection excludes only `Affirmation and Reassurance` and `Reflection of Feelings` strategies.
+- The observed EV-Control length gap is retained and reported rather than artificially padded away.
+- Advice is preserved at its original force; reassurance whose function is validation is removed from Control.

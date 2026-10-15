@@ -1,0 +1,8 @@
+# CUDA/RTX 4090D pilot environment. Qwen3 requires transformers >= 4.51.
+torch>=2.4,<3
+transformers>=4.51,<6
+accelerate>=1.0,<2
+datasets>=3,<5
+peft>=0.18,<1
+bitsandbytes>=0.45,<1
+safetensors>=0.4,<1

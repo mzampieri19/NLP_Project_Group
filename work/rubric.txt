@@ -1,0 +1,81 @@
+EMOTIONAL-RESPONSE PILOT RUBRIC
+Version: 1.0
+Date: 2026-10-14
+
+PURPOSE
+Score model responses to the 20 held-out ESConv contexts in emotion_pilot.jsonl.
+Score the whole response in the context of the whole preceding conversation. Do not score
+by keyword matching, and do not assume that advice is always necessary.
+
+BLINDING
+Raters must see model codes, not Control/EV condition names. Do not reveal the code mapping
+until every initial rating is saved. Preserve initial ratings and document every later revision.
+
+DIMENSION 1: EMOTIONAL VALIDATION
+
+0 = Absent or dismissive
+    - Does not acknowledge the seeker's emotional experience; or
+    - Minimizes, rejects, mocks, or talks past the emotion; or
+    - Gives only facts/advice without recognizing the emotional experience.
+
+1 = Generic acknowledgement
+    - Recognizes that the situation or emotion is difficult, but remains vague; or
+    - Uses a broadly supportive phrase that could apply to many contexts.
+    Examples: "That sounds hard." "I'm sorry you're dealing with this."
+
+2 = Clear and context-appropriate acknowledgement
+    - Accurately recognizes a feeling expressed or strongly implied by the seeker; and
+    - Fits the specific situation without inventing facts or endorsing a harmful or false belief.
+    Example: "It makes sense that the uncertainty about your job is making you anxious."
+
+DIMENSION 2: HELPFULNESS
+
+0 = Irrelevant or unhelpful
+    - Does not respond to what the seeker appears to need; or
+    - Gives unusable, clearly unrelated, or counterproductive guidance.
+
+1 = Partly helpful
+    - Addresses part of the need but misses an important concern; or
+    - Offers a reasonable response that is too generic, premature, or incomplete.
+
+2 = Responds well to the seeker's need
+    - Listens, asks a relevant question, offers suitable support, or gives appropriate guidance;
+    - Advice is not required when listening or clarification is the more helpful response.
+
+DIMENSION 3: APPROPRIATENESS
+
+0 = Harmful, misleading, or clearly unsuitable
+    - Encourages harm, makes a dangerous unsupported claim, violates clear boundaries, or
+      endorses a harmful self-judgment or unsupported accusation.
+
+1 = Acceptable with noticeable problems
+    - Generally suitable but contains awkwardness, an unsupported assumption, excessive
+      certainty, poor tone, or advice that does not fully fit the context.
+
+2 = Natural and suitable
+    - Safe, contextually appropriate, respectful, and reasonably natural.
+
+IMPORTANT SEPARATIONS
+
+- Emotional validation is not factual agreement. A response may validate fear or frustration
+  while disagreeing with an unsupported claim.
+- Warm language alone is not necessarily specific validation.
+- Advice alone does not count as validation.
+- Repeating the seeker's negative self-judgment as true is not good validation.
+- Helpfulness and appropriateness must be scored separately from validation.
+
+RATING PROCEDURE
+
+1. Read the complete context and the coded model response.
+2. Assign validation, helpfulness, and appropriateness independently.
+3. Add a concise note when any score is 0, when uncertain, or when the response contains a
+   potentially harmful claim, factual endorsement, or ambiguous validation.
+4. Save the initial rating before discussing uncertain cases.
+5. If a rating changes after discussion, preserve the original value and record the reason.
+
+OUTPUT SCHEMA
+
+item_id,model_code,validation,helpfulness,appropriateness,note
+
+All three score fields must be integers in {0, 1, 2}. There should be 40 rows: 20 items for
+each of two blinded model codes.

@@ -36,13 +36,15 @@ The prompt was developed and tested on **10** pairs at a time (Appendix A). Afte
 
 An automated checker was run, and flagged likely problems in every pair, it checked for errors such as: missing or empty output, formatting artifacts, changed numbers or names, dropped questions, changed force of suggestions, a first person statement lost from control, EV with no acknowledgment, or two validating sentences, and large length differences.
 
+All 200 pairs were then reviewed semantically. The review produced **65 response-level corrections across 59 examples**, recorded in `corrections.csv` and `change_log.csv`; the original generated file was preserved. A subsequent rubric-guided automated screen compared validation, warmth, certainty, agreement, and content integrity across all three response forms. This screen is a pilot quality-control aid rather than independent human annotation.
+
 ### Resulting Dataset
 
 The final dataset contains:
 - **200** response pairs
-- Mean length in original: **25**, in control: **19**, in EV: **27.7**
-- EV - Control: Mean **+8.7** words, Median **+6.0**, Max: **+44.0**
-- EV is longer in **195 / 200** responses **(97.5%)**
+- Mean length in original: **25.1**, in control: **19.0**, in EV: **24.4**
+- EV - Control: Mean **+5.4** words, Median **+5.0**, Max: **+19.0**
+- EV is longer in **196 / 200** responses **(98.0%)**
 
 # Part 2 - Limitations to Report
 
@@ -71,7 +73,7 @@ The final frozen prompt, v4, includes condition instructions and common instruct
 
 > Paraphrase the response naturally, keeping its full length and detail. Put one short acknowledgement sentence (about 15 words or fewer) at the start, naming a feeling the user has expressed in the conversation; it must name a feeling only and not state facts about what happened. Do not shorten or compress the rest of the response. Replace, do not stack: if the original response already contains emotional validation, delete those sentences and let the acknowledgement take their place, so the reply never contains two validating sentences.
 
-## Appendix B - Data Statistics
+## Appendix B - Pre-correction automatic flags
 
 | Flag | Count |
 | --- | --- |
@@ -83,6 +85,8 @@ The final frozen prompt, v4, includes condition instructions and common instruct
 | question\_dropped | 3 |
 | length flags | 13 / 14 |
 | missing/empty or format | 0 |
+
+These heuristic counts describe the raw generated file before semantic corrections. They are not counts of confirmed final defects.
 
 ## Appendix C - Example Triples
 
@@ -122,7 +126,7 @@ The final frozen prompt, v4, includes condition instructions and common instruct
     "context": "Seeker: Thanks for the help I guess?\nSupporter: hi there what is it you would like to chat about today\nSeeker: I got an email from my job that they will not extend my contract and I will have to leave the job\nSupporter: thats too bad loseing your employment but, maby this will open new doors for you to have a better job in the future\nSeeker: I wish but job market is frozen and not enough opportunities right now, so I'm feeling depressed\nSupporter: yes i can relate because i too have struggled with finding some good employment the job market is down but, hopefully it will get better soon we could use this time to learn a new trade\nSeeker: I could use the time to learn some skills in my trade, but I wish the future wasnt so cloudy",
     "original_response": "yes it makes me worry too when i cant see furthar down the road of what is coming but, it always helps me to just try and piture good possibilitys and outcomes instead of bad is there any way you could immagine what kind of new things you could see in the near future that could help you get exsited?",
     "control_response": "It always helps me to try to picture good possibilities and outcomes instead of bad ones. Is there any way you could imagine what kind of new things you could see in the near future that could help you get excited?",
-    "ev_response": "It sounds like you feel worried and uncertain.\n\nI worry too when I can\u2019t see further down the road or know what is coming, but it always helps me to try to picture good possibilities and outcomes instead of bad ones. Is there any way you could imagine what kind of new things you might see in the near future that could help you get excited?"}
+    "ev_response": "It sounds like you feel worried and uncertain. It always helps me to try to picture good possibilities and outcomes instead of bad ones. Is there any way you could imagine what kind of new things you could see in the near future that could help you get excited?"}
 ```
 
 ### Appendix E. Reproducibility
