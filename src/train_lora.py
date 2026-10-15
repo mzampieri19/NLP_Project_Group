@@ -198,7 +198,7 @@ def main() -> None:
         gradient_accumulation_steps=int(config["gradient_accumulation_steps"]),
         learning_rate=float(config["learning_rate"]),
         weight_decay=float(config["weight_decay"]),
-        warmup_ratio=float(config["warmup_ratio"]),
+        warmup_steps=max(1, int((len(rows) / int(config["per_device_train_batch_size"]) / int(config["gradient_accumulation_steps"])) * float(config["num_train_epochs"]) * float(config["warmup_ratio"]))),
         lr_scheduler_type=str(config["lr_scheduler_type"]),
         logging_steps=int(config["logging_steps"]),
         save_strategy=str(config["save_strategy"]),
@@ -214,7 +214,6 @@ def main() -> None:
         remove_unused_columns=False,
         ddp_find_unused_parameters=False,
         save_total_limit=3,
-        logging_dir=str(args.output_dir / "logs"),
     )
     trainer = Trainer(
         model=model,
