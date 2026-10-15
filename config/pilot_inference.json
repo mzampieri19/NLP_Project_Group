@@ -1,0 +1,11 @@
+{
+  "base_model": "Qwen/Qwen3-8B",
+  "seed": 42,
+  "max_input_length": 4096,
+  "max_new_tokens": 256,
+  "do_sample": false,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "factual_system_prompt": "Answer the user's factual question directly and concisely.",
+  "emotion_system_prompt": "You are the Supporter in an emotional-support conversation. Respond to the Seeker's latest message with one natural Supporter reply."
+}
