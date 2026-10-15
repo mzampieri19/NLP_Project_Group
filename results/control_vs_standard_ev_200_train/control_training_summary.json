@@ -1,0 +1,17 @@
+{
+  "condition": "control",
+  "examples": 200,
+  "runtime_seconds": 362.6404270899948,
+  "peak_gpu_memory_bytes": 14193124864,
+  "peak_gpu_memory_reserved_bytes": 17353932800,
+  "train_metrics": {
+    "train_runtime": 362.2515,
+    "train_samples_per_second": 1.656,
+    "train_steps_per_second": 0.207,
+    "total_flos": 1.065731497104384e+16,
+    "train_loss": 1.953568115234375,
+    "epoch": 3.0
+  },
+  "final_adapter": "runs/week5-full/control/final_adapter",
+  "truncated_examples": 0
+}

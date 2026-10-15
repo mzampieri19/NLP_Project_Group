@@ -1,0 +1,20 @@
+{
+  "python": "3.11.13",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "5.19.0",
+    "datasets": "4.8.5",
+    "peft": "0.21.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2"
+  },
+  "git": {
+    "commit": "c3d55fda886d2899e29596338179458efaf1c825",
+    "branch": "main",
+    "status": "M src/train_lora.py\n?? config/pilot_inference_local.json\n?? config/pilot_sft_local.json"
+  },
+  "cuda_available": true,
+  "cuda_version": "12.8",
+  "gpu": "NVIDIA GeForce RTX 4090"
+}

@@ -1,0 +1,7 @@
+{
+  "rows": 160,
+  "runtime_seconds": 354.8348466940224,
+  "answers": "work/answers.csv",
+  "mapping_file": "runs/inference/model_code_mapping.json",
+  "complete": true
+}
