@@ -1,0 +1,9 @@
+{
+  "seed": 42,
+  "n": 20,
+  "n_convs": 1300,
+  "held_out_pool": 260,
+  "held_out_after_exclude": 260,
+  "split_source": "seeded 80/10/10 (seed 42), held-out = non-train 20%",
+  "rule": "full preceding context = conversation truncated to its last seeker block; target supporter answer dropped; no content filtering"
+}
