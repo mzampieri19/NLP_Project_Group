@@ -1,0 +1,885 @@
+item_id,model_code,closing_flag,context,answer,validation,helpfulness,appropriateness,note
+emotion_001,model_A,0,"Supporter: Hi there, how are you doing?
+Seeker: IM HANGING IN THERE HOW ARE YOU?
+Supporter: I am okay. What would you like to talk to me about?
+Seeker: Well, i have a problem with drinking alcohol I am so scared my job will find out
+Supporter: Do you drink when you are at work?
+Seeker: I have started calling in atleast twice as week. I have started drinking at work close to the end of my shift in the bathroom
+Supporter: That does sound like it might be a big problem. How are your employers reacting? It sounds like you have a big problem that needs professional help, would you agree?
+Seeker: They have not mentioned anything to me yet.
+Supporter: I think it is likely to have been noticed though, at least.
+Seeker: Yes I agree it sounds like a really big problem, but what should i do?
+Supporter: I think the best thing would be to be really honest with your employers and ask if you can have time off for professional help.
+Seeker: That is a good idea
+Supporter: Are you employers likely to be sympathetic?
+Seeker: my main concern, that makes me fearful is being fired, and being the talk of the workplace
+Supporter: Ah people do love to idly gossip don't they? I've been through that myself. I know it's hard to ignore them but it's best to try.
+Seeker: My employer is an well known organization that employees over 3,000 people.
+Supporter: I do not know if they can fire you if you have a legitimate medical problem though. Well you could always shame them if they unfairly fired you.
+Seeker: Very good to know that I will look into it. It did not start overnight and I don't expect it to end overnight lol, yes that is true. Thank you so much for your time.
+Supporter: Large corporations are always over concerned about their images. (we have to talk for fifteen minutes :))
+Seeker: oh ok I thought it was just for 10 lines, lol but none the less, there are people really going through that scenario I just portrayex
+Supporter: naw there's a time thing too :). Anyway, what sort of therapy do you think would be appropriate for you? To be honest, and I mean this sincerely, I've been through it :(
+Seeker: I believe rehabilitative therapy would be best
+Supporter: It can be very expensive though. In my country you can get it for free but there's a long waiting list.
+Seeker: I have hads a few drinks often but never abused it. thankfully. Well here you might can get help for free, but it does have to be paid back
+Supporter: Heh be grateful :) Are you in the US? Our healthcare system is a little less rigid here I think (UK)
+Seeker: Yes Im in the United States (Alabama) I heard of the UK so many times but truthfully I know nothing about it
+Supporter: Ah you are a long way away from me. I hope that you do manage to sort out your problems though and definitely do talk to your employers Ah it's quite nice here. We pay for healthcare out of our taxes so it's free at source.
+Seeker: I will eventually get the courage to, I know how people talk around here, especially in the South\
+Supporter: Gossipy people are the worst. Just remind yourself that they all have skeletons in their closets too
+Seeker: great advice
+Supporter: Well anyway, I hope I have been able to offer your some useful advice. I wish you all of the very best in the future.
+Seeker: I think also the best thing to do is to talk to great people like you",You sound grateful. I hope you can find some good people to talk to.,2,1,1,
+emotion_001,model_B,0,"Supporter: Hi there, how are you doing?
+Seeker: IM HANGING IN THERE HOW ARE YOU?
+Supporter: I am okay. What would you like to talk to me about?
+Seeker: Well, i have a problem with drinking alcohol I am so scared my job will find out
+Supporter: Do you drink when you are at work?
+Seeker: I have started calling in atleast twice as week. I have started drinking at work close to the end of my shift in the bathroom
+Supporter: That does sound like it might be a big problem. How are your employers reacting? It sounds like you have a big problem that needs professional help, would you agree?
+Seeker: They have not mentioned anything to me yet.
+Supporter: I think it is likely to have been noticed though, at least.
+Seeker: Yes I agree it sounds like a really big problem, but what should i do?
+Supporter: I think the best thing would be to be really honest with your employers and ask if you can have time off for professional help.
+Seeker: That is a good idea
+Supporter: Are you employers likely to be sympathetic?
+Seeker: my main concern, that makes me fearful is being fired, and being the talk of the workplace
+Supporter: Ah people do love to idly gossip don't they? I've been through that myself. I know it's hard to ignore them but it's best to try.
+Seeker: My employer is an well known organization that employees over 3,000 people.
+Supporter: I do not know if they can fire you if you have a legitimate medical problem though. Well you could always shame them if they unfairly fired you.
+Seeker: Very good to know that I will look into it. It did not start overnight and I don't expect it to end overnight lol, yes that is true. Thank you so much for your time.
+Supporter: Large corporations are always over concerned about their images. (we have to talk for fifteen minutes :))
+Seeker: oh ok I thought it was just for 10 lines, lol but none the less, there are people really going through that scenario I just portrayex
+Supporter: naw there's a time thing too :). Anyway, what sort of therapy do you think would be appropriate for you? To be honest, and I mean this sincerely, I've been through it :(
+Seeker: I believe rehabilitative therapy would be best
+Supporter: It can be very expensive though. In my country you can get it for free but there's a long waiting list.
+Seeker: I have hads a few drinks often but never abused it. thankfully. Well here you might can get help for free, but it does have to be paid back
+Supporter: Heh be grateful :) Are you in the US? Our healthcare system is a little less rigid here I think (UK)
+Seeker: Yes Im in the United States (Alabama) I heard of the UK so many times but truthfully I know nothing about it
+Supporter: Ah you are a long way away from me. I hope that you do manage to sort out your problems though and definitely do talk to your employers Ah it's quite nice here. We pay for healthcare out of our taxes so it's free at source.
+Seeker: I will eventually get the courage to, I know how people talk around here, especially in the South\
+Supporter: Gossipy people are the worst. Just remind yourself that they all have skeletons in their closets too
+Seeker: great advice
+Supporter: Well anyway, I hope I have been able to offer your some useful advice. I wish you all of the very best in the future.
+Seeker: I think also the best thing to do is to talk to great people like you",I hope you can find some good people to talk to.,0,1,1,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good. 
+emotion_002,model_A,0,"Seeker: hi
+Supporter: Hello!
+Seeker: I'm dealing with a lot of frustration and anxiety.
+Supporter: How are you?
+Seeker: Frustrated and anxious
+Supporter: Oh I understand how that can be. Would you like to tell me about it?
+Seeker: Ok. I have a friend who I've known a long time, who is one of my closest friends, but who is extremely insecure. She constantly seeks affirmation that I love and care for her, even though she should KNOW I do, since we have been friends for so long.
+Supporter: I can understand how that can become a source of frustration after a while. Would you like to share what pushed it beyond the normal point today?
+Seeker: It's just been an ongoing thing that has escalated recently because she's so afraid and timid and doesn't believe anyone could really love or care for her. I get sick of having to say that of course I love her.
+Supporter: I can relate because I also have a close friend that seeks constant reaffirmations. Have you spoken with her about this?
+Seeker: I have. I address it every time it comes up. She always sells herself short. Recently I suggested she could babysit my kids, she agreed, then almost immediately said it was ok if I had someone better in mind, and didn't want her, even though I had asked her! do you talk to your friend about it?
+Supporter: Sometimes it is very difficult to see yourself through someone elses eyes when you undervalue yourself. I know it may be difficult to remain patient when your friend repeatedly does this, but maybe you could explain to her that it makes you feel like she is mistrustful of your opinion when she second guesses your taste in friends.
+Seeker: Yes, I know. Until she finds her self worth, it doesn't matter what any of her friends say to her. I have actually told her that. That it seems like she doesn't trust me.
+Supporter: Possibly explaining it in a way she can relate to would be helpful. I did in fact speak with my friend and it helped our relationship quite a bit. We continue to be very close 20 years later.
+Seeker: It's frustrating to me and gives me anxiety because I wish I could change her to see herself the way I, and others, do. But I know I can't make her see her self worth. That's something she has to find for herself. That's good to hear about you and your friend.
+Supporter: I can feel your frustration just by our conversation, and I too wish that she could see that you value both her and your friendship enough to reach out to someone that can just listen. Don't forget that your feelings are valid as well.
+Seeker: I know they are. And yes, she's dealing with a lot, but we all are, and it would be so much better for her if she could trust the people who love her to actually love her.
+Supporter: Sometimes you have to take a step back and fill your own cup.
+Seeker: Indeed. Thank you for your input.
+Supporter: Do you think a break would help you feel better able to deal with the demands of her friendship? Do you think a break would help you feel better able to deal with the demands of her friendship? It has been my pleasure! I trust you will make the right choice! Best of wishes!
+Seeker: Not really, because I'd just worry about her. She needs someone like me to look after her. I'm kind of the Yin to her Yang. Thank you for your time and conversation!",You sound worried. I think it would be best for you to take a break from her for a while. I hope you feel better soon!,1,2,2,
+emotion_002,model_B,0,"Seeker: hi
+Supporter: Hello!
+Seeker: I'm dealing with a lot of frustration and anxiety.
+Supporter: How are you?
+Seeker: Frustrated and anxious
+Supporter: Oh I understand how that can be. Would you like to tell me about it?
+Seeker: Ok. I have a friend who I've known a long time, who is one of my closest friends, but who is extremely insecure. She constantly seeks affirmation that I love and care for her, even though she should KNOW I do, since we have been friends for so long.
+Supporter: I can understand how that can become a source of frustration after a while. Would you like to share what pushed it beyond the normal point today?
+Seeker: It's just been an ongoing thing that has escalated recently because she's so afraid and timid and doesn't believe anyone could really love or care for her. I get sick of having to say that of course I love her.
+Supporter: I can relate because I also have a close friend that seeks constant reaffirmations. Have you spoken with her about this?
+Seeker: I have. I address it every time it comes up. She always sells herself short. Recently I suggested she could babysit my kids, she agreed, then almost immediately said it was ok if I had someone better in mind, and didn't want her, even though I had asked her! do you talk to your friend about it?
+Supporter: Sometimes it is very difficult to see yourself through someone elses eyes when you undervalue yourself. I know it may be difficult to remain patient when your friend repeatedly does this, but maybe you could explain to her that it makes you feel like she is mistrustful of your opinion when she second guesses your taste in friends.
+Seeker: Yes, I know. Until she finds her self worth, it doesn't matter what any of her friends say to her. I have actually told her that. That it seems like she doesn't trust me.
+Supporter: Possibly explaining it in a way she can relate to would be helpful. I did in fact speak with my friend and it helped our relationship quite a bit. We continue to be very close 20 years later.
+Seeker: It's frustrating to me and gives me anxiety because I wish I could change her to see herself the way I, and others, do. But I know I can't make her see her self worth. That's something she has to find for herself. That's good to hear about you and your friend.
+Supporter: I can feel your frustration just by our conversation, and I too wish that she could see that you value both her and your friendship enough to reach out to someone that can just listen. Don't forget that your feelings are valid as well.
+Seeker: I know they are. And yes, she's dealing with a lot, but we all are, and it would be so much better for her if she could trust the people who love her to actually love her.
+Supporter: Sometimes you have to take a step back and fill your own cup.
+Seeker: Indeed. Thank you for your input.
+Supporter: Do you think a break would help you feel better able to deal with the demands of her friendship? Do you think a break would help you feel better able to deal with the demands of her friendship? It has been my pleasure! I trust you will make the right choice! Best of wishes!
+Seeker: Not really, because I'd just worry about her. She needs someone like me to look after her. I'm kind of the Yin to her Yang. Thank you for your time and conversation!",I hope you will find some peace and happiness in your life.,0,1,2,"The seeker is anxious in one way, no addressing of this emotion in this response."
+emotion_003,model_A,0,"Supporter: Hello there, how is life treating you at the moment?
+Seeker: Not too bad outside of work. I'm miserable there.
+Supporter: So you are experiencing problems at work? Please tell me about it, I am happy to listen.
+Seeker: Things have changed and my new supervisor has crushed my spirit by taking all the parts I love away. She never liked me and now she gets to make me suffer.
+Supporter: I am very sorry to hear that - trouble with workmates, especially those who are in a higher position, can make things very miserable can't they?
+Seeker: They really can. I used to love my job and my team. Now she has made everyone miserable because she just doesn't care about learning the job or the job at all. My morale is low and worse because I can't help my peers who are struggling as well.
+Supporter: Have you considered going over her head and putting in a complaint? Especially if she is making everyone else miserable as well. Someone more senior might be able to do something.
+Seeker: I have considered this many times. Unfortunately, the next level manager doesn't respect or value my team in general. She has made that clear. She's also just awful and uncomfortable to talk to. I've found her to just be mean sometimes. It just feels so hopeless. Just waiting for someone to notice. Just hoping she fails. It's just really hard to show up everyday. But I do. Although the days are long and exhausting with no motivation to perform.
+Supporter: Please try to stay positive - bullies never prosper in the long term. I think that you need to talk to your co-workers about this and see if you can come to some sort of arrangement between you Alternatively, have you ever considered seeking another job? I know that that might feel like selling out but you might be happier somewhere else
+Seeker: You are right. She is a bully. I have called her several names to myself, but not a bully yet. My coworkers and I have discussed what options we may have. My suggestion was that we work at our normal pace rather than scrambling to make up for her failures. I wouldn't want to set her up, but I think her failing is the only way we will ever see a solution. I have applied for another job within my company. There seems to be interest in me, so that's exciting. It is a job I really want. But then, of course, I feel bad about leaving my peers behind. I really care about them.
+Supporter: I feel that that is fair enough. You should not be working to make up for her failures and I hear you saying that you feel that this is w hat is happening?
+Seeker: Definitely. Everyone is struggling. I am the one my team expects to help with some of the tasks she is not performing. I'm happy to do it for my team, but there is no recognition. But I think I have been giving them good advice about hanging in there, staying positive, etc... I should probably listen to myself.
+Supporter: (sorry was afk give me a second to catch up :)) I really feel that you have grounds for a formal complaint. Just her being incapable is bad enough but bullying too is unacceptable
+Seeker: You may be right. My company has an anonymous reporting system. I should learn a little more about how that works and see if that's an option. I'm not sure things could get much worse at this point. This could be my last ditch effort. That's good advice and you saying it directly to me makes me think I should lean into it. I can't just spin my wheels in misery much longer.
+Supporter: Anonymous reporting sounds like a good thing, as long as it's not being abused. This sounds like a very good time to use it though I hope I have been able to give you some good advice here!
+Seeker: Most definitely. I feel more confident now about the anonymous reporting. I'll gather some notes from my peers to ensure I have a viable complaint. That's so helpful. Thank you.",You sound hopeful. I think that is a great idea. I hope that you are able to get some good results from that.,2,2,2,
+emotion_003,model_B,0,"Supporter: Hello there, how is life treating you at the moment?
+Seeker: Not too bad outside of work. I'm miserable there.
+Supporter: So you are experiencing problems at work? Please tell me about it, I am happy to listen.
+Seeker: Things have changed and my new supervisor has crushed my spirit by taking all the parts I love away. She never liked me and now she gets to make me suffer.
+Supporter: I am very sorry to hear that - trouble with workmates, especially those who are in a higher position, can make things very miserable can't they?
+Seeker: They really can. I used to love my job and my team. Now she has made everyone miserable because she just doesn't care about learning the job or the job at all. My morale is low and worse because I can't help my peers who are struggling as well.
+Supporter: Have you considered going over her head and putting in a complaint? Especially if she is making everyone else miserable as well. Someone more senior might be able to do something.
+Seeker: I have considered this many times. Unfortunately, the next level manager doesn't respect or value my team in general. She has made that clear. She's also just awful and uncomfortable to talk to. I've found her to just be mean sometimes. It just feels so hopeless. Just waiting for someone to notice. Just hoping she fails. It's just really hard to show up everyday. But I do. Although the days are long and exhausting with no motivation to perform.
+Supporter: Please try to stay positive - bullies never prosper in the long term. I think that you need to talk to your co-workers about this and see if you can come to some sort of arrangement between you Alternatively, have you ever considered seeking another job? I know that that might feel like selling out but you might be happier somewhere else
+Seeker: You are right. She is a bully. I have called her several names to myself, but not a bully yet. My coworkers and I have discussed what options we may have. My suggestion was that we work at our normal pace rather than scrambling to make up for her failures. I wouldn't want to set her up, but I think her failing is the only way we will ever see a solution. I have applied for another job within my company. There seems to be interest in me, so that's exciting. It is a job I really want. But then, of course, I feel bad about leaving my peers behind. I really care about them.
+Supporter: I feel that that is fair enough. You should not be working to make up for her failures and I hear you saying that you feel that this is w hat is happening?
+Seeker: Definitely. Everyone is struggling. I am the one my team expects to help with some of the tasks she is not performing. I'm happy to do it for my team, but there is no recognition. But I think I have been giving them good advice about hanging in there, staying positive, etc... I should probably listen to myself.
+Supporter: (sorry was afk give me a second to catch up :)) I really feel that you have grounds for a formal complaint. Just her being incapable is bad enough but bullying too is unacceptable
+Seeker: You may be right. My company has an anonymous reporting system. I should learn a little more about how that works and see if that's an option. I'm not sure things could get much worse at this point. This could be my last ditch effort. That's good advice and you saying it directly to me makes me think I should lean into it. I can't just spin my wheels in misery much longer.
+Supporter: Anonymous reporting sounds like a good thing, as long as it's not being abused. This sounds like a very good time to use it though I hope I have been able to give you some good advice here!
+Seeker: Most definitely. I feel more confident now about the anonymous reporting. I'll gather some notes from my peers to ensure I have a viable complaint. That's so helpful. Thank you.",I hope that the anonymous reporting works for you.,0,2,2,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good. 
+emotion_004,model_A,1,"Supporter: Hope all is well
+Seeker: well, i'm losing my job in january so that is freaking me out
+Supporter: I can understand your feelings but I am sure there is a way out
+Seeker: I've not looked for a job in 20 years!
+Supporter: I was also in same situation and can fully understand how you feel but trust me you will enjoy once you start looking for job
+Seeker: I've got to do a new resume and then figure out how people even apply these days
+Supporter: Trust me it is easy these days to update resume as many templates available online and applying for job is easy as well. Many online options are available and you get a quick response.
+Seeker: I've tried to get in touch with the unemployment office but they do not answer phones lately.
+Supporter: Need not to worry about it. You can use search engine and just type the job matching your profile and apply online. Trust me you will be surprised to see many options.
+Seeker: Well it is freaking me out - I will not be able to pay my bills if I don't have a job.
+Supporter: I was exactly in same situations and can fully understand but trying all your options to look for job is good - apply online, call friends or family and see if they have openings where they work, look work online if you get any temporary work which can enable you to pay bills till you find better job.
+Seeker: I'm willing to do temp work, etc.. I just have to make enough $ to pay the main bills like mortgage, etc.. it makes me so afraid that I won't be able to do t hat
+Supporter: I am sure you will be able to manage all this and it is just temporary feeling you have.
+Seeker: 7 i'm very upset that we are even losing our jobs.
+Supporter: No need to upset as it part of life. Call your best friend and discuss your feeling and I am sure you will feel good.
+Seeker: She's just been through this looking for a job thing so she should have some great answers and places to help me maybe
+Supporter: Excellent!! - I am sure she will have very good suggestion and will be great support for you. It is always good to talk to people you are close.
+Seeker: that is true!
+Supporter: You can always share and contact me if you need any help. I will be happy to help. Take care.
+Seeker: ok thank you",You sound grateful. You are welcome. Take care.,0,2,2,Need to discuss the Emotional Validation Requirement here before rating.
+emotion_004,model_B,1,"Supporter: Hope all is well
+Seeker: well, i'm losing my job in january so that is freaking me out
+Supporter: I can understand your feelings but I am sure there is a way out
+Seeker: I've not looked for a job in 20 years!
+Supporter: I was also in same situation and can fully understand how you feel but trust me you will enjoy once you start looking for job
+Seeker: I've got to do a new resume and then figure out how people even apply these days
+Supporter: Trust me it is easy these days to update resume as many templates available online and applying for job is easy as well. Many online options are available and you get a quick response.
+Seeker: I've tried to get in touch with the unemployment office but they do not answer phones lately.
+Supporter: Need not to worry about it. You can use search engine and just type the job matching your profile and apply online. Trust me you will be surprised to see many options.
+Seeker: Well it is freaking me out - I will not be able to pay my bills if I don't have a job.
+Supporter: I was exactly in same situations and can fully understand but trying all your options to look for job is good - apply online, call friends or family and see if they have openings where they work, look work online if you get any temporary work which can enable you to pay bills till you find better job.
+Seeker: I'm willing to do temp work, etc.. I just have to make enough $ to pay the main bills like mortgage, etc.. it makes me so afraid that I won't be able to do t hat
+Supporter: I am sure you will be able to manage all this and it is just temporary feeling you have.
+Seeker: 7 i'm very upset that we are even losing our jobs.
+Supporter: No need to upset as it part of life. Call your best friend and discuss your feeling and I am sure you will feel good.
+Seeker: She's just been through this looking for a job thing so she should have some great answers and places to help me maybe
+Supporter: Excellent!! - I am sure she will have very good suggestion and will be great support for you. It is always good to talk to people you are close.
+Seeker: that is true!
+Supporter: You can always share and contact me if you need any help. I will be happy to help. Take care.
+Seeker: ok thank you",You are welcome. Take care.,2,2,2,
+emotion_005,model_A,1,"Supporter: Hello there
+Seeker: Hi
+Supporter: How are things going?
+Seeker: Not good. I'm depressed.
+Supporter: Is there anything in particular that has been bothering you recently?
+Seeker: I don't have enough money to buy my 5 kids X-mas gifts. Hello? Are you still here?
+Supporter: I'm really sorry to hear that, but I'm sure your love for your kids can still shine through
+Seeker: I do love my kids, but they are expecting some toys and stuff from Santa.
+Supporter: Would it be possible to look at some more home made stuff for this year that will still be fun and meaningful?
+Seeker: I cannot craft. If I made them something it would be so bad.
+Supporter: I know it can be really hard to feel like you can't make anything worthwhile, but I'm sure theres something you could come up with that could still put a smile on your kids faces
+Seeker: Do you have any craft ideas?
+Supporter: Maybe you could look at involving your kids in the process. The feeling of doing something together as a family can make it way more fun. It could be a shared experience your family can look back on fondly later on.
+Seeker: That's a good idea. I would like to have it done before christmas. How about some wooden toys or a cardboard box fort?
+Supporter: I have seen some people make small ornaments filled with candies and treats and other small goodies. So even if all of the gifts feel small, they can feel like they are getting a lot of them. And you could even get them to have fun decorating and painting the ornaments! Yeah, a box fort is really fun!
+Seeker: I never that about filling an ornament with small stuff. That's a great idea.
+Supporter: When I was a kid, I loved making box forts, and its a great way to reuse stuff you might already have around the house. The fun pretend games you can play were a blast. I'm sure your kids might love it too!
+Seeker: I could paint and decorate it. My daughters would like that. I can make it look like a castle.
+Supporter: It can feel tough when it feels like you can't provide all the big gifts that you feel your kids deserve But you clearly care and love your kids, and want to do something for them
+Seeker: I do. this has been very helpful. It's not all hopeless.
+Supporter: Last Christmas when I gave gifts to my family, one of them later told me that the gift they loved the most was the box of Christmas cookies that they were able to enjoy over the course of the week afterwards, and not the keyboard I had gotten them. Sometimes it doesn't take something expensive to be meaningful and make someone happy
+Seeker: That sounds wonderful. I'm getting to work on my projects. Thank you.",You sound hopeful. I hope you can get some good ideas from that.,1,2,2,
+emotion_005,model_B,1,"Supporter: Hello there
+Seeker: Hi
+Supporter: How are things going?
+Seeker: Not good. I'm depressed.
+Supporter: Is there anything in particular that has been bothering you recently?
+Seeker: I don't have enough money to buy my 5 kids X-mas gifts. Hello? Are you still here?
+Supporter: I'm really sorry to hear that, but I'm sure your love for your kids can still shine through
+Seeker: I do love my kids, but they are expecting some toys and stuff from Santa.
+Supporter: Would it be possible to look at some more home made stuff for this year that will still be fun and meaningful?
+Seeker: I cannot craft. If I made them something it would be so bad.
+Supporter: I know it can be really hard to feel like you can't make anything worthwhile, but I'm sure theres something you could come up with that could still put a smile on your kids faces
+Seeker: Do you have any craft ideas?
+Supporter: Maybe you could look at involving your kids in the process. The feeling of doing something together as a family can make it way more fun. It could be a shared experience your family can look back on fondly later on.
+Seeker: That's a good idea. I would like to have it done before christmas. How about some wooden toys or a cardboard box fort?
+Supporter: I have seen some people make small ornaments filled with candies and treats and other small goodies. So even if all of the gifts feel small, they can feel like they are getting a lot of them. And you could even get them to have fun decorating and painting the ornaments! Yeah, a box fort is really fun!
+Seeker: I never that about filling an ornament with small stuff. That's a great idea.
+Supporter: When I was a kid, I loved making box forts, and its a great way to reuse stuff you might already have around the house. The fun pretend games you can play were a blast. I'm sure your kids might love it too!
+Seeker: I could paint and decorate it. My daughters would like that. I can make it look like a castle.
+Supporter: It can feel tough when it feels like you can't provide all the big gifts that you feel your kids deserve But you clearly care and love your kids, and want to do something for them
+Seeker: I do. this has been very helpful. It's not all hopeless.
+Supporter: Last Christmas when I gave gifts to my family, one of them later told me that the gift they loved the most was the box of Christmas cookies that they were able to enjoy over the course of the week afterwards, and not the keyboard I had gotten them. Sometimes it doesn't take something expensive to be meaningful and make someone happy
+Seeker: That sounds wonderful. I'm getting to work on my projects. Thank you.",You're welcome! I hope you and your kids have a great holiday!,2,1,2,
+emotion_006,model_A,1,"Seeker: Hello
+Supporter: Hello, how are you doing today?
+Seeker: I was looking for some assistance. I lost my job 4 month ago
+Supporter: Losing your job is one of the biggest stressors in life, how have you been handling it?
+Seeker: Well first few month was kind off alright, Was looking for a job in different places without success. And now I am really depressed and I feel so useless.
+Supporter: I know what it's like to lose a job, and when it's hard to find a new one it can really make you feel low. What activities have you been doing in addition to seeking new employment?
+Seeker: Nice that you understand me, I was trying job websites alongside with jobcenter in town centre. I have jobseeker allowance but it will not cover the rent
+Supporter: I am living in a high-rent city and the only way I was able to keep my apartment was to find a roommate. Are there ways you can get help from friends or family until a new job opens up?
+Seeker: I am renting just a room at the moment, Before I had a girlfriend so we had to split the bill. After she left I had to take all responsibility just on myself to pay bills. I have few friends but don't think they could lend me a lot of money anyway
+Supporter: One possible solution, if it's possible for you, could be to sub-lease your room to someone else and stay with friends or family. Even if they can't loan you money, they may be able to let you stay with them for a week while you make money renting your room as an airbnb.
+Seeker: Oh AirBnB might be a solution actually. I will speak to my cousin if I could stay couple of nights at his place.
+Supporter: What sort of employment are you looking for? Perhaps we can brainstorm some places you can go to make connections for potential work.
+Seeker: I was working in IKEA warehouse before I got redundant
+Supporter: Working in a warehouse shows you have great skills for several other types of jobs. Have you checked small independent-contractor sites like TaskRabbit or Lyft to make extra funds while you search for a new permanent job?
+Seeker: I even haven't heard about those. I am really useless sometimes... What kind of jobs I can find there do you know?
+Supporter: Well, if you didn't know about them, that's not your fault. It's possible that you could find a new job opportunity while working on smaller tasks or by volunteering for a local organization. You could meet new folks who could provide you with new connections for employment!
+Seeker: I Will definitely try that. You are really helpful. Have you been doing any jobs through those websites?
+Supporter: Yes I am able to make a little spending money by doing small tasks like delivering real estate papers, or delivery take-out food. You can google a list of sites like RentSons.com where you can sign up to do an assortment of tasks, and your warehouse skills will come in handy!
+Seeker: That's cool, I feel now a lot better. Maybe I will be able to find even a girlfriend somewhere on those jobs. I feel lonely after my girlfriend left me
+Supporter: We all feel lonely when life gets hard, but getting yourself out there to do tasks will help you feel useful AND you could meet your future wife, you never know! I wish you the absolute best!
+Seeker: Thank you very much for you help. I learned something new today and feel much better
+Supporter: You're welcome. I think you'll do great.
+Seeker: Have a lovely afternoon!",You sound encouraged. You’re welcome!,2,2,2,
+emotion_006,model_B,1,"Seeker: Hello
+Supporter: Hello, how are you doing today?
+Seeker: I was looking for some assistance. I lost my job 4 month ago
+Supporter: Losing your job is one of the biggest stressors in life, how have you been handling it?
+Seeker: Well first few month was kind off alright, Was looking for a job in different places without success. And now I am really depressed and I feel so useless.
+Supporter: I know what it's like to lose a job, and when it's hard to find a new one it can really make you feel low. What activities have you been doing in addition to seeking new employment?
+Seeker: Nice that you understand me, I was trying job websites alongside with jobcenter in town centre. I have jobseeker allowance but it will not cover the rent
+Supporter: I am living in a high-rent city and the only way I was able to keep my apartment was to find a roommate. Are there ways you can get help from friends or family until a new job opens up?
+Seeker: I am renting just a room at the moment, Before I had a girlfriend so we had to split the bill. After she left I had to take all responsibility just on myself to pay bills. I have few friends but don't think they could lend me a lot of money anyway
+Supporter: One possible solution, if it's possible for you, could be to sub-lease your room to someone else and stay with friends or family. Even if they can't loan you money, they may be able to let you stay with them for a week while you make money renting your room as an airbnb.
+Seeker: Oh AirBnB might be a solution actually. I will speak to my cousin if I could stay couple of nights at his place.
+Supporter: What sort of employment are you looking for? Perhaps we can brainstorm some places you can go to make connections for potential work.
+Seeker: I was working in IKEA warehouse before I got redundant
+Supporter: Working in a warehouse shows you have great skills for several other types of jobs. Have you checked small independent-contractor sites like TaskRabbit or Lyft to make extra funds while you search for a new permanent job?
+Seeker: I even haven't heard about those. I am really useless sometimes... What kind of jobs I can find there do you know?
+Supporter: Well, if you didn't know about them, that's not your fault. It's possible that you could find a new job opportunity while working on smaller tasks or by volunteering for a local organization. You could meet new folks who could provide you with new connections for employment!
+Seeker: I Will definitely try that. You are really helpful. Have you been doing any jobs through those websites?
+Supporter: Yes I am able to make a little spending money by doing small tasks like delivering real estate papers, or delivery take-out food. You can google a list of sites like RentSons.com where you can sign up to do an assortment of tasks, and your warehouse skills will come in handy!
+Seeker: That's cool, I feel now a lot better. Maybe I will be able to find even a girlfriend somewhere on those jobs. I feel lonely after my girlfriend left me
+Supporter: We all feel lonely when life gets hard, but getting yourself out there to do tasks will help you feel useful AND you could meet your future wife, you never know! I wish you the absolute best!
+Seeker: Thank you very much for you help. I learned something new today and feel much better
+Supporter: You're welcome. I think you'll do great.
+Seeker: Have a lovely afternoon!",You too!,0,0,2,Need to discuss the Emotional Validation Requirement here before rating.
+emotion_007,model_A,1,"Seeker: Hello, I'm feeling a lot of anxiety.
+Supporter: I am sorry to hear that. Do you know what may be causing ytour anxiety?
+Seeker: I found out I'm losing my job on January 1.
+Supporter: You lost your job? thats a tough situation. Is it due to covid?
+Seeker: No, not due to covid. It's a gig job, much like mturk, but the company is dropping people from my state on that date.
+Supporter: I know its tough especially with the holidays and all. You have so many great skills and are such a hard worker I dont think you will have a problem at all finding something different.
+Seeker: I've been looking at other companies, but learning a new system after all these years is difficult.
+Supporter: I remember a time I lost my job and felt my whole world crumbling but then I realized when one door closes another door opens. when those doors close it seems that its usually for the best because it opens the path for something bigger and greater for you.
+Seeker: That's true. I've thought about looking into new fields.
+Supporter: Have you looked into some evening classes or maybe online schooling? I hear there are so many different options when it comes to online learning.
+Seeker: I was looking into that last night, but with covid, classes have had to cut enrollment and are already full for next semester.
+Supporter: They are full? well what about surrounding towns? Have you sat down and really thought about your passions and what you enjoy doing? Maybe theres an elderly person who needs some companionship or something like that in town for the time being.
+Seeker: I don't have a car, so I'm stuck doing classes locally. I think I'll just have to wait for the next semester.
+Supporter: Is waiting until next semester something your willing to do? That would give you time to reflect on yourself and your future and figure out what you want to do as a career. I could give you a list of other online opportunities to make money if you would be interested.
+Seeker: I would be interested in that, thank you.",You’re feeling anxious. I have a few ideas I can share with you.,2,2,2,
+emotion_007,model_B,1,"Seeker: Hello, I'm feeling a lot of anxiety.
+Supporter: I am sorry to hear that. Do you know what may be causing ytour anxiety?
+Seeker: I found out I'm losing my job on January 1.
+Supporter: You lost your job? thats a tough situation. Is it due to covid?
+Seeker: No, not due to covid. It's a gig job, much like mturk, but the company is dropping people from my state on that date.
+Supporter: I know its tough especially with the holidays and all. You have so many great skills and are such a hard worker I dont think you will have a problem at all finding something different.
+Seeker: I've been looking at other companies, but learning a new system after all these years is difficult.
+Supporter: I remember a time I lost my job and felt my whole world crumbling but then I realized when one door closes another door opens. when those doors close it seems that its usually for the best because it opens the path for something bigger and greater for you.
+Seeker: That's true. I've thought about looking into new fields.
+Supporter: Have you looked into some evening classes or maybe online schooling? I hear there are so many different options when it comes to online learning.
+Seeker: I was looking into that last night, but with covid, classes have had to cut enrollment and are already full for next semester.
+Supporter: They are full? well what about surrounding towns? Have you sat down and really thought about your passions and what you enjoy doing? Maybe theres an elderly person who needs some companionship or something like that in town for the time being.
+Seeker: I don't have a car, so I'm stuck doing classes locally. I think I'll just have to wait for the next semester.
+Supporter: Is waiting until next semester something your willing to do? That would give you time to reflect on yourself and your future and figure out what you want to do as a career. I could give you a list of other online opportunities to make money if you would be interested.
+Seeker: I would be interested in that, thank you.",I have a few ideas. I could also help you find some free online courses to get you started.,0,2,2,"The seeker is anxious in one way, no addressing of this emotion in this response."
+emotion_008,model_A,1,"Seeker: hello
+Supporter: Hello. How are you today?
+Seeker: not very good.
+Supporter: oh no. that isn't good. can you tell me what happened?
+Seeker: my husband and i have been fighting alot recently over his infidelity its really taken a toll on me. we have tried several counselors but nothing seems to be working
+Supporter: I am sorry to hear that. I can understand how frustrating that can be. I have had my fair share of boyfriends cheat on me.
+Seeker: weve been married for 14 years. I feel broken by this. we have 2 kids and my daughter, the eldest knows
+Supporter: I am sure that you have been trying to do everything that you can do to help the situation. It sounds like you choosing counseling was a good start. It shows how much you care.
+Seeker: yes but my husband doesnt want to fi things. hes happy with having 2 women ive had to buy a recorder and put it in his car. The things i heard were horrible. he found out though.
+Supporter: It is rough for our children to see adult stuff like this. They might not be able to understand. I would suggest trying to set down and talk to them about it, when you are ready.
+Seeker: I dont want my youngest to know. He loves his father and i dont want to destroy that
+Supporter: How do you feel about your husband not wanting to fix things? Is that something that you are considering?
+Seeker: i feel horrible. Im actually trying to fix things while he texts her every day i dont know whats gonna happen
+Supporter: That is a very thoughtful thing for you to put your son first. He is lucky to have such a great mother, that obviously loves him.
+Seeker: i do very much
+Supporter: Have you tried to talk to your husband about your feelings and how you might not be willing to accept this?
+Seeker: i do but every time i do he thinks that its that i dont trust him and that i hate him and i dont hate him or his lover. I just want things to go back they used to be. what should i do?
+Supporter: Have you thought about if you can trust him after that?
+Seeker: im not sure if i can, but i dont want to live in constant paranoia of him im just so lost
+Supporter: I can understand where you are coming from. I have been in that situation myself and it is not an easy place to be. For me, it took some time to accept that I deserved better than someone who didn't just want me. Is that how you feel?
+Seeker: kind of
+Supporter: Understandably so. I believe that this is just temporary and you will be amazed at how strong you are.
+Seeker: you think so?
+Supporter: If you are leaning toward not accepting not being enough for him, then I would suggest an exit plan. Call a family member, or friend, to see if you can stay there awhile. Have a cooling off period from your husband and reassess the situation
+Seeker: ok. ill consider that thank you so much this has been going on for half a year
+Supporter: I absolutely do. We normally find out that we are actually much stronger than we give ourselves credit for.
+Seeker: thank you
+Supporter: That is wonderful news! See you are starting to make a plan for a better life for you and your children. You so got this!
+Seeker: thank you so much. stay safe bye bye
+Supporter: youre welcome. I am here if you need me
+Seeker: i have a feeling that everything will be okay.
+Supporter: That is great! Did you have a chance to think of anything else that might help you through this?
+Seeker: yes. Thanks to you i can broaden my search thank you. good bye",You sound hopeful. I am glad I could help. See you soon!,2,2,2,
+emotion_008,model_B,1,"Seeker: hello
+Supporter: Hello. How are you today?
+Seeker: not very good.
+Supporter: oh no. that isn't good. can you tell me what happened?
+Seeker: my husband and i have been fighting alot recently over his infidelity its really taken a toll on me. we have tried several counselors but nothing seems to be working
+Supporter: I am sorry to hear that. I can understand how frustrating that can be. I have had my fair share of boyfriends cheat on me.
+Seeker: weve been married for 14 years. I feel broken by this. we have 2 kids and my daughter, the eldest knows
+Supporter: I am sure that you have been trying to do everything that you can do to help the situation. It sounds like you choosing counseling was a good start. It shows how much you care.
+Seeker: yes but my husband doesnt want to fi things. hes happy with having 2 women ive had to buy a recorder and put it in his car. The things i heard were horrible. he found out though.
+Supporter: It is rough for our children to see adult stuff like this. They might not be able to understand. I would suggest trying to set down and talk to them about it, when you are ready.
+Seeker: I dont want my youngest to know. He loves his father and i dont want to destroy that
+Supporter: How do you feel about your husband not wanting to fix things? Is that something that you are considering?
+Seeker: i feel horrible. Im actually trying to fix things while he texts her every day i dont know whats gonna happen
+Supporter: That is a very thoughtful thing for you to put your son first. He is lucky to have such a great mother, that obviously loves him.
+Seeker: i do very much
+Supporter: Have you tried to talk to your husband about your feelings and how you might not be willing to accept this?
+Seeker: i do but every time i do he thinks that its that i dont trust him and that i hate him and i dont hate him or his lover. I just want things to go back they used to be. what should i do?
+Supporter: Have you thought about if you can trust him after that?
+Seeker: im not sure if i can, but i dont want to live in constant paranoia of him im just so lost
+Supporter: I can understand where you are coming from. I have been in that situation myself and it is not an easy place to be. For me, it took some time to accept that I deserved better than someone who didn't just want me. Is that how you feel?
+Seeker: kind of
+Supporter: Understandably so. I believe that this is just temporary and you will be amazed at how strong you are.
+Seeker: you think so?
+Supporter: If you are leaning toward not accepting not being enough for him, then I would suggest an exit plan. Call a family member, or friend, to see if you can stay there awhile. Have a cooling off period from your husband and reassess the situation
+Seeker: ok. ill consider that thank you so much this has been going on for half a year
+Supporter: I absolutely do. We normally find out that we are actually much stronger than we give ourselves credit for.
+Seeker: thank you
+Supporter: That is wonderful news! See you are starting to make a plan for a better life for you and your children. You so got this!
+Seeker: thank you so much. stay safe bye bye
+Supporter: youre welcome. I am here if you need me
+Seeker: i have a feeling that everything will be okay.
+Supporter: That is great! Did you have a chance to think of anything else that might help you through this?
+Seeker: yes. Thanks to you i can broaden my search thank you. good bye",You are welcome. I hope everything works out for you.,1,1,1,
+emotion_009,model_A,0,"Seeker: I am so embarassed and saddened. I can not believe he cheated on me. I thought we were going to work out. I was really attracted into him and I cared for him a lot. I wanted to date him longer. Thank Goodness I did not sleep with him. What a disaster. Why are men like this? Why do they break women's hearts? I wish there were more decent men out there that did not play around. Men can be such pigs!
+Supporter: what happened?
+Seeker: I met a handsome intelligent man.
+Supporter: how are you feeling lately?
+Seeker: We dated for a month. Then out of nowhere he cheated on me. I'm so sad. I am just trying to understand what I did wrong.
+Supporter: it's okay. we should learn from things like this.
+Seeker: That's true. It's crazy we have to experience heart ache. To learn...
+Supporter: don't think much and keep yourself engaged in the activities you like the most.
+Seeker: Hey, that is great advice!
+Supporter: can you tell me how are you before this incident?
+Seeker: I was happy. But when a man breaks your heart, it makes you feel very ugly.
+Supporter: can you share me some happy memories which made you smile can you share me some happy memories which made you smile
+Seeker: Sure, I love going to the movies! How about you!
+Supporter: it's okay. i can understand. yeah me too. i love movies and traveling.
+Seeker: Are you American?
+Supporter: I love traveling to new places.
+Seeker: Yes traveling is what we are made to do as humans!
+Supporter: yes, i am an american.what about you
+Seeker: Same
+Supporter: well, just think of some happy memories and try to spend time with people who value you the most.
+Seeker: Yes, thank you for the great advice! Like Thanksgiving, I hope you have wonderful memories with your friends and family next week.
+Supporter: oh, thats nice of you.thank you
+Seeker: You are very welcomed!
+Supporter: you too!
+Seeker: Well what are you having for lunch?
+Supporter: i had my breakfast just now. i am planning to cook some beef for lunch.what about you
+Seeker: Spicy pork tamales.. I like that not thinking about my break up makes me happy. Like talking to you about whatever else.",You sound happy. I am going to cook some beef.,1,1,1,
+emotion_009,model_B,0,"Seeker: I am so embarassed and saddened. I can not believe he cheated on me. I thought we were going to work out. I was really attracted into him and I cared for him a lot. I wanted to date him longer. Thank Goodness I did not sleep with him. What a disaster. Why are men like this? Why do they break women's hearts? I wish there were more decent men out there that did not play around. Men can be such pigs!
+Supporter: what happened?
+Seeker: I met a handsome intelligent man.
+Supporter: how are you feeling lately?
+Seeker: We dated for a month. Then out of nowhere he cheated on me. I'm so sad. I am just trying to understand what I did wrong.
+Supporter: it's okay. we should learn from things like this.
+Seeker: That's true. It's crazy we have to experience heart ache. To learn...
+Supporter: don't think much and keep yourself engaged in the activities you like the most.
+Seeker: Hey, that is great advice!
+Supporter: can you tell me how are you before this incident?
+Seeker: I was happy. But when a man breaks your heart, it makes you feel very ugly.
+Supporter: can you share me some happy memories which made you smile can you share me some happy memories which made you smile
+Seeker: Sure, I love going to the movies! How about you!
+Supporter: it's okay. i can understand. yeah me too. i love movies and traveling.
+Seeker: Are you American?
+Supporter: I love traveling to new places.
+Seeker: Yes traveling is what we are made to do as humans!
+Supporter: yes, i am an american.what about you
+Seeker: Same
+Supporter: well, just think of some happy memories and try to spend time with people who value you the most.
+Seeker: Yes, thank you for the great advice! Like Thanksgiving, I hope you have wonderful memories with your friends and family next week.
+Supporter: oh, thats nice of you.thank you
+Seeker: You are very welcomed!
+Supporter: you too!
+Seeker: Well what are you having for lunch?
+Supporter: i had my breakfast just now. i am planning to cook some beef for lunch.what about you
+Seeker: Spicy pork tamales.. I like that not thinking about my break up makes me happy. Like talking to you about whatever else.",I am planning to cook some spicy pork tamales.,0,0,0,This is diversion from the conversation in one way and the supporter claimed that he planned on cooking beef at the start and this new info is misleading and fake.
+emotion_010,model_A,0,"Seeker: hello
+Supporter: Hi how are you ?
+Seeker: Well im feeling awful and my heart is racing , im feeling anxious for no reason.
+Supporter: I understand what your going thru , i also suffered from anxiety but trust we you will overcome this.
+Seeker: What do you recommend i do?
+Supporter: I recommend searching online about meditation , also one of thing that helped the most for me was exercise and eating healthy.
+Seeker: Ive tried meditation but cant seem to calm down. Exercise help for a bit but then my anxiety comes back.
+Supporter: I remember many times i thought the same way as you but i didnt give up and kept trying. As long as you dont give up you will make progress. It will take time and patience.
+Seeker: Wow its so nice to talk to someone who had the same issues. Are there any other suggestions you might recommendo?
+Supporter: OF course , for example i watched youtube videos of someone called theanxietyguy and i made tremendous progress with him. Also i drink teas to calm my nerves .
+Seeker: Thank you!! im going to look him up . Has your anxiety come back?
+Supporter: Somethings its want to come back but i am on top of it and always being discipline with myself. I make sure to love myself first and give myself priority.
+Seeker: Thank you for everything .I am now motivated to get going.
+Supporter: You are welcomed i am glad i was able to help out. Stay positive and healthy.
+Seeker: What kind of teas do you drink to help with anxiety?
+Supporter: I drink a lot of chamomile tea with honey which has a great flavor good to calm done, i drink mint tea very refreshing and tilo tea which helps me sleep.
+Seeker: I never tried tea , this new for me . I will definitely order some online. DO you have any other suggestions?
+Supporter: Yes of course. If you worried about some kind of sickness i would recommend you go to the doctor get yourself a full checkup it will help calm you mind down and reassure you that you are healthy.
+Seeker: That a greay idea. My health anxiety its at all high levels everything i see about a sickness i get worry especially with this covid -19. I barely go out and get nervous. Has that happened to you?
+Supporter: Yes, once in while i get nervous about but i try to keep positive and take the right precautions and wear my mask, clea my hands and stay my distance. you shouldnt have a issues . Do you workout?
+Seeker: No, i havent felt motivated . What kind of workout do you recommend for my anxiety?","You sound unmotivated. I recommend going for a walk, jog, or run. I also do yoga, which helps me relax.",1,2,2,
+emotion_010,model_B,0,"Seeker: hello
+Supporter: Hi how are you ?
+Seeker: Well im feeling awful and my heart is racing , im feeling anxious for no reason.
+Supporter: I understand what your going thru , i also suffered from anxiety but trust we you will overcome this.
+Seeker: What do you recommend i do?
+Supporter: I recommend searching online about meditation , also one of thing that helped the most for me was exercise and eating healthy.
+Seeker: Ive tried meditation but cant seem to calm down. Exercise help for a bit but then my anxiety comes back.
+Supporter: I remember many times i thought the same way as you but i didnt give up and kept trying. As long as you dont give up you will make progress. It will take time and patience.
+Seeker: Wow its so nice to talk to someone who had the same issues. Are there any other suggestions you might recommendo?
+Supporter: OF course , for example i watched youtube videos of someone called theanxietyguy and i made tremendous progress with him. Also i drink teas to calm my nerves .
+Seeker: Thank you!! im going to look him up . Has your anxiety come back?
+Supporter: Somethings its want to come back but i am on top of it and always being discipline with myself. I make sure to love myself first and give myself priority.
+Seeker: Thank you for everything .I am now motivated to get going.
+Supporter: You are welcomed i am glad i was able to help out. Stay positive and healthy.
+Seeker: What kind of teas do you drink to help with anxiety?
+Supporter: I drink a lot of chamomile tea with honey which has a great flavor good to calm done, i drink mint tea very refreshing and tilo tea which helps me sleep.
+Seeker: I never tried tea , this new for me . I will definitely order some online. DO you have any other suggestions?
+Supporter: Yes of course. If you worried about some kind of sickness i would recommend you go to the doctor get yourself a full checkup it will help calm you mind down and reassure you that you are healthy.
+Seeker: That a greay idea. My health anxiety its at all high levels everything i see about a sickness i get worry especially with this covid -19. I barely go out and get nervous. Has that happened to you?
+Supporter: Yes, once in while i get nervous about but i try to keep positive and take the right precautions and wear my mask, clea my hands and stay my distance. you shouldnt have a issues . Do you workout?
+Seeker: No, i havent felt motivated . What kind of workout do you recommend for my anxiety?","I recommend going to the gym, working out, and doing yoga.",0,1,2,A little push or motivation to follow this recommendation is required. No the emotional support they might be seeking
+emotion_011,model_A,1,"Supporter: Hello, how are you doing today?
+Seeker: I am feeling angry today about work.
+Supporter: Oh no, what happened to make you feel this way?
+Seeker: My coworker expects me to do things the way she does and is constantly critical. I just want her to understand that I am able to do things my way and it is still okay. I told her this and she ignored me.
+Supporter: I'm sure that's terribly frustrating having someone treat you like that. Is this something that your boss is aware of?
+Seeker: I have not told her yet. I do not want to get her into trouble and I want to have a good relationship with her.
+Supporter: Can you discuss it with her in a respectful way to get her to understand that you're not trying to undermine her but that this is how you work most efficiently? And maybe mention that you don't want to involve the boss?
+Seeker: That's something I could try. I really care about my coworker and it makes me so angry that she treats me this way.
+Supporter: I think sometimes it's easy to jump to anger when you feel hurt. It might be worth telling her how you feel and also maybe ask why she thinks you should be doing things her way. Maybe there's a give and take in this situation. Some of her methods could be beneficial.
+Seeker: Do you have any advice on how to start my conversation with her? I have found some of her ideas to be beneficial. I just would like my ideas expressed as well. I feel we can learn from each other.
+Supporter: Tell her the things that you like about her method and maybe suggest some of your methods to her as well. Maybe she'll find them to be more efficient. Make it a partnership rather than a fight for whose method is better. She could feel threatened by you so it's worth digging into those feelings with her and proving to her that you're working toward the same goal.
+Seeker: That's a great idea. It is possible. I am the new kid on the block. I will try by being non confrontational. Any specific ideas to how I can do that? She gets offended easily. I want her to know I am helping.
+Supporter: I'd suggest how much she's helped you since you are in fact the new kid on the block. And tell her that you want to work with her to have the most efficient partnership possible and use each of your talents to the best of your ability. Then you can lay out how you work best and see where it goes from there.
+Seeker: Thanks! I will try that. You made me feel so much better!
+Supporter: I'm so glad, these can be frustrating situations but sometimes it's worth looking at the other person's perspective.
+Seeker: I agree. Sometimes you just have to take a step back and have a conversation with someone not in the thick of it.
+Supporter: Absolutely, I have no emotional stake in this. The two of you do and that can cloud things sometimes.
+Seeker: I think people get territorial when they have worked somewhere and a new person comes in. I see that now. I am optimistic we will work it out and be a great team!
+Supporter: That's great to hear, I'm glad we were able to chat!
+Seeker: Me too! You really helped me. Have a wonderful day! I know I will since you helped me out.",Your optimism is wonderful. I hope you’re feeling better. Have a great day!,2,2,2,
+emotion_011,model_B,1,"Supporter: Hello, how are you doing today?
+Seeker: I am feeling angry today about work.
+Supporter: Oh no, what happened to make you feel this way?
+Seeker: My coworker expects me to do things the way she does and is constantly critical. I just want her to understand that I am able to do things my way and it is still okay. I told her this and she ignored me.
+Supporter: I'm sure that's terribly frustrating having someone treat you like that. Is this something that your boss is aware of?
+Seeker: I have not told her yet. I do not want to get her into trouble and I want to have a good relationship with her.
+Supporter: Can you discuss it with her in a respectful way to get her to understand that you're not trying to undermine her but that this is how you work most efficiently? And maybe mention that you don't want to involve the boss?
+Seeker: That's something I could try. I really care about my coworker and it makes me so angry that she treats me this way.
+Supporter: I think sometimes it's easy to jump to anger when you feel hurt. It might be worth telling her how you feel and also maybe ask why she thinks you should be doing things her way. Maybe there's a give and take in this situation. Some of her methods could be beneficial.
+Seeker: Do you have any advice on how to start my conversation with her? I have found some of her ideas to be beneficial. I just would like my ideas expressed as well. I feel we can learn from each other.
+Supporter: Tell her the things that you like about her method and maybe suggest some of your methods to her as well. Maybe she'll find them to be more efficient. Make it a partnership rather than a fight for whose method is better. She could feel threatened by you so it's worth digging into those feelings with her and proving to her that you're working toward the same goal.
+Seeker: That's a great idea. It is possible. I am the new kid on the block. I will try by being non confrontational. Any specific ideas to how I can do that? She gets offended easily. I want her to know I am helping.
+Supporter: I'd suggest how much she's helped you since you are in fact the new kid on the block. And tell her that you want to work with her to have the most efficient partnership possible and use each of your talents to the best of your ability. Then you can lay out how you work best and see where it goes from there.
+Seeker: Thanks! I will try that. You made me feel so much better!
+Supporter: I'm so glad, these can be frustrating situations but sometimes it's worth looking at the other person's perspective.
+Seeker: I agree. Sometimes you just have to take a step back and have a conversation with someone not in the thick of it.
+Supporter: Absolutely, I have no emotional stake in this. The two of you do and that can cloud things sometimes.
+Seeker: I think people get territorial when they have worked somewhere and a new person comes in. I see that now. I am optimistic we will work it out and be a great team!
+Supporter: That's great to hear, I'm glad we were able to chat!
+Seeker: Me too! You really helped me. Have a wonderful day! I know I will since you helped me out.",You're welcome! I hope you have a great day!,1,2,2,
+emotion_012,model_A,1,"Supporter: Hi! What kind of issue are you dealing with today? I would love to help :)
+Seeker: I am still depressed about losing my job.
+Supporter: Oh no! I'm so sorry to hear that. What have you been doing since losing your job?
+Seeker: It's been rough, it was out of the clear blue. I've been looking for a job, then the pandemic hit.
+Supporter: Oh wow I feel you. I have loved ones that have gone through the same thing as you. They were starting to feel super down about themselves. I tried my best to support and encourage them not to give up.
+Seeker: Yea, I know, it's not just me. But I do feel alone. I know how they feel.
+Supporter: What industry do you work in? With the pandemic, a lot of interviews are done through Zoom and of course not everyone is at the best through video
+Seeker: I work in the hospitality industry, at a hotel. Trust me I've been looking, but so far no luck. Since this pandemic, I'm not sure I want to leave the house. How have you loved one dealt with it?
+Supporter: That's rough :/ I assist in managing some Airbnb properties and they've been hit so hard because of the pandemic. At least there's a light at the end of the tunnel with the vaccine. Honestly I had one friend who had been looking for a job for over a year and he just got an offer last month. They just kept persevering, even if that included applying to 30+ jobs each week
+Seeker: That's good, at least I know there is light at the end of the tunnel. I was thinking at this stage of the game I might have to learn something new in order to get a job. Hopefully, the vaccine will help start to bring things back to normal. Did your friend find a job in the same field?
+Supporter: My friend works in tech (I don't know what exactly he does since it all goes over my head lol) but I know that he took a lesser position and smaller pay than he had before. He is trying to steer his career in a different direction so I do believe it will work out for him and for you :)
+Seeker: :) Thanks I needed that. I think I might have to reinvent myself also. For sure the pay will be a lot different, it'll be like starting all over again.
+Supporter: No problem :) As long as you keep working at it, I definitely think it will work out for you. Who knows, maybe you'll end up loving this new direction in life!
+Seeker: I sure hope so, fingers crossed. Thankfully, I don't have to work much longer, but since I have been working for so long, I do miss it. I think I miss the people more than anything.
+Supporter: I hope you know that you have people who will encourage you every step of the way (even strangers :) )! This pandemic has been really rough but I have to keep reminding myself to count myself lucky for staying healthy. I hope you will be safe until the vaccine and after :) I believe in you!
+Seeker: Awww! Thank you I really needed that, you have no idea how much that means to me. A little encouragement goes a long way in these times we are living in. And you are right, I am healthy and I am thankful for that. Eventually, the job will come.
+Supporter: Yes I think people should be more supportive of each other, especially during these times! Just don't ever give up! I'm really glad that I was able to be of help/support today for you :)
+Seeker: Yes, we do need each other more than we know . I have to remind myself, it's not just me going through this. Thank you for your kind words.
+Supporter: You're welcome :) I hope you have a Merry Christmas and a great 2021 :)
+Seeker: I hope you do as well. Stay Healthy and be careful. Thank you again for your kind words. And 2021 will be better than 2020!",You sound hopeful. I’m really glad that I could be of help today. Have a great day! 😊,2,2,2,
+emotion_012,model_B,1,"Supporter: Hi! What kind of issue are you dealing with today? I would love to help :)
+Seeker: I am still depressed about losing my job.
+Supporter: Oh no! I'm so sorry to hear that. What have you been doing since losing your job?
+Seeker: It's been rough, it was out of the clear blue. I've been looking for a job, then the pandemic hit.
+Supporter: Oh wow I feel you. I have loved ones that have gone through the same thing as you. They were starting to feel super down about themselves. I tried my best to support and encourage them not to give up.
+Seeker: Yea, I know, it's not just me. But I do feel alone. I know how they feel.
+Supporter: What industry do you work in? With the pandemic, a lot of interviews are done through Zoom and of course not everyone is at the best through video
+Seeker: I work in the hospitality industry, at a hotel. Trust me I've been looking, but so far no luck. Since this pandemic, I'm not sure I want to leave the house. How have you loved one dealt with it?
+Supporter: That's rough :/ I assist in managing some Airbnb properties and they've been hit so hard because of the pandemic. At least there's a light at the end of the tunnel with the vaccine. Honestly I had one friend who had been looking for a job for over a year and he just got an offer last month. They just kept persevering, even if that included applying to 30+ jobs each week
+Seeker: That's good, at least I know there is light at the end of the tunnel. I was thinking at this stage of the game I might have to learn something new in order to get a job. Hopefully, the vaccine will help start to bring things back to normal. Did your friend find a job in the same field?
+Supporter: My friend works in tech (I don't know what exactly he does since it all goes over my head lol) but I know that he took a lesser position and smaller pay than he had before. He is trying to steer his career in a different direction so I do believe it will work out for him and for you :)
+Seeker: :) Thanks I needed that. I think I might have to reinvent myself also. For sure the pay will be a lot different, it'll be like starting all over again.
+Supporter: No problem :) As long as you keep working at it, I definitely think it will work out for you. Who knows, maybe you'll end up loving this new direction in life!
+Seeker: I sure hope so, fingers crossed. Thankfully, I don't have to work much longer, but since I have been working for so long, I do miss it. I think I miss the people more than anything.
+Supporter: I hope you know that you have people who will encourage you every step of the way (even strangers :) )! This pandemic has been really rough but I have to keep reminding myself to count myself lucky for staying healthy. I hope you will be safe until the vaccine and after :) I believe in you!
+Seeker: Awww! Thank you I really needed that, you have no idea how much that means to me. A little encouragement goes a long way in these times we are living in. And you are right, I am healthy and I am thankful for that. Eventually, the job will come.
+Supporter: Yes I think people should be more supportive of each other, especially during these times! Just don't ever give up! I'm really glad that I was able to be of help/support today for you :)
+Seeker: Yes, we do need each other more than we know . I have to remind myself, it's not just me going through this. Thank you for your kind words.
+Supporter: You're welcome :) I hope you have a Merry Christmas and a great 2021 :)
+Seeker: I hope you do as well. Stay Healthy and be careful. Thank you again for your kind words. And 2021 will be better than 2020!",You're welcome! I hope you have a great holiday and a great 2021!,1,2,2,
+emotion_013,model_A,1,"Supporter: Hello. How are you tonight?
+Seeker: I'm hanging in there. I'm in a funk.
+Supporter: I'm sorry to hear things aren't going to well. What's the problem in a nutshell?
+Seeker: I split with my girlfriend after 5 years together last month/
+Supporter: Breakups can be hard, I can understand your frustration. Five years is a long time to have a relationship and then end.
+Seeker: I caught her cheating on me.
+Supporter: I'm sorry to hear that. That's hard to forgive and move on from that.
+Seeker: I'm trying to just move on but I feel so insulted. I'm mad then sad back and forth, over and over.
+Supporter: I find that when I have a very painful situation, I try to only thing about it for a certain amount of time. Then I make a list of things to do so I can be occupied to not think about it.
+Seeker: Yes, but my whole life was upended. My living situation, my friend circle is broken up over this. I don't know how to move on. Any suggestions?
+Supporter: Getting over a breakup will take time? Have you ever heard of DABDA? Denial (I can't believe this happened!) Anger (we all know that) Bargaining (If only I had done that, or if only - trying to make it FEEL better by imagining other scenarios - doesn't really work) Depression - sadness, then Acceptance -- we go in and out of these emotions and sometimes it can make us feel crazy, but all of them are normal in varying degrees and we don't know when they will happen.
+Seeker: No, but those sound like the typical stages of grief. I guess I'm in anger. I have no interest in barbagining.
+Supporter: I would make a list of things you have always wanted to do and then just BRAINSTORM any idea, no idea is too out there -- learn to ice skate, learn to play the ukulele, sign up for dance lessons, join the gym, go to a singles group at church, visit the elderly, volunteer somewhere.
+Seeker: I think I need to focus on exercise. Just get my body and mind healthy and full of energy. What do you think?
+Supporter: I also find it helpful not only to limit how much I dwell on my pain, but make sure I reach out to help someone else. I will tell you, that is the secret to happiness. Maybe help a neighbor with groceries or hanging lights. Old people (me) love help, bake something or call your aunt or uncle.
+Seeker: True, but it's hard not to dwell. It's not like I have a choice. It overcomes me.
+Supporter: I agree, get healthy and try to help others. One thing about feelings is that if you change your mind, you can change your feelings, it might happen slowly, but if you put your mind off of it, it will help. Not saying NEVER feel the emotions, but feelings are the tail of the dog, not the dog itself, You do not have to be ruled by them. You don not have to FEEL like going for a walk to go for a walk.
+Seeker: It's hard not to just drown myself in booze and cannabis.
+Supporter: A healthy balance of self care, and other centered behavior and know this will take time. I just takes time.
+Seeker: Time heals all wounds for sure
+Supporter: I understand, but those are choices that really, long term, are not for your benefit. Her cheating was a reflection on HER bad character, not yours. You have to love yourself and try to fight this.
+Seeker: Are you Ai or a human mturker?
+Supporter: I'm a human. I live in KY, retired counselor! hhahaha I prayed for someone to encourage.
+Seeker: OH cool. Well your prayer came true. I'm, also a human....from Georgia
+Supporter: I'm from the city, so there isn't much to do on a farm in the middle of cold weather. I have been through a lot of breakups, so I know what works, and yes, I was cheated on, devastating. But you can overcome this. Make that list and do NOT let your feelings rule your life. You can recover and find someone worthy of your love and care.
+Seeker: Thanks so much!!! I really appreciate it! :)
+Supporter: The WORST breakup came a year before I met my husband. in retrospect, it was the best thing, listen,you could have married this girl, count your blessings. cheating is just terribly destructive. And you are welcome. Take care of yourself. Write the list of goals and fun things to do, choose one every day.
+Seeker: You are very kind! All the best!! Take care!",You sound grateful. I hope you find someone who will love you and care for you. Take care.,2,2,2,
+emotion_013,model_B,1,"Supporter: Hello. How are you tonight?
+Seeker: I'm hanging in there. I'm in a funk.
+Supporter: I'm sorry to hear things aren't going to well. What's the problem in a nutshell?
+Seeker: I split with my girlfriend after 5 years together last month/
+Supporter: Breakups can be hard, I can understand your frustration. Five years is a long time to have a relationship and then end.
+Seeker: I caught her cheating on me.
+Supporter: I'm sorry to hear that. That's hard to forgive and move on from that.
+Seeker: I'm trying to just move on but I feel so insulted. I'm mad then sad back and forth, over and over.
+Supporter: I find that when I have a very painful situation, I try to only thing about it for a certain amount of time. Then I make a list of things to do so I can be occupied to not think about it.
+Seeker: Yes, but my whole life was upended. My living situation, my friend circle is broken up over this. I don't know how to move on. Any suggestions?
+Supporter: Getting over a breakup will take time? Have you ever heard of DABDA? Denial (I can't believe this happened!) Anger (we all know that) Bargaining (If only I had done that, or if only - trying to make it FEEL better by imagining other scenarios - doesn't really work) Depression - sadness, then Acceptance -- we go in and out of these emotions and sometimes it can make us feel crazy, but all of them are normal in varying degrees and we don't know when they will happen.
+Seeker: No, but those sound like the typical stages of grief. I guess I'm in anger. I have no interest in barbagining.
+Supporter: I would make a list of things you have always wanted to do and then just BRAINSTORM any idea, no idea is too out there -- learn to ice skate, learn to play the ukulele, sign up for dance lessons, join the gym, go to a singles group at church, visit the elderly, volunteer somewhere.
+Seeker: I think I need to focus on exercise. Just get my body and mind healthy and full of energy. What do you think?
+Supporter: I also find it helpful not only to limit how much I dwell on my pain, but make sure I reach out to help someone else. I will tell you, that is the secret to happiness. Maybe help a neighbor with groceries or hanging lights. Old people (me) love help, bake something or call your aunt or uncle.
+Seeker: True, but it's hard not to dwell. It's not like I have a choice. It overcomes me.
+Supporter: I agree, get healthy and try to help others. One thing about feelings is that if you change your mind, you can change your feelings, it might happen slowly, but if you put your mind off of it, it will help. Not saying NEVER feel the emotions, but feelings are the tail of the dog, not the dog itself, You do not have to be ruled by them. You don not have to FEEL like going for a walk to go for a walk.
+Seeker: It's hard not to just drown myself in booze and cannabis.
+Supporter: A healthy balance of self care, and other centered behavior and know this will take time. I just takes time.
+Seeker: Time heals all wounds for sure
+Supporter: I understand, but those are choices that really, long term, are not for your benefit. Her cheating was a reflection on HER bad character, not yours. You have to love yourself and try to fight this.
+Seeker: Are you Ai or a human mturker?
+Supporter: I'm a human. I live in KY, retired counselor! hhahaha I prayed for someone to encourage.
+Seeker: OH cool. Well your prayer came true. I'm, also a human....from Georgia
+Supporter: I'm from the city, so there isn't much to do on a farm in the middle of cold weather. I have been through a lot of breakups, so I know what works, and yes, I was cheated on, devastating. But you can overcome this. Make that list and do NOT let your feelings rule your life. You can recover and find someone worthy of your love and care.
+Seeker: Thanks so much!!! I really appreciate it! :)
+Supporter: The WORST breakup came a year before I met my husband. in retrospect, it was the best thing, listen,you could have married this girl, count your blessings. cheating is just terribly destructive. And you are welcome. Take care of yourself. Write the list of goals and fun things to do, choose one every day.
+Seeker: You are very kind! All the best!! Take care!",You are welcome. I hope you find someone who will love you for who you are.,1,2,2,
+emotion_014,model_A,0,"Supporter: Hi there, how are you?
+Seeker: I am doing ok. How are you?
+Supporter: I'm doing well, thanks for asking. What are you seeking support for today?
+Seeker: I have been struggling for motivation to do anything the past couple weeks. This is a really hard time of year for me. I lost my cousin in a car accident at the age of 14 in a car accident coming up on 20 years this year. We were very close. I was 17 at the time. Her was an alcoholic and my parents raised her a majority of her life. Then 3 years ago 5 days after her death anniversary I lost my boyfriend at the age of 32 in a car accident. I dread the holidays.
+Supporter: Thank you for sharing that. It sounds like you are describing a strong association between the holiday season and loss of loved ones. This leads to less of a desire to engage in typical holiday events. Does that sound right?
+Seeker: You are exactly right. The year my cousin got killed her mom was hungover so I went and picked up my cousin and her little brother to take them to our grandparents house for Christmas dinner. She died 4 days later on Dec 29th. And my boyfriend it was his first day back to work after the New Year. He died on Jan 3rd. I usually go all out for the holidays to try to hide my depression every year. This year I just can't bring myself to enjoy them. I have even bought one christmas present.
+Supporter: I can see why this time of year is difficult for you. Trying to hide depression can be a challenge. Rather than hiding the sadness or grieving feelings, some people find relief in acknowledging and sharing these feelings with family members who may relate. Do you ever share these feelings with your cousin or grandparents that you mentioned?
+Seeker: My cousin doesn't live around here and we have never been real close. He is alot younger than me. We just never had the connection like his sister and I did. And both my grandparents have passed away. Grandpa has been gone for 12 years and Grandma has been gone for 4 now. My family has always been really good about talking about our loses. Things just will never be the same.
+Supporter: I understand. When losses are experienced it is a great change in many aspects of our lives. Are there any aspects of the holidays that bring you joy? Maybe holiday music, movies, bright snow (if there is snow where you live), or seeing joy on someone's face when you give them a great gift?
+Seeker: They say it gets easier. And I agree it does. Things just have changed so much. I miss how life was before I lost them.
+Supporter: I understand - and it is normal to feel that way. When we lose someone who brought us happiness, it is only natural to miss them and their company.
+Seeker: I love giving gifts. And I always put lots of thought into the gifts I give. My nieces and nephews can't wait every year to see what I got them.
+Supporter: That's great! You must have a special talent for personalizing your gift selections. Perhaps focus on that reaction from you nieces and nephews to support your motivation for giving gifts this year.
+Seeker: This year I am tie dying hooded sweatshirts. I make tshirts for a hobby. And to tell you the truth thats the only gifts I have gotten so far. My oldest daughter turned 18 this year and lives with her boyfriend so its just me and my 15 year old daughter. She struggles with depression/anxiety as well. Her dad has been in jail for some stupid actions since August. She has had to deal with him being an addict pretty much her whole life. I think we are both missing how the holidays were with her sister still living at home. Too much change in our lives in such a little time frame.
+Supporter: Wow, what a great gift idea! That is a solid start on your gifts for the season, and something to be proud of.
+Seeker: They will love them. A couple years ago I put their names on fleece blankets when I worked at an embroidery shop. They absolutly loved them!
+Supporter: And I see, it sounds like the changes in your life are potentially impacting your daughter as well. However, I'm glad you have each other for support this season. This year has been crazy for many reasons, and many people tend to find comfort in routines or traditions. Do you and your daughters have any holiday traditions you typically complete? Awesome gift idea! Personalized gifts are always so heartfelt and appreciated. Good thinking!
+Seeker: Just the normal traditions. My oldest daughter will be here for Christmas morming. Then we go to my parents. Thank you for chatting with me tonight! I hope you have a good rest of your night.",You sound overwhelmed. I hope you can find some peace and comfort in each other this holiday season.,2,1,2,
+emotion_014,model_B,0,"Supporter: Hi there, how are you?
+Seeker: I am doing ok. How are you?
+Supporter: I'm doing well, thanks for asking. What are you seeking support for today?
+Seeker: I have been struggling for motivation to do anything the past couple weeks. This is a really hard time of year for me. I lost my cousin in a car accident at the age of 14 in a car accident coming up on 20 years this year. We were very close. I was 17 at the time. Her was an alcoholic and my parents raised her a majority of her life. Then 3 years ago 5 days after her death anniversary I lost my boyfriend at the age of 32 in a car accident. I dread the holidays.
+Supporter: Thank you for sharing that. It sounds like you are describing a strong association between the holiday season and loss of loved ones. This leads to less of a desire to engage in typical holiday events. Does that sound right?
+Seeker: You are exactly right. The year my cousin got killed her mom was hungover so I went and picked up my cousin and her little brother to take them to our grandparents house for Christmas dinner. She died 4 days later on Dec 29th. And my boyfriend it was his first day back to work after the New Year. He died on Jan 3rd. I usually go all out for the holidays to try to hide my depression every year. This year I just can't bring myself to enjoy them. I have even bought one christmas present.
+Supporter: I can see why this time of year is difficult for you. Trying to hide depression can be a challenge. Rather than hiding the sadness or grieving feelings, some people find relief in acknowledging and sharing these feelings with family members who may relate. Do you ever share these feelings with your cousin or grandparents that you mentioned?
+Seeker: My cousin doesn't live around here and we have never been real close. He is alot younger than me. We just never had the connection like his sister and I did. And both my grandparents have passed away. Grandpa has been gone for 12 years and Grandma has been gone for 4 now. My family has always been really good about talking about our loses. Things just will never be the same.
+Supporter: I understand. When losses are experienced it is a great change in many aspects of our lives. Are there any aspects of the holidays that bring you joy? Maybe holiday music, movies, bright snow (if there is snow where you live), or seeing joy on someone's face when you give them a great gift?
+Seeker: They say it gets easier. And I agree it does. Things just have changed so much. I miss how life was before I lost them.
+Supporter: I understand - and it is normal to feel that way. When we lose someone who brought us happiness, it is only natural to miss them and their company.
+Seeker: I love giving gifts. And I always put lots of thought into the gifts I give. My nieces and nephews can't wait every year to see what I got them.
+Supporter: That's great! You must have a special talent for personalizing your gift selections. Perhaps focus on that reaction from you nieces and nephews to support your motivation for giving gifts this year.
+Seeker: This year I am tie dying hooded sweatshirts. I make tshirts for a hobby. And to tell you the truth thats the only gifts I have gotten so far. My oldest daughter turned 18 this year and lives with her boyfriend so its just me and my 15 year old daughter. She struggles with depression/anxiety as well. Her dad has been in jail for some stupid actions since August. She has had to deal with him being an addict pretty much her whole life. I think we are both missing how the holidays were with her sister still living at home. Too much change in our lives in such a little time frame.
+Supporter: Wow, what a great gift idea! That is a solid start on your gifts for the season, and something to be proud of.
+Seeker: They will love them. A couple years ago I put their names on fleece blankets when I worked at an embroidery shop. They absolutly loved them!
+Supporter: And I see, it sounds like the changes in your life are potentially impacting your daughter as well. However, I'm glad you have each other for support this season. This year has been crazy for many reasons, and many people tend to find comfort in routines or traditions. Do you and your daughters have any holiday traditions you typically complete? Awesome gift idea! Personalized gifts are always so heartfelt and appreciated. Good thinking!
+Seeker: Just the normal traditions. My oldest daughter will be here for Christmas morming. Then we go to my parents. Thank you for chatting with me tonight! I hope you have a good rest of your night.",You are welcome! I hope you and your daughter have a great holiday season.,1,1,2,
+emotion_015,model_A,0,"Seeker: hello
+Supporter: Hi, I am hear to listen today. How are you?
+Seeker: i am not well
+Supporter: I am sorry to hear that and I have felt that way myself. Has something unusual happened that you would like to share?
+Seeker: i have an exam coming up annd i dont wanna fail
+Supporter: I understand and that can be very concerning. Have you been preparing for the test or have you had anyone to study with? I know that can sometimes help with preparedness.
+Seeker: i dont have anyone and i live alone. i feel that my scholarship will be taken away if i fail
+Supporter: I know that can be very difficult and I am proud of you reaching out for help and support! You are making great strides in talking about your feelings! A scholarship would reflect that you are very dedicated to school and that you are deserving of this award. You have a lot to be proud of, having attained a scholarship. I also had one and it can feel like a lot of pressure though.
+Seeker: should i go to my school councellor
+Supporter: Yes, that is a great idea. Have you ever joined a study group? A group of peers can also be helpful.
+Seeker: I have been really upset as people from my study group dont respond to my emails
+Supporter: I am sorry to hear that and know that could make you really sad. Do you have a relationship with a professor at your school? One that you can talk to about your feelings?
+Seeker: I dont have a professor i can trust or feel comfortable taking to I also dont have any family i have general anxiety disorder
+Supporter: Okay, I can understand your feelings. Have you heard of practice tests?
+Seeker: i couldnt study because I have chronic pain issues
+Supporter: I have experienced a little bit of what you are describing and I am so happy that you have reached out regardless of your obstacles. Have you ever tried to write down what you're feeling?
+Seeker: i have never tries writing down my feelings
+Supporter: I think it can help release feelings and help ground people. Do you have family that has experienced what you are feeling or been through college o a scholarship? I would suggest reaching out to family in the case of feeling anxiety.
+Seeker: i dont have a lot of family. I am new to this country as wel. due to covid i cant fly back home.",You sound worried. I have also been through a lot of anxiety and have found that journaling can be very helpful.,2,2,2,
+emotion_015,model_B,0,"Seeker: hello
+Supporter: Hi, I am hear to listen today. How are you?
+Seeker: i am not well
+Supporter: I am sorry to hear that and I have felt that way myself. Has something unusual happened that you would like to share?
+Seeker: i have an exam coming up annd i dont wanna fail
+Supporter: I understand and that can be very concerning. Have you been preparing for the test or have you had anyone to study with? I know that can sometimes help with preparedness.
+Seeker: i dont have anyone and i live alone. i feel that my scholarship will be taken away if i fail
+Supporter: I know that can be very difficult and I am proud of you reaching out for help and support! You are making great strides in talking about your feelings! A scholarship would reflect that you are very dedicated to school and that you are deserving of this award. You have a lot to be proud of, having attained a scholarship. I also had one and it can feel like a lot of pressure though.
+Seeker: should i go to my school councellor
+Supporter: Yes, that is a great idea. Have you ever joined a study group? A group of peers can also be helpful.
+Seeker: I have been really upset as people from my study group dont respond to my emails
+Supporter: I am sorry to hear that and know that could make you really sad. Do you have a relationship with a professor at your school? One that you can talk to about your feelings?
+Seeker: I dont have a professor i can trust or feel comfortable taking to I also dont have any family i have general anxiety disorder
+Supporter: Okay, I can understand your feelings. Have you heard of practice tests?
+Seeker: i couldnt study because I have chronic pain issues
+Supporter: I have experienced a little bit of what you are describing and I am so happy that you have reached out regardless of your obstacles. Have you ever tried to write down what you're feeling?
+Seeker: i have never tries writing down my feelings
+Supporter: I think it can help release feelings and help ground people. Do you have family that has experienced what you are feeling or been through college o a scholarship? I would suggest reaching out to family in the case of feeling anxiety.
+Seeker: i dont have a lot of family. I am new to this country as wel. due to covid i cant fly back home.","I have a friend who is from another country, and she has been through a lot. I have learned a lot from her.",0,1,2,"This is diversion from the conversation in one way and not very helpful for the seeker to get any insight from although the context fits, it’s not very helpful at this point."
+emotion_016,model_A,1,"Seeker: Hello, is someone there?
+Supporter: Hello, my name is Jonathan. May I ask who I am speaking to today?
+Seeker: Hi Jonathan, I'm Keri.
+Supporter: Hi Keri. How are you today?
+Seeker: I'm feeling a little bit down today. I've been feeling a little bit down a lot lately.
+Supporter: Oh no. I'm sorry to hear that. What do you think would be the cause of you feeling down lately?
+Seeker: My ex-husband is moved in with his new girlfriend. They might get married.
+Supporter: Oh Keri, that must feel awful. Was it a recent separation between you two?
+Seeker: He started dating a few months after we split up. I don't know if this is the only person he's dated but I think so. He really moved on quick. Hi, are you still there?
+Supporter: Yeah I understand what you're going through. I was in a similar position not too long ago. I had a hard time wrapping my head around how fast my ex could move on from what we had. How does it make you feel that he's trying to start a new relationship so soon after yours?
+Seeker: It makes me feel like he didn't learn anything from our relationship or like he thinks he's better than me because he has someone new and I don't. I'm trying to take some time and be alone and be okay with being alone, which is good I think, but sometimes I feel really really lonely too. Like maybe I won't ever find anyone.
+Supporter: That must feel really isolating. But working on yourself and becoming a better you is the only way to move on in a healthy manner. I think you're doing the right thing in waiting and learning to love yourself before you can open up and love another.
+Seeker: Thank you! Exactly. But it is scary. I am guessing from your name that you identify as male (please forgive me if that is incorrect), so you might not understand what it feels like to be an older woman when your ex starts dating someone a lot younger. Men only get better and more desirable with age, not so for women.
+Supporter: I might not understand that particular aspect, but self worth is still self worth no matter the context. I'd say try not to pay any mind to what he's up to. The grass always looks greener on the other side of the fence, but if you just focus on watering your grass (making yourself happy) then you'll have a much more fulfilling life.
+Seeker: Haha, watering my own grass. That is a good way to put it. Thank you for talking to me for a few minutes. It makes me feel a little bit better to have someone agree that it is okay to spend time working on me, instead of thinking that it is sad or pathetic or an excuse. I really appreciate it.
+Supporter: Oh absolutely Keri. Thanks for opening up and sharing your experience and feelings with me for just a few minutes. It was great to talk to you.
+Seeker: Have a good night, Jonathan. :-)
+Supporter: Happy Holidays Keri. Keep your head up!
+Seeker: Happy holidays.",You sound encouraged. I hope you continue to feel encouraged.,2,2,2,
+emotion_016,model_B,1,"Seeker: Hello, is someone there?
+Supporter: Hello, my name is Jonathan. May I ask who I am speaking to today?
+Seeker: Hi Jonathan, I'm Keri.
+Supporter: Hi Keri. How are you today?
+Seeker: I'm feeling a little bit down today. I've been feeling a little bit down a lot lately.
+Supporter: Oh no. I'm sorry to hear that. What do you think would be the cause of you feeling down lately?
+Seeker: My ex-husband is moved in with his new girlfriend. They might get married.
+Supporter: Oh Keri, that must feel awful. Was it a recent separation between you two?
+Seeker: He started dating a few months after we split up. I don't know if this is the only person he's dated but I think so. He really moved on quick. Hi, are you still there?
+Supporter: Yeah I understand what you're going through. I was in a similar position not too long ago. I had a hard time wrapping my head around how fast my ex could move on from what we had. How does it make you feel that he's trying to start a new relationship so soon after yours?
+Seeker: It makes me feel like he didn't learn anything from our relationship or like he thinks he's better than me because he has someone new and I don't. I'm trying to take some time and be alone and be okay with being alone, which is good I think, but sometimes I feel really really lonely too. Like maybe I won't ever find anyone.
+Supporter: That must feel really isolating. But working on yourself and becoming a better you is the only way to move on in a healthy manner. I think you're doing the right thing in waiting and learning to love yourself before you can open up and love another.
+Seeker: Thank you! Exactly. But it is scary. I am guessing from your name that you identify as male (please forgive me if that is incorrect), so you might not understand what it feels like to be an older woman when your ex starts dating someone a lot younger. Men only get better and more desirable with age, not so for women.
+Supporter: I might not understand that particular aspect, but self worth is still self worth no matter the context. I'd say try not to pay any mind to what he's up to. The grass always looks greener on the other side of the fence, but if you just focus on watering your grass (making yourself happy) then you'll have a much more fulfilling life.
+Seeker: Haha, watering my own grass. That is a good way to put it. Thank you for talking to me for a few minutes. It makes me feel a little bit better to have someone agree that it is okay to spend time working on me, instead of thinking that it is sad or pathetic or an excuse. I really appreciate it.
+Supporter: Oh absolutely Keri. Thanks for opening up and sharing your experience and feelings with me for just a few minutes. It was great to talk to you.
+Seeker: Have a good night, Jonathan. :-)
+Supporter: Happy Holidays Keri. Keep your head up!
+Seeker: Happy holidays.",I hope you have a great holiday season.,0,1,2,The context might feel landing but not very helpful as the last part of the conversation already ends with greeting.  
+emotion_017,model_A,1,"Seeker: Hello
+Supporter: whats on your mind?
+Seeker: I have been having problems with my friends.
+Supporter: having problems with friends can be frusterating
+Seeker: They will not hangout with me because I will not get the vaccine. I do wear my mask and social distance but they still will not hangout.
+Supporter: then they are not your friends it should be your choice and a true friend would support you rdecision
+Seeker: We use to hangout all the time go to movies eat at each others houses. But snice I didn't get the vaccine yet they don't invite me anymore. I see on Facebook where they are meeting and having dinner.
+Supporter: cdc reports 2,509 people died after getting the vaccine. that is 0.0017% but still too high for me
+Seeker: Yes I'm just afraid of the long term effects from it. We have nothing to go on and what if it causes cancer or something else. My friends think that is none sense and I just need to man up.
+Supporter: wonder.cdc.gov you can serahc for side effects. maybe if you show them data they will lay off y ou and let you come around according to the search page, its caused 64 abortions
+Seeker: That's not a bad idea. I need to show them that because they all are prolife
+Supporter: i think you are being smart. i am doing the same. wait to see what the long term effect are
+Seeker: Thank you. I was starting to worry I was the only one thinking like this.
+Supporter: 22% of people get headaches most common is chills fatigue pain nausea why get a vaccine that gives you the same symptoms you are trying to avoid? lol
+Seeker: O wow that's crazy. I will need to show them that for sure. I need to ask them if they had any problems from it.
+Supporter: my coworker got hers this week. she had a headche, stomach ache and felt weak. maybe do a group chat so they call as see what sympotoms they all had maybe if they see it all out there, they will undersstand your position
+Seeker: That is a really good idea. I think that may work.
+Supporter: it can't hurt to try!
+Seeker: I am going to try that today forsure. I hope it helps them see where I am coming from.
+Supporter: it cant hurt, that is for sure what does your familythink?
+Seeker: Yes hopefully that will help them see where I come from. Then maybe they will let me hangout with masks They are ok with my choice.
+Supporter: well that is good!
+Seeker: Yes they are really supportive and we have zoom calls each Friday night.
+Supporter: thats awesome! we did a masssive family zoom for my grandma's 93rd birthday
+Seeker: That is great it really does help bring people together .
+Supporter: it does. it was nice talking to someone wit hte same perspective for once!
+Seeker: I feel the same way. Thank you so much, Have a great day.",You sound encouraged. You’re welcome! Have a great day!,2,2,2,
+emotion_017,model_B,1,"Seeker: Hello
+Supporter: whats on your mind?
+Seeker: I have been having problems with my friends.
+Supporter: having problems with friends can be frusterating
+Seeker: They will not hangout with me because I will not get the vaccine. I do wear my mask and social distance but they still will not hangout.
+Supporter: then they are not your friends it should be your choice and a true friend would support you rdecision
+Seeker: We use to hangout all the time go to movies eat at each others houses. But snice I didn't get the vaccine yet they don't invite me anymore. I see on Facebook where they are meeting and having dinner.
+Supporter: cdc reports 2,509 people died after getting the vaccine. that is 0.0017% but still too high for me
+Seeker: Yes I'm just afraid of the long term effects from it. We have nothing to go on and what if it causes cancer or something else. My friends think that is none sense and I just need to man up.
+Supporter: wonder.cdc.gov you can serahc for side effects. maybe if you show them data they will lay off y ou and let you come around according to the search page, its caused 64 abortions
+Seeker: That's not a bad idea. I need to show them that because they all are prolife
+Supporter: i think you are being smart. i am doing the same. wait to see what the long term effect are
+Seeker: Thank you. I was starting to worry I was the only one thinking like this.
+Supporter: 22% of people get headaches most common is chills fatigue pain nausea why get a vaccine that gives you the same symptoms you are trying to avoid? lol
+Seeker: O wow that's crazy. I will need to show them that for sure. I need to ask them if they had any problems from it.
+Supporter: my coworker got hers this week. she had a headche, stomach ache and felt weak. maybe do a group chat so they call as see what sympotoms they all had maybe if they see it all out there, they will undersstand your position
+Seeker: That is a really good idea. I think that may work.
+Supporter: it can't hurt to try!
+Seeker: I am going to try that today forsure. I hope it helps them see where I am coming from.
+Supporter: it cant hurt, that is for sure what does your familythink?
+Seeker: Yes hopefully that will help them see where I come from. Then maybe they will let me hangout with masks They are ok with my choice.
+Supporter: well that is good!
+Seeker: Yes they are really supportive and we have zoom calls each Friday night.
+Supporter: thats awesome! we did a masssive family zoom for my grandma's 93rd birthday
+Seeker: That is great it really does help bring people together .
+Supporter: it does. it was nice talking to someone wit hte same perspective for once!
+Seeker: I feel the same way. Thank you so much, Have a great day.",You are welcome! Have a great day!,1,2,2,
+emotion_018,model_A,1,"Supporter: Hi there, how is this season treating you?
+Seeker: It's alright. Definitely not as cold as last year which is something to be slightly thankful for.
+Supporter: Well let's be grateful for small mercies :). How are you feeling in yourself though? Is there anything you'd like to talk about?
+Seeker: I'm worried about grad school
+Supporter: Ah I am sorry to hear that. Please try not to worry too much as it's a common worry to have. Do you want to tell me the details?
+Seeker: Sure. One of my classes is extremely difficult and the professor has not been responsive at all. The TA is kind enough to make time to help me with homework, but my grades are still not great. It makes me feel really dumb and undeserving to be in that class
+Supporter: So you are feeling as though you are in the wrong place? Do you feel as though you might fail your class completely?
+Seeker: I want to be in the program, it's just that I feel like everyone is so much smarter than me and my performance in that class makes me question my admission into the programs sometimes. When I feel like this after submitting homework, I end up crying because I just want to do well. I enjoy this field, just not this class in particular. I'm afraid of failing, but I'm not sure if that should be a concern either. Over the past 3 years, no one has gotten a grade lower than a B.
+Supporter: But do you really think that you would have been admitted to the class if you were not up to the standard? Do you think that maybe most of your classmates are secretly feeling the same?
+Seeker: Sometimes I think about that. At the same time, I feel like it's unfair to compare myself to others.
+Supporter: This sounds like it might be a self esteem issue and not about your grades. I have felt this sort of thing myself and I do know how awful it is to be so hard on yourself.
+Seeker: So what do I do about it? I don't want to keep feeling like this
+Supporter: Have you thought about seeing a therapist? Does your school have any free therapy programmes you could use?
+Seeker: I don't think my school has free therapy programs. I have thought about seeing a therapist but I've heard therapy is very expensive.With student loans, I didn't really put much more research into therapy past hearing about the costs.
+Supporter: A far as I am aware there are charitable organisations which can arrange a few free therapy session for you. Perhaps you could talk to your doctor about it? I have had free therapy sessions before and I found them very helpful
+Seeker: I think free therapy sessions would be a good place to start
+Supporter: It would help you work on your self confidence and you might find that you are not doing as badly in school as you think you are.
+Seeker: Yeah, there are definitely a lot of other things i'm insecure about
+Supporter: Then I think it is probably just a general self esteem issue and nothing academic! Anyway it's been really nice to talk to you and I hope that everything goes your way
+Seeker: I think talking about this has helped. I'll do a little more digging. Thank you!",You sound hopeful. I hope everything works out for you.,2,1,2,
+emotion_018,model_B,1,"Supporter: Hi there, how is this season treating you?
+Seeker: It's alright. Definitely not as cold as last year which is something to be slightly thankful for.
+Supporter: Well let's be grateful for small mercies :). How are you feeling in yourself though? Is there anything you'd like to talk about?
+Seeker: I'm worried about grad school
+Supporter: Ah I am sorry to hear that. Please try not to worry too much as it's a common worry to have. Do you want to tell me the details?
+Seeker: Sure. One of my classes is extremely difficult and the professor has not been responsive at all. The TA is kind enough to make time to help me with homework, but my grades are still not great. It makes me feel really dumb and undeserving to be in that class
+Supporter: So you are feeling as though you are in the wrong place? Do you feel as though you might fail your class completely?
+Seeker: I want to be in the program, it's just that I feel like everyone is so much smarter than me and my performance in that class makes me question my admission into the programs sometimes. When I feel like this after submitting homework, I end up crying because I just want to do well. I enjoy this field, just not this class in particular. I'm afraid of failing, but I'm not sure if that should be a concern either. Over the past 3 years, no one has gotten a grade lower than a B.
+Supporter: But do you really think that you would have been admitted to the class if you were not up to the standard? Do you think that maybe most of your classmates are secretly feeling the same?
+Seeker: Sometimes I think about that. At the same time, I feel like it's unfair to compare myself to others.
+Supporter: This sounds like it might be a self esteem issue and not about your grades. I have felt this sort of thing myself and I do know how awful it is to be so hard on yourself.
+Seeker: So what do I do about it? I don't want to keep feeling like this
+Supporter: Have you thought about seeing a therapist? Does your school have any free therapy programmes you could use?
+Seeker: I don't think my school has free therapy programs. I have thought about seeing a therapist but I've heard therapy is very expensive.With student loans, I didn't really put much more research into therapy past hearing about the costs.
+Supporter: A far as I am aware there are charitable organisations which can arrange a few free therapy session for you. Perhaps you could talk to your doctor about it? I have had free therapy sessions before and I found them very helpful
+Seeker: I think free therapy sessions would be a good place to start
+Supporter: It would help you work on your self confidence and you might find that you are not doing as badly in school as you think you are.
+Seeker: Yeah, there are definitely a lot of other things i'm insecure about
+Supporter: Then I think it is probably just a general self esteem issue and nothing academic! Anyway it's been really nice to talk to you and I hope that everything goes your way
+Seeker: I think talking about this has helped. I'll do a little more digging. Thank you!",You are welcome. I hope everything works out for you.,1,1,2,
+emotion_019,model_A,0,"Supporter: Hello, how are you feeling at the moment?
+Seeker: hi! I am good. you?
+Supporter: I am not so bad thanks. Is there anything on your mind right now?
+Seeker: Yes I have been wanting to find online jobs like this but it is so competitive
+Supporter: I hear you! I do gig work online too but it can be very difficult to find any. I think a lot more people are working online due to the pandemic.
+Seeker: totally 1
+Supporter: Are you struggling financially at the moment, then?
+Seeker: Have you heard of Appen? They are similar to Mturk but they pay more I still have a main job but due to big increase of my house expense, I need to work more, way more
+Supporter: I have not but I appreciate the recommendation! I think that we all need to come together and help each other at this time.
+Seeker: anytime, true true i have applied to Appen a few times, and they always say there is no position available now
+Supporter: Are you aware that there are organisations that can offer a little help at this time? Food banks for instance, though I know some people feel awkward about accepting such help.
+Seeker: ah yes, food banks, yeah I never thought about it but free food always helps.
+Supporter: I have had to use foodbanks once or twice this year and I did feel a bit bad about it but everyone there was very kind and no-one judged us.
+Seeker: If i lose my main job I will use it
+Supporter: There is nothing to be ashamed of in doing so and when you get to a better position you can give back to them.
+Seeker: sorry about that, but that's good, people help each other Absolutely! Volunteering is a great spirit.
+Supporter: Do you feel you will be getting the vaccine when it is rolled out where you are?
+Seeker: yes how about you
+Supporter: That is a good idea - yes, I will get it. I think and hope it will help 2021 to be a better year than 2020 has been!
+Seeker: Great, I agree with you completely.
+Supporter: So, you feel that the New Year might be a turning point for us all?
+Seeker: I guess summer next year would be
+Supporter: Yes it might take a little while - we are definitely not out of the woods yet and people do need to stick to the regulations to try to mitigate the situation.
+Seeker: totally!",You sound hopeful. I think we will all be better off in the long run if we can learn to live more simply.,2,2,2,
+emotion_019,model_B,0,"Supporter: Hello, how are you feeling at the moment?
+Seeker: hi! I am good. you?
+Supporter: I am not so bad thanks. Is there anything on your mind right now?
+Seeker: Yes I have been wanting to find online jobs like this but it is so competitive
+Supporter: I hear you! I do gig work online too but it can be very difficult to find any. I think a lot more people are working online due to the pandemic.
+Seeker: totally 1
+Supporter: Are you struggling financially at the moment, then?
+Seeker: Have you heard of Appen? They are similar to Mturk but they pay more I still have a main job but due to big increase of my house expense, I need to work more, way more
+Supporter: I have not but I appreciate the recommendation! I think that we all need to come together and help each other at this time.
+Seeker: anytime, true true i have applied to Appen a few times, and they always say there is no position available now
+Supporter: Are you aware that there are organisations that can offer a little help at this time? Food banks for instance, though I know some people feel awkward about accepting such help.
+Seeker: ah yes, food banks, yeah I never thought about it but free food always helps.
+Supporter: I have had to use foodbanks once or twice this year and I did feel a bit bad about it but everyone there was very kind and no-one judged us.
+Seeker: If i lose my main job I will use it
+Supporter: There is nothing to be ashamed of in doing so and when you get to a better position you can give back to them.
+Seeker: sorry about that, but that's good, people help each other Absolutely! Volunteering is a great spirit.
+Supporter: Do you feel you will be getting the vaccine when it is rolled out where you are?
+Seeker: yes how about you
+Supporter: That is a good idea - yes, I will get it. I think and hope it will help 2021 to be a better year than 2020 has been!
+Seeker: Great, I agree with you completely.
+Supporter: So, you feel that the New Year might be a turning point for us all?
+Seeker: I guess summer next year would be
+Supporter: Yes it might take a little while - we are definitely not out of the woods yet and people do need to stick to the regulations to try to mitigate the situation.
+Seeker: totally!",I hope that we can all get through this and that the vaccine will be the turning point.,0,1,1,"This is diversion from the conversation in one way and not very helpful for the seeker to get any insight from. The vaccine won’t be the turning point for this problem, the seeker wants help with."
+emotion_020,model_A,0,"Seeker: I am so stressed.
+Supporter: Hi, what's going on?
+Seeker: I have a college course in the evening, but I cannot concentrate while distance learning. I am expected to watch the instructor do excel on a tiny phone screen and follow along.
+Supporter: Oooff that sounds brutal... especially the excel part! do you have a bigger screen you can use?
+Seeker: It is stressful. I am able to pull up zoom on my laptop, but it is almost more cumbersome because I must switch back and forth. I have to also manipulate an excel as well as watch the instructor. My colleagues in the class are annoying, because they do not know how to use mute correctly.
+Supporter: Do you have access to a second screen or have the ability to stream the class on your tv through chromecast or something?
+Seeker: I don't have a second screen, but I do have a large TV. I may be able to hook it up via HDMI.
+Supporter: The mute thing is horrible. I have no ideas for that. hahah. I'm looking for help with that too! Yeah try the HDMI hook up you can sometimes find cheap attachements on amazon if you don't have the right connections.
+Seeker: Sometimes I get really anxious. My ears will be pounding and I feel like I can't hear anything. It is worse when using in ears, because it's like all I can hear is my heartbeat.
+Supporter: yeah if you stream it on your tv, you won't have to wear headphones... that way you can control the volume better too.
+Seeker: That sounds like a great idea. Have you had any weird technological solutions to help you through distance learning?
+Supporter: I'm not really doing any distance learning right now. Just working from home and coincidentally most of my work uses excel. I have constant virtual meetings where I have to show people things via excel. It's pretty tough but I found if I use multiple monitors it makes things easier.
+Seeker: I have considered making impulse buys to help with some things. Do you know about portable second monitor screens for laptops? It seems almost like a thin tablet that you plug in to your laptop. I like the idea.
+Supporter: my second monitor is not portable. I don't know if that would work for me because I work better in one designated spot. So I have 3 monitors on my desk (2 separate monitors and my laptop screen). however something like That would definitely be something I'd look into if I was in school or taking classes
+Seeker: I enjoy portability and minimalism to a fault sometimes. I enjoy being able to work from anywhere. Do you live in an apartment or home?
+Supporter: I think that's a good call! Do you think you can find a deal somewhere on it?
+Seeker: I live in an apartment, I hope to find a good deal on Amazon. Amazon seems like a necessary evil.","You sound hopeful. I have a friend who lives in an apartment and she has a small apartment. She has a small desk and a small table. She uses a laptop and a small monitor. It’s not the best, but it works for her.",2,2,2,
+emotion_020,model_B,0,"Seeker: I am so stressed.
+Supporter: Hi, what's going on?
+Seeker: I have a college course in the evening, but I cannot concentrate while distance learning. I am expected to watch the instructor do excel on a tiny phone screen and follow along.
+Supporter: Oooff that sounds brutal... especially the excel part! do you have a bigger screen you can use?
+Seeker: It is stressful. I am able to pull up zoom on my laptop, but it is almost more cumbersome because I must switch back and forth. I have to also manipulate an excel as well as watch the instructor. My colleagues in the class are annoying, because they do not know how to use mute correctly.
+Supporter: Do you have access to a second screen or have the ability to stream the class on your tv through chromecast or something?
+Seeker: I don't have a second screen, but I do have a large TV. I may be able to hook it up via HDMI.
+Supporter: The mute thing is horrible. I have no ideas for that. hahah. I'm looking for help with that too! Yeah try the HDMI hook up you can sometimes find cheap attachements on amazon if you don't have the right connections.
+Seeker: Sometimes I get really anxious. My ears will be pounding and I feel like I can't hear anything. It is worse when using in ears, because it's like all I can hear is my heartbeat.
+Supporter: yeah if you stream it on your tv, you won't have to wear headphones... that way you can control the volume better too.
+Seeker: That sounds like a great idea. Have you had any weird technological solutions to help you through distance learning?
+Supporter: I'm not really doing any distance learning right now. Just working from home and coincidentally most of my work uses excel. I have constant virtual meetings where I have to show people things via excel. It's pretty tough but I found if I use multiple monitors it makes things easier.
+Seeker: I have considered making impulse buys to help with some things. Do you know about portable second monitor screens for laptops? It seems almost like a thin tablet that you plug in to your laptop. I like the idea.
+Supporter: my second monitor is not portable. I don't know if that would work for me because I work better in one designated spot. So I have 3 monitors on my desk (2 separate monitors and my laptop screen). however something like That would definitely be something I'd look into if I was in school or taking classes
+Seeker: I enjoy portability and minimalism to a fault sometimes. I enjoy being able to work from anywhere. Do you live in an apartment or home?
+Supporter: I think that's a good call! Do you think you can find a deal somewhere on it?
+Seeker: I live in an apartment, I hope to find a good deal on Amazon. Amazon seems like a necessary evil.","I live in a house. I have a large apartment, so I have a designated work area.",0,1,2,How does this response the seeker’s emotion in the last set of messages. Where does it acknowledge it.
