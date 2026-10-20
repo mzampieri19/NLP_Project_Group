@@ -62,7 +62,7 @@ Seeker: I will eventually get the courage to, I know how people talk around here
 Supporter: Gossipy people are the worst. Just remind yourself that they all have skeletons in their closets too
 Seeker: great advice
 Supporter: Well anyway, I hope I have been able to offer your some useful advice. I wish you all of the very best in the future.
-Seeker: I think also the best thing to do is to talk to great people like you",I hope you can find some good people to talk to.,0,1,1,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good. 
+Seeker: I think also the best thing to do is to talk to great people like you",I hope you can find some good people to talk to.,0,1,1,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good.
 emotion_002,model_A,0,"Seeker: hi
 Supporter: Hello!
 Seeker: I'm dealing with a lot of frustration and anxiety.
@@ -136,7 +136,7 @@ Seeker: Definitely. Everyone is struggling. I am the one my team expects to help
 Supporter: (sorry was afk give me a second to catch up :)) I really feel that you have grounds for a formal complaint. Just her being incapable is bad enough but bullying too is unacceptable
 Seeker: You may be right. My company has an anonymous reporting system. I should learn a little more about how that works and see if that's an option. I'm not sure things could get much worse at this point. This could be my last ditch effort. That's good advice and you saying it directly to me makes me think I should lean into it. I can't just spin my wheels in misery much longer.
 Supporter: Anonymous reporting sounds like a good thing, as long as it's not being abused. This sounds like a very good time to use it though I hope I have been able to give you some good advice here!
-Seeker: Most definitely. I feel more confident now about the anonymous reporting. I'll gather some notes from my peers to ensure I have a viable complaint. That's so helpful. Thank you.",I hope that the anonymous reporting works for you.,0,2,2,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good. 
+Seeker: Most definitely. I feel more confident now about the anonymous reporting. I'll gather some notes from my peers to ensure I have a viable complaint. That's so helpful. Thank you.",I hope that the anonymous reporting works for you.,0,2,2,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good.
 emotion_004,model_A,1,"Supporter: Hope all is well
 Seeker: well, i'm losing my job in january so that is freaking me out
 Supporter: I can understand your feelings but I am sure there is a way out
@@ -706,7 +706,7 @@ Seeker: Haha, watering my own grass. That is a good way to put it. Thank you for
 Supporter: Oh absolutely Keri. Thanks for opening up and sharing your experience and feelings with me for just a few minutes. It was great to talk to you.
 Seeker: Have a good night, Jonathan. :-)
 Supporter: Happy Holidays Keri. Keep your head up!
-Seeker: Happy holidays.",I hope you have a great holiday season.,0,1,2,The context might feel landing but not very helpful as the last part of the conversation already ends with greeting.  
+Seeker: Happy holidays.",I hope you have a great holiday season.,0,1,2,The context might feel landing but not very helpful as the last part of the conversation already ends with greeting.
 emotion_017,model_A,1,"Seeker: Hello
 Supporter: whats on your mind?
 Seeker: I have been having problems with my friends.

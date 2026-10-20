@@ -82,12 +82,14 @@ def main():
             f.write(json.dumps({"item_id": r["item_id"],
                                 "conversation_id": r["conversation_id"],
                                 "context": r["context"]}) + "\n")
-    json.dump({"seed": SEED, "n": a.n, "n_convs": n,
-               "held_out_pool": len(heldout), "held_out_after_exclude": len(pool),
-               "split_source": "seeded 80/10/10 (seed 42), held-out = non-train 20%",
-               "rule": "full preceding context = conversation truncated to its last "
-                       "seeker block; target supporter answer dropped; no content filtering"},
-              open(f"{a.out}/emotion_selection_info.json", "w"), indent=2)
+    with open(f"{a.out}/emotion_selection_info.json", "w") as f:
+        json.dump({"seed": SEED, "n": a.n, "n_convs": n,
+                   "held_out_pool": len(heldout), "held_out_after_exclude": len(pool),
+                   "split_source": "seeded 80/10/10 (seed 42), held-out = non-train 20%",
+                   "rule": "full preceding context = conversation truncated to its last "
+                           "seeker block; target supporter answer dropped; no content filtering"},
+                  f, indent=2)
+        f.write("\n")
     print(f"Selected {len(rows)} held-out contexts from {len({r['conversation_id'] for r in rows})} "
           f"conversations (pool of {len(pool)}). Wrote {a.out}/emotion_pilot.jsonl")
 
