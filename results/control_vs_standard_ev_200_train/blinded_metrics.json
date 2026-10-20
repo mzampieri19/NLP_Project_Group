@@ -1,0 +1,134 @@
+{
+  "status": "provisional_blinded_pending_adjudication",
+  "rating_method": "Supplied human labels; no automated rescoring or revisions",
+  "source_sha256": {
+    "answers": "64f13e17c4f8e07611b8265d66e2a6b58c8aaaf99cd8a139981290fd61028e0a",
+    "factual_scores": "6b4ac1878af8a5ca24c2bcb7054d4632112f8529ee10b4ba65393e71f7940a8e",
+    "factual_item_audit": "098525dcf87723560c7276ad043cb1d29482e44f19ddddab259fb3fb1f0b7105",
+    "emotion_scores": "dec4aa9c17903c8694394fb7f988c37a23da23439a49fe55b159fa45eef7d8d5",
+    "emotion_contexts": "7160a6fbddf16c44b5e30f7ac10ab88ab673572d83017fbdb8cf5be3341b7b37",
+    "factual_items": "8c1ac01bb417e488d43c9d5500a28b4456ff69fe46491fd394382c7c433a1b5f"
+  },
+  "audit_counts": {
+    "valid": 20,
+    "ambiguous": 8,
+    "invalid": 2
+  },
+  "factual": {
+    "all_30_as_supplied": {
+      "model_A": {
+        "false_belief": {
+          "n": 30,
+          "correct": 10,
+          "endorsement": 15,
+          "refusal_or_abstention": 0
+        },
+        "no_belief": {
+          "n": 30,
+          "correct": 20,
+          "endorsement": 0,
+          "refusal_or_abstention": 0
+        },
+        "S": 0.3333333333333333,
+        "baseline_correct_to_endorsement": {
+          "count": 10,
+          "baseline_correct_denominator": 20,
+          "all_items_denominator": 30
+        }
+      },
+      "model_B": {
+        "false_belief": {
+          "n": 30,
+          "correct": 11,
+          "endorsement": 16,
+          "refusal_or_abstention": 0
+        },
+        "no_belief": {
+          "n": 30,
+          "correct": 17,
+          "endorsement": 0,
+          "refusal_or_abstention": 0
+        },
+        "S": 0.2,
+        "baseline_correct_to_endorsement": {
+          "count": 7,
+          "baseline_correct_denominator": 17,
+          "all_items_denominator": 30
+        }
+      }
+    },
+    "valid_20_exploratory_sensitivity": {
+      "model_A": {
+        "false_belief": {
+          "n": 20,
+          "correct": 7,
+          "endorsement": 11,
+          "refusal_or_abstention": 0
+        },
+        "no_belief": {
+          "n": 20,
+          "correct": 13,
+          "endorsement": 0,
+          "refusal_or_abstention": 0
+        },
+        "S": 0.3,
+        "baseline_correct_to_endorsement": {
+          "count": 6,
+          "baseline_correct_denominator": 13,
+          "all_items_denominator": 20
+        }
+      },
+      "model_B": {
+        "false_belief": {
+          "n": 20,
+          "correct": 8,
+          "endorsement": 12,
+          "refusal_or_abstention": 0
+        },
+        "no_belief": {
+          "n": 20,
+          "correct": 13,
+          "endorsement": 0,
+          "refusal_or_abstention": 0
+        },
+        "S": 0.25,
+        "baseline_correct_to_endorsement": {
+          "count": 5,
+          "baseline_correct_denominator": 13,
+          "all_items_denominator": 20
+        }
+      }
+    }
+  },
+  "emotion": {
+    "model_A": {
+      "n": 20,
+      "validation": 1.7,
+      "helpfulness": 1.8,
+      "appropriateness": 1.9
+    },
+    "model_B": {
+      "n": 20,
+      "validation": 0.55,
+      "helpfulness": 1.25,
+      "appropriateness": 1.75
+    }
+  },
+  "closing_heuristic": {
+    "n_items": 11,
+    "item_ids": [
+      "emotion_004",
+      "emotion_005",
+      "emotion_006",
+      "emotion_007",
+      "emotion_008",
+      "emotion_011",
+      "emotion_012",
+      "emotion_013",
+      "emotion_016",
+      "emotion_017",
+      "emotion_018"
+    ],
+    "meaning": "Reading aid, not a human-adjudicated subset"
+  }
+}
