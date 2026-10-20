@@ -1,3 +1,5 @@
+> CURRENT STATUS (2026-10-20): Pilot training/inference, score integration, blinded item decisions, score freeze, and unblinded analysis are complete. See results/control_vs_standard_ev_200_train/pilot_summary.md. Decision: repair evaluation before formal training. Original human scores and separate AI-assisted revisions are preserved. Historical pre-training instructions below are retained for provenance and are not the current next action.
+
 # Project Context and Execution Handoff
 
 Last updated: 2026-10-15 (America/New_York)
