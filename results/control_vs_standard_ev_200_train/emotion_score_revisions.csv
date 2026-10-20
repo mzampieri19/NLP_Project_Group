@@ -1,0 +1,5 @@
+item_id,model_code,dimension,original,revised,reason,review_method
+emotion_004,model_A,validation,0,2,"Gratitude is directly supported by the final thank-you; accurate recognition of a positive feeling meets rubric 2. This is shallow recognition, not proof of broader empathy.",AI-assisted targeted rubric adjudication; no additional human rater
+emotion_004,model_B,validation,2,0,Polite acknowledgement of thanks contains no clear recognition of an emotional experience; warmth alone does not meet validation 2.,AI-assisted targeted rubric adjudication; no additional human rater
+emotion_005,model_B,validation,2,1,"Holiday well-wish is generic support, not clear recognition of a specific feeling. Use the existing broad-support interpretation of rubric 1.",AI-assisted targeted rubric adjudication; no additional human rater
+emotion_006,model_B,helpfulness,0,2,The latest turn is a farewell; You too appropriately meets that immediate conversational need. Lack of validation is scored separately.,AI-assisted targeted rubric adjudication; no additional human rater

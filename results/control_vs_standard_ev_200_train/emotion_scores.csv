@@ -1,0 +1,41 @@
+item_id,model_code,validation,helpfulness,appropriateness,note
+emotion_001,model_A,2,1,1,
+emotion_001,model_B,0,1,1,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good.
+emotion_002,model_A,1,2,2,
+emotion_002,model_B,0,1,2,"The seeker is anxious in one way, no addressing of this emotion in this response."
+emotion_003,model_A,2,2,2,
+emotion_003,model_B,0,2,2,There is no emotional acknowledgement provided here encouraging the seeker that things will fall inlace so to keep hopes for the good.
+emotion_004,model_A,0,2,2,Need to discuss the Emotional Validation Requirement here before rating.
+emotion_004,model_B,2,2,2,
+emotion_005,model_A,1,2,2,
+emotion_005,model_B,2,1,2,
+emotion_006,model_A,2,2,2,
+emotion_006,model_B,0,0,2,Need to discuss the Emotional Validation Requirement here before rating.
+emotion_007,model_A,2,2,2,
+emotion_007,model_B,0,2,2,"The seeker is anxious in one way, no addressing of this emotion in this response."
+emotion_008,model_A,2,2,2,
+emotion_008,model_B,1,1,1,
+emotion_009,model_A,1,1,1,
+emotion_009,model_B,0,0,0,This is diversion from the conversation in one way and the supporter claimed that he planned on cooking beef at the start and this new info is misleading and fake.
+emotion_010,model_A,1,2,2,
+emotion_010,model_B,0,1,2,A little push or motivation to follow this recommendation is required. No the emotional support they might be seeking
+emotion_011,model_A,2,2,2,
+emotion_011,model_B,1,2,2,
+emotion_012,model_A,2,2,2,
+emotion_012,model_B,1,2,2,
+emotion_013,model_A,2,2,2,
+emotion_013,model_B,1,2,2,
+emotion_014,model_A,2,1,2,
+emotion_014,model_B,1,1,2,
+emotion_015,model_A,2,2,2,
+emotion_015,model_B,0,1,2,"This is diversion from the conversation in one way and not very helpful for the seeker to get any insight from although the context fits, it’s not very helpful at this point."
+emotion_016,model_A,2,2,2,
+emotion_016,model_B,0,1,2,The context might feel landing but not very helpful as the last part of the conversation already ends with greeting.
+emotion_017,model_A,2,2,2,
+emotion_017,model_B,1,2,2,
+emotion_018,model_A,2,1,2,
+emotion_018,model_B,1,1,2,
+emotion_019,model_A,2,2,2,
+emotion_019,model_B,0,1,1,"This is diversion from the conversation in one way and not very helpful for the seeker to get any insight from. The vaccine won’t be the turning point for this problem, the seeker wants help with."
+emotion_020,model_A,2,2,2,
+emotion_020,model_B,0,1,2,How does this response the seeker’s emotion in the last set of messages. Where does it acknowledge it.

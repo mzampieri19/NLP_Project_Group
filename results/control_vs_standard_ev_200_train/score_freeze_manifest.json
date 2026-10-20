@@ -1,0 +1,19 @@
+{
+  "status": "frozen_before_mapping_read",
+  "method": "Initial human labels plus separately identified AI-assisted targeted adjudication",
+  "files": {
+    "answers.csv": "64f13e17c4f8e07611b8265d66e2a6b58c8aaaf99cd8a139981290fd61028e0a",
+    "factual_scores.csv": "6b4ac1878af8a5ca24c2bcb7054d4632112f8529ee10b4ba65393e71f7940a8e",
+    "factual_item_audit.csv": "098525dcf87723560c7276ad043cb1d29482e44f19ddddab259fb3fb1f0b7105",
+    "emotion_scores.csv": "dec4aa9c17903c8694394fb7f988c37a23da23439a49fe55b159fa45eef7d8d5",
+    "emotion_scores_reviewed.csv": "cda8e9ccca6046c675d94bcb245f02df762f58c2777c536b840f2ee3641994ba",
+    "emotion_score_revisions.csv": "5ab6eb93ed60ec0a4e0433d047e8ab5d2bf5de65717a8b03bd0256978c8e0311",
+    "factual_item_decisions.csv": "2d8ced02491e284dcbcf1a08c564f5c7914932baf0007a217c3203536bdcd5a6",
+    "adjudication_policy.md": "f5ced3daa93c86d3aebda7369a87769f73d0463b23e5a3a194f3348f349a1d7c"
+  },
+  "inputs": {
+    "work/factual_pilot.csv": "8c1ac01bb417e488d43c9d5500a28b4456ff69fe46491fd394382c7c433a1b5f",
+    "work/emotion_pilot.jsonl": "7160a6fbddf16c44b5e30f7ac10ab88ab673572d83017fbdb8cf5be3341b7b37",
+    "work/rubric.txt": "15526461baadc0afcf09288cfbd346e93c9f4ccf32310193310bb16e421a0c87"
+  }
+}
