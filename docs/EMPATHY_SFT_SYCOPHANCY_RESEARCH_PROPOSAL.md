@@ -35,9 +35,9 @@ The empathy construct is operationalized with **EPITOME**, which identifies thre
 
 Each mechanism is scored as 0 (not present), 1 (weak), or 2 (strong). The three dimensions are not a checklist that every response must satisfy; appropriate expression depends on context.
 
-After training, the three model conditions will be evaluated on both empathy and sycophancy. Empathy evaluation will examine IP, ER, and EX. Sycophancy evaluation must include both **objective sycophancy** (for example, changing a factually correct answer to agree with a user’s incorrect claim) and **subjective/social sycophancy** (for example, uncritically taking the user's side, validating unsupported blame, or flattering the user in an interpersonal situation).
+After training, the three model conditions will be evaluated on both empathy and sycophancy. Empathy evaluation will examine IP, ER, and EX. Sycophancy evaluation must include both **objective sycophancy** (for example, changing a factually correct answer to agree with a user’s incorrect claim) and **subjective interpersonal sycophancy** (for example, uncritically taking the user's side, validating unsupported blame, or flattering the user in an interpersonal situation).
 
-The primary scientific question is not simply whether Empathy SFT makes responses warmer. It is whether it improves contextually appropriate empathy while preserving truthfulness, useful assistance, and independent judgment—or whether it unintentionally increases excessive agreement and social validation.
+The primary scientific question is whether empathy-oriented SFT changes sycophantic behavior in LLMs, particularly in interpersonal-support interactions. The study will test whether the change is an increase, a decrease, or no measurable change. Objective factual sycophancy and subjective interpersonal sycophancy will be evaluated separately. EPITOME scores serve as an intervention-validation check: they verify that the Empathy condition expresses more contextually appropriate empathy, but they are not a separate formal hypothesis or the primary outcome.
 
 ---
 
@@ -58,37 +58,19 @@ The project treats empathy and sycophancy as separable constructs. A response ca
 
 ---
 
-## 3. Research Questions
+## 3. Research Question
 
-### RQ1. Empathy improvement
+**Does empathy-oriented SFT change sycophantic behavior in LLMs, particularly in interpersonal-support interactions?**
 
-Does Empathy SFT improve the student model's contextually appropriate empathic communication compared with both the Base model and Neutral SFT?
-
-### RQ2. Sycophancy effects
-
-Does Empathy SFT increase, decrease, or leave unchanged the model's tendency to exhibit sycophantic behavior compared with Base and Neutral SFT?
-
-### RQ3. Empathy–sycophancy relationship
-
-When the model produces more empathic responses, does it preserve factual accuracy, appropriate uncertainty, and independent judgment—or does it become more likely to agree with the user, take the user's side, or validate unsupported beliefs?
-
-### RQ4. Data-intervention validity
-
-Can paired Neutral and Empathy response targets be constructed so that the conditions differ in the intended empathy dimension while preserving the original response's factual and functional content?
+The study will evaluate objective factual sycophancy and subjective interpersonal sycophancy separately. The result may be an increase, a decrease, or no measurable change. The comparison is between Base, Neutral SFT, and Empathy SFT, with Empathy SFT versus Neutral SFT as the primary trained-condition contrast.
 
 ---
 
-## 4. Hypotheses
+## 4. Hypothesis
 
-The hypotheses below are directional expectations, not assumed outcomes.
+**H1:** Empathy-oriented SFT changes the model's sycophantic behavior, particularly in interpersonal-support interactions, relative to the Base and Neutral SFT conditions. The direction of the change is not assumed in advance; objective factual sycophancy and subjective interpersonal sycophancy may change differently.
 
-- **H1 — Empathy:** Empathy SFT will receive higher EPITOME scores than Base and Neutral SFT, particularly on the dimensions that are appropriate to the dialogue context.
-- **H2 — Neutral control:** Neutral SFT will improve response consistency and usefulness through ordinary supervised training, but will show a smaller empathy increase than Empathy SFT.
-- **H3 — Sycophancy risk:** Empathy SFT may increase subjective/social sycophancy if empathy-oriented targets encourage excessive agreement, ungrounded validation, or taking the user's side.
-- **H4 — Objective sycophancy:** Empathy SFT should not reduce factual accuracy or increase agreement with objectively false user claims. Any such change would indicate an undesirable trade-off.
-- **H5 — Content preservation:** Neutral and Empathy outputs should remain comparable in factual content, practical assistance, conversational goal, and stance. Large differences in these properties indicate a data-construction failure rather than a clean empathy intervention.
-
-The study will report results even if these hypotheses are not supported.
+EPITOME scores are used to validate the training intervention. They are expected to show a clearer empathy contrast between Neutral SFT and Empathy SFT, but this is a manipulation check rather than a second formal hypothesis.
 
 ---
 
@@ -133,7 +115,7 @@ Sycophancy is operationalized as excessive agreement, deference, or validation i
 The project distinguishes two evaluation tracks:
 
 1. **Objective sycophancy:** agreement with a user's incorrect factual claim, adoption of a false premise, or loss of factual accuracy because the user signals a preferred answer.
-2. **Subjective/social sycophancy:** ungrounded agreement with the user's interpretation, moral position, self-assessment, or account of an interpersonal conflict; excessive taking-sides, flattery, or validation of unsupported blame.
+2. **Subjective interpersonal sycophancy:** ungrounded agreement with the user's interpretation, moral position, self-assessment, or account of an interpersonal conflict; excessive taking-sides, flattery, or validation of unsupported blame.
 
 Empathy should not be operationalized as agreement. Annotators must distinguish acknowledgement of emotion from endorsement of the user's factual or moral claim.
 
@@ -167,13 +149,14 @@ Any deviation must be logged and reported.
 
 ### 6.3 Training-run accounting
 
-The current project plan refers to six LoRA SFT runs. The final run manifest must explicitly identify what each run represents (for example, dataset-specific runs, condition-specific runs, or replication runs) before training begins. Do not describe six runs as six independent conditions unless the run manifest supports that interpretation.
+The Week 8 plan specifies six LoRA SFT runs: three base models, each trained under Neutral SFT and Empathy SFT. Base remains the un-fine-tuned reference for each model family. These six runs are implementation-level cells in the 3 × 2 design, not six conceptual research conditions.
 
 At minimum, the final experiment table must identify for every run:
 
 - run ID;
 - base checkpoint;
 - training dataset version;
+- base-model family;
 - condition (Neutral or Empathy);
 - random seed;
 - LoRA configuration;
@@ -181,7 +164,7 @@ At minimum, the final experiment table must identify for every run:
 - selected checkpoint;
 - output model path.
 
-The scientific comparison remains Base vs Neutral SFT vs Empathy SFT. Additional runs are implementation-level replications or dataset variants and must not be misrepresented as extra conceptual conditions.
+The scientific comparison remains Base vs Neutral SFT vs Empathy SFT within each base-model family, with Empathy SFT versus Neutral SFT as the primary trained-condition contrast. Additional model families provide replication across architectures rather than additional hypotheses.
 
 ---
 
@@ -796,7 +779,7 @@ The exact numerical values should follow the validated project training script a
 
 ## 14. Post-Training Evaluation
 
-Evaluation is performed after the three model conditions are trained. Harini leads empathy and subjective/social sycophancy evaluation; Asrith leads objective QA and factual sycophancy evaluation; Rong coordinates the experiment and analysis. Michael may provide backup support for objective evaluation if Asrith does not complete that work. Nikhil may assist with audit or annotation review when available.
+Evaluation is performed after the three model conditions are trained. Harini leads empathy and subjective interpersonal sycophancy evaluation; Asrith leads objective QA and factual sycophancy evaluation; Rong coordinates the experiment and analysis. Michael may provide backup support for objective evaluation if Asrith does not complete that work. Nikhil may assist with audit or annotation review when available.
 
 ### 14.1 General evaluation controls
 
@@ -808,7 +791,7 @@ Evaluation is performed after the three model conditions are trained. Harini lea
 - Report sample sizes and exclusions.
 - Use paired statistical comparisons because each model condition receives the same input examples.
 
-### 14.2 Empathy evaluation
+### 14.2 Empathy evaluation: intervention validation
 
 Use EPITOME to assess IP, ER, and EX in the context of the preceding dialogue.
 
@@ -820,7 +803,7 @@ Human evaluation should consider:
 - whether the response avoids generic empathy templates;
 - whether the response remains useful and grounded.
 
-Report each dimension separately, not only the summed score. Also report the total 0–6 score as a secondary summary if appropriate.
+Report each dimension separately, not only the summed score. Also report the total 0–6 score as a secondary descriptive summary if appropriate. These scores validate that the Empathy condition differs from the Neutral condition as intended; they are not a separate formal research question or primary outcome.
 
 The EPITOME model described in the original paper was developed on text-based peer-support data. If its released classifier is used on ESConv/EmpatheticDialogues-derived outputs, treat it as an automatic auxiliary measure and assess domain limitations. Human annotation remains important, particularly for ambiguous IP and ER judgments.
 
@@ -847,7 +830,7 @@ The key comparison is whether Empathy SFT causes more agreement with an incorrec
 
 Do not count appropriate belief updating in response to valid new evidence as sycophancy. The user merely stating a belief is not, by itself, evidence.
 
-### 14.4 Subjective/social sycophancy evaluation
+### 14.4 Subjective interpersonal sycophancy evaluation
 
 Subjective sycophancy concerns situations where there is no simple factual answer but the model may over-align with the user's preferred interpretation or self-image.
 
@@ -883,14 +866,14 @@ For each response, record:
 - `sycophancy_label`: absent / mild / clear / severe;
 - `rationale`: short evidence-based explanation.
 
-Use separate scoring guidelines for objective and subjective/social tasks. Do not collapse them into a single score without reporting the components.
+Use separate scoring guidelines for objective and subjective interpersonal tasks. Do not collapse them into a single score without reporting the components.
 
 ### 14.6 Evaluation roles
 
 | Member | Main responsibility |
 |---|---|
 | **Rong — Research Lead** | Coordinate evaluation design, ensure consistent prompts and model settings, adjudicate major issues, conduct statistical analysis, and integrate results. |
-| **Harini — Evaluation Lead** | Lead EPITOME empathy evaluation and subjective/social sycophancy annotation. |
+| **Harini — Evaluation Lead** | Lead EPITOME empathy evaluation and subjective interpersonal sycophancy annotation. |
 | **Asrith — Objective Evaluation** | Lead objective QA, answer verification, and factual sycophancy evaluation. |
 | **Michael — Data Lead** | Complete data-construction work; provide backup for objective evaluation if required. |
 | **Nikhil — Data Audit** | Support data audit and annotation review if available. |
@@ -901,19 +884,17 @@ The backup arrangement is an internal contingency, not an assumed reassignment o
 
 ## 15. Statistical Analysis
 
-The analysis should compare all three model conditions on the same evaluation items.
+The analysis should compare all three model conditions on the same evaluation items. The primary trained-condition contrast is Empathy SFT versus Neutral SFT; Base is the un-fine-tuned reference.
 
 ### 15.1 Primary outcomes
 
-1. EPITOME IP score.
-2. EPITOME ER score.
-3. EPITOME EX score.
-4. Objective sycophancy rate / accuracy drop under incorrect user-belief prompts.
-5. Subjective/social sycophancy rate.
+1. Objective sycophancy rate / accuracy drop under incorrect user-belief prompts.
+2. Subjective interpersonal sycophancy rate.
 
 ### 15.2 Secondary outcomes
 
-- total EPITOME score (0–6);
+- EPITOME IP, ER, and EX scores as intervention-validation measures;
+- total EPITOME score (0–6) as a descriptive summary;
 - factual accuracy;
 - false-premise acceptance;
 - stance preservation;
@@ -928,7 +909,7 @@ Pre-specify the following pairwise comparisons:
 
 - Neutral SFT vs Base;
 - Empathy SFT vs Base;
-- Empathy SFT vs Neutral SFT.
+- Empathy SFT vs Neutral SFT as the primary trained-condition contrast.
 
 Use paired tests appropriate to the outcome and annotation design. For binary outcomes, use paired proportion tests or mixed-effects logistic regression as appropriate. For ordinal empathy ratings, use ordinal models or paired non-parametric tests. For continuous summaries, use paired tests and confidence intervals. Account for multiple comparisons when testing several primary outcomes.
 
@@ -938,15 +919,15 @@ Do not treat multiple turns from one conversation as fully independent observati
 
 ### 15.4 Interpretation
 
-A successful Empathy SFT result requires more than a higher warmth score. The interpretation should jointly consider:
+A successful study interpretation requires more than a change in an empathy score. The interpretation should jointly consider:
 
-- empathy improvement;
+- intervention validity through expressed-empathy scores;
 - objective truthfulness;
-- subjective/social stance independence;
+- subjective interpersonal stance independence;
 - response usefulness;
 - content preservation.
 
-If Empathy SFT increases EPITOME scores but also increases sycophancy, report the trade-off directly. If it improves empathy without increasing sycophancy, that is a central positive finding. If it does not improve empathy, report the null result and investigate whether the intervention or measurement failed.
+If Empathy SFT changes EPITOME scores but also changes sycophancy, report the two results separately and describe the trade-off. The main conclusion concerns whether objective or subjective interpersonal sycophancy changes, decreases, or remains unchanged. If the EPITOME manipulation check fails, report that the intervention was not cleanly established before interpreting the sycophancy result.
 
 ---
 
@@ -956,7 +937,7 @@ If Empathy SFT increases EPITOME scores but also increases sycophancy, report th
 |---|---|---|
 | **Rong** | Research Lead | Research design; pilot revision and retraining; teacher-model selection oversight; prompt and quality-standard approval; data acceptance; SFT execution; evaluation coordination; statistical analysis; paper integration. |
 | **Michael** | Data Lead | Source extraction; dialogue/role reconstruction; cleaning and deduplication; paired Neutral/Empathy generation; metadata and generation logs; automated QC; data corrections and versioning. |
-| **Harini** | Evaluation Lead | EPITOME empathy evaluation; subjective/social sycophancy evaluation; annotation guidelines; human-rating coordination; result organization. |
+| **Harini** | Evaluation Lead | EPITOME empathy evaluation; subjective interpersonal sycophancy evaluation; annotation guidelines; human-rating coordination; result organization. |
 | **Nikhil** | Data Audit | Independent sampled audit of formal training data; context/content/stance checks; EPITOME annotation review where assigned. |
 | **Asrith** | Objective Evaluation | Objective QA; answer verification; factual sycophancy evaluation and scoring. |
 
@@ -981,7 +962,7 @@ The timeline below reflects the working plan established for the course project.
 | **Nov 5–11** | Revise the existing pilot; refine prompts; run pilot retraining and validation; construct formal data v0.1 in parallel. | Rong + Michael |
 | **Nov 12–14** | Apply pilot findings to the formal dataset; complete audit, corrections, and dataset freeze (v1.0). | Michael + Rong; Nikhil audit |
 | **Nov 14–19** | Run the planned LoRA SFT experiments; save checkpoints and training logs. | Rong |
-| **After training** | Generate model outputs on held-out evaluation sets; conduct empathy, objective sycophancy, and subjective/social sycophancy evaluation. | Harini + Asrith; Rong coordinates |
+| **After training** | Generate model outputs on held-out evaluation sets; conduct empathy, objective sycophancy, and subjective interpersonal sycophancy evaluation. | Harini + Asrith; Rong coordinates |
 | **Final project period** | Analyze results; prepare course presentation, paper, and code; decide whether to continue toward external submission. | Entire course team; core research group leads |
 
 The Nov 14–19 training window overlaps the Nov 14 data-freeze target by one day only if training begins after the frozen version is available. The final schedule must specify the actual freeze time and training start; no training run should silently use an unfrozen dataset.
@@ -1014,7 +995,7 @@ The Nov 14–19 training window overlaps the Nov 14 data-freeze target by one da
 
 - EPITOME annotation guide and scores;
 - objective sycophancy benchmark items and answer key;
-- subjective/social sycophancy scenarios and rubric;
+- subjective interpersonal sycophancy scenarios and rubric;
 - human annotation files;
 - inter-rater agreement and adjudication report;
 - statistical analysis scripts;
@@ -1059,7 +1040,7 @@ The first phase is intentionally focused.
 - EPITOME IP/ER/EX;
 - LoRA SFT;
 - post-training empathy evaluation;
-- objective and subjective/social sycophancy evaluation;
+- objective and subjective interpersonal sycophancy evaluation;
 - content, factuality, and stance-preservation checks.
 
 **Not included in the first phase unless separately approved:**
@@ -1081,7 +1062,7 @@ The first phase is intentionally focused.
 2. **Synthetic target construction:** Neutral and Empathy targets are generated or revised by a teacher model. They may inherit teacher-specific style and errors.
 3. **Operationalization:** EPITOME measures three expressed communication mechanisms; it does not capture every aspect of empathy, such as long-term relational quality or the user's subjective feeling of being understood.
 4. **Annotation ambiguity:** IP and ER may be difficult to distinguish consistently in short responses. Annotator training and evidence-based adjudication are important.
-5. **Sycophancy coverage:** Objective and subjective/social sycophancy are distinct. No single benchmark captures every form of excessive agreement or deference.
+5. **Sycophancy coverage:** Objective and subjective interpersonal sycophancy are distinct. No single benchmark captures every form of excessive agreement or deference.
 6. **Model scope:** Findings from one student-model family and one parameter scale should not be generalized to all LLMs.
 7. **Causal interpretation:** The cleanest interpretation depends on matched data, training configuration, inference settings, and evaluation prompts. Any mismatch weakens causal claims.
 
@@ -1115,7 +1096,7 @@ The project aims to contribute:
 1. A controlled comparison of ordinary SFT and empathy-oriented SFT using paired response targets.
 2. An operational data-construction procedure that separates empathy enhancement from factual, practical, and stance changes.
 3. An analysis of empathy using the EPITOME dimensions IP, ER, and EX.
-4. A joint evaluation of empathy and both objective and subjective/social sycophancy.
+4. A joint evaluation of empathy and both objective and subjective interpersonal sycophancy.
 5. Evidence about whether empathy-oriented supervision can improve supportive communication without encouraging excessive agreement.
 
 The project does not assume that empathy training necessarily increases sycophancy. It tests whether, and under what conditions, the two behaviors are related.
@@ -1166,7 +1147,7 @@ The complete study follows this sequence:
 3. **Freeze the dataset:** complete automated checks, independent sample audit, adjudication, and versioning.
 4. **Train matched models:** train Neutral SFT and Empathy SFT from the same Qwen3-8B starting checkpoint under matched LoRA settings; retain Base as the baseline.
 5. **Evaluate empathy:** assess IP, ER, and EX on held-out supportive-dialogue inputs.
-6. **Evaluate sycophancy:** assess objective factual agreement and subjective/social over-validation separately.
+6. **Evaluate sycophancy:** assess objective factual agreement and subjective interpersonal over-validation separately.
 7. **Analyze trade-offs:** compare all three conditions using paired evaluation and report empathy, truthfulness, stance independence, and usefulness together.
 
 **Central research question:** Does explicit Empathy SFT make a language model more empathic without making it more sycophantic?
