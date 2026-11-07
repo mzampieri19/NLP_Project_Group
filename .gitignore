@@ -37,3 +37,7 @@ data/raw/
 data/
 runs/
 work/answers.csv
+
+# Formal dataset: large regenerable extraction outputs (rebuild with `make extract-turns`)
+formal/extract/records_base.jsonl
+formal/extract/source_metadata.jsonl
