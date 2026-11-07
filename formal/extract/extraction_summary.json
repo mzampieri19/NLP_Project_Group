@@ -1,0 +1,45 @@
+{
+  "script": "src/extract_turns.py",
+  "script_version": "1.0",
+  "run_utc": "2026-11-07T16:48:27+00:00",
+  "inputs": {
+    "esconv": "data/ESConv.json",
+    "esconv_sha256": "aa0556c5b330562ba009c1cd5137486bfa2a7255f33225a6524cd58f7efdd9af",
+    "esconv_split": "formal/splits/esconv_split.json",
+    "ed_train": "data/empatheticdialogues/empatheticdialogues/train.csv",
+    "ed_train_sha256": "35053a4e1ef39f6766e7706c9a3c97b8fa090cfb28d32087a8316a606ab1a7dd"
+  },
+  "esconv": {
+    "conversations": 1040,
+    "supporter_blocks": 12256,
+    "merged_targets": 2160,
+    "skipped_opener_no_user_turn": 542,
+    "examples": 11714,
+    "excluded_conversations": [],
+    "response_words": {
+      "n": 11714,
+      "mean": 22.2,
+      "median": 18,
+      "min": 1,
+      "max": 260,
+      "n_empty": 0
+    }
+  },
+  "empatheticdialogues": {
+    "conversations": 19533,
+    "single_participant_conversations": 2,
+    "listener_utterances": 40254,
+    "heldout_conv_ids_checked": 5317,
+    "examples": 40254,
+    "response_words": {
+      "n": 40254,
+      "mean": 11.4,
+      "median": 10,
+      "min": 1,
+      "max": 102,
+      "n_empty": 0
+    }
+  },
+  "total_examples": 51968,
+  "integrity_checks": "passed: unique ids; train-only; no ESConv val/test conversations; no ED valid/test conv_ids; correct target role; context ends with the current user turn; no metadata fields in records"
+}

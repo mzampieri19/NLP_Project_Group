@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -53,6 +53,21 @@ finalize-pairs:
 
 process: # selects pairs, generates new sets, checks pairs
 	make select-pairs generate-pairs-10 check-pairs finalize-pairs
+
+### Formal dataset (Week 9+)
+
+ED_URL := https://dl.fbaipublicfiles.com/parlai/empatheticdialogues/empatheticdialogues.tar.gz
+ED_DIR := data/empatheticdialogues/empatheticdialogues
+
+fetch-ed: ## Download the official EmpatheticDialogues release into data/empatheticdialogues/
+	mkdir -p data/empatheticdialogues
+	test -f $(ED_DIR)/train.csv || (curl -sSfL -o data/empatheticdialogues/empatheticdialogues.tar.gz $(ED_URL) && tar -xzf data/empatheticdialogues/empatheticdialogues.tar.gz -C data/empatheticdialogues)
+
+esconv-split: ## Freeze the ESConv 80/10/10 project split (seed 42, same as the pilot)
+	python3 src/make_splits.py --esconv data/ESConv.json --out formal/splits/esconv_split.json
+
+extract-turns: fetch-ed ## Step 1: extract all train supporter/listener turns into formal/extract/
+	python3 src/extract_turns.py --esconv data/ESConv.json --esconv_split formal/splits/esconv_split.json --ed_dir $(ED_DIR) --out formal/extract
 
 docker-build: ## Build the dev environment image
 	docker build -f docker/Dockerfile -t nlp-project-group .
