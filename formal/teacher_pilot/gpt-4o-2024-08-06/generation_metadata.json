@@ -1,0 +1,33 @@
+{
+  "teacher_id": "gpt-4o-2024-08-06",
+  "provider": "OpenAI",
+  "api": "responses",
+  "api_model_id": "gpt-4o-2024-08-06",
+  "displayed_model_name": "GPT-4o (2024-08-06 snapshot)",
+  "model_names_returned_by_api": [
+    "gpt-4o-2024-08-06"
+  ],
+  "generation_settings_both_conditions": {
+    "temperature": 0,
+    "top_p": 1,
+    "max_output_tokens": 1000,
+    "seed": "not exposed",
+    "structured_output": "json_schema (strict)"
+  },
+  "prompt_version": "v2.0",
+  "prompt_hash": "704a6d5f1041",
+  "prompt_dir": "formal/prompts/v2.0",
+  "first_call_utc": "2026-11-07T17:36:40+00:00",
+  "last_call_utc": "2026-11-07T17:37:03+00:00",
+  "dry_run": false,
+  "n_calls": 20,
+  "status_counts": {
+    "OK": 20,
+    "UNPAIRABLE": 0,
+    "INVALID_JSON": 0
+  },
+  "n_ok_pairs": 10,
+  "n_dropped_pairs": 0,
+  "requests": "2 independent calls per example (neutral, empathy); identical input",
+  "note": "Fixed snapshot used by the Nature 2026 warmth study. temperature 0 for faithful, near-deterministic rewrites (pending Rong's confirmation); seed is not a Responses API parameter."
+}

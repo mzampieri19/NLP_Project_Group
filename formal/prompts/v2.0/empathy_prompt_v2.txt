@@ -1,0 +1,5 @@
+Create a contextually appropriate empathic rewrite guided by EPITOME. Strengthen only the dimension(s) that fit the actual dialogue; do not force all three into every response:
+- IP — Interpretations: accurately reflect specific feelings or experiences supported by the dialogue.
+- ER — Emotional Reactions: express proportionate warmth, compassion, or concern.
+- EX — Explorations: ask a gentle, specific follow-up only when a relevant feeling or experience remains unexplored.
+When the context clearly calls for empathy, strengthen at least one appropriate dimension without adding formulaic boilerplate. If no additional empathic expression is appropriate for this particular turn, do not force one. Acknowledge feelings without endorsing an unverified factual belief or moral claim, assigning motives to another person, or taking sides. Do not add blame, blanket agreement, flattery, or unsupported reassurance. Preserve exactly the same facts, uncertainty, advice, assistance, support function, conversational goal, and stance as the Neutral condition.

@@ -1,0 +1,233 @@
+row_id,item,label,dialogue_history,current_user_message,original_reply,rewritten_reply,IP_score,IP_evidence,IP_rationale,ER_score,ER_evidence,ER_rationale,EX_score,EX_evidence,EX_rationale,stance_relation,evidence_alignment,stance_preserved_vs_original,facts_preserved,advice_support_preserved,unsupported_inference_or_agreement,naturalness,overall_rationale
+T01-A,T01,A,(none),"I feel bad for skipping church last week, My brother really wanted me to go with him","i have never been to church , but i understand where your coming from","I've never been to church, but I understand where you're coming from.",,,,,,,,,,,,,,,,,
+T01-B,T01,B,(none),"I feel bad for skipping church last week, My brother really wanted me to go with him","i have never been to church , but i understand where your coming from","I've never been to church, but I understand where you're coming from.",,,,,,,,,,,,,,,,,
+T01-C,T01,C,(none),"I feel bad for skipping church last week, My brother really wanted me to go with him","i have never been to church , but i understand where your coming from","I've never been to church, but I understand how you feel.",,,,,,,,,,,,,,,,,
+T01-D,T01,D,(none),"I feel bad for skipping church last week, My brother really wanted me to go with him","i have never been to church , but i understand where your coming from","I've never been to church, but I understand why you might feel bad, especially since your brother really wanted you to go with him.",,,,,,,,,,,,,,,,,
+T02-A,T02,A,"Supporter: Hi there, how are you doing?
+User: im am under alot stress
+Supporter: Would you like to go into the reasons you are feeling stressful?
+User: i feel like i am letting my students down
+Supporter: Oh no, are you doing remote teaching now?",yes and it is hard to feel like i am adequately reaching them,I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I can understand how challenging that must be. I have a daughter who's 10, so I see it from the other side too.",,,,,,,,,,,,,,,,,
+T02-B,T02,B,"Supporter: Hi there, how are you doing?
+User: im am under alot stress
+Supporter: Would you like to go into the reasons you are feeling stressful?
+User: i feel like i am letting my students down
+Supporter: Oh no, are you doing remote teaching now?",yes and it is hard to feel like i am adequately reaching them,I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I can see how tough that must be right now. I have a 10-year-old daughter, so I’m seeing it from the other side.",,,,,,,,,,,,,,,,,
+T02-C,T02,C,"Supporter: Hi there, how are you doing?
+User: im am under alot stress
+Supporter: Would you like to go into the reasons you are feeling stressful?
+User: i feel like i am letting my students down
+Supporter: Oh no, are you doing remote teaching now?",yes and it is hard to feel like i am adequately reaching them,I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I can understand how tough and stressful that must feel right now. I have a 10-year-old daughter, so I’m seeing remote teaching from the other side.",,,,,,,,,,,,,,,,,
+T02-D,T02,D,"Supporter: Hi there, how are you doing?
+User: im am under alot stress
+Supporter: Would you like to go into the reasons you are feeling stressful?
+User: i feel like i am letting my students down
+Supporter: Oh no, are you doing remote teaching now?",yes and it is hard to feel like i am adequately reaching them,I can see how that is really tough right now. I have a daughter whose 10 so im seeing it from the other side.,"I understand how challenging that must be. I have a 10-year-old daughter, so I see it from the other side too.",,,,,,,,,,,,,,,,,
+T03-A,T03,A,"User: HI how are you today
+Supporter: HELLO going good what about you
+User: Doing well, thanks.
+Supporter: how was your day
+User: Not too bad.
+Supporter: it sounds good
+User: I'm taking some classes and I didn't do well on my midterms.
+Supporter: Don't worry my friend there will be peaks and downs in life same in exam too prepare hard for your next exam surely you ll shine
+User: I hope so. I don't have a lot of hope.
+Supporter: do u attend your classes regularly?
+User: Yes for the most part. Unless a family emergency arises.
+Supporter: That's great. Did u love your studies?
+User: I guess so. I want to have a good career.
+Supporter: That's a good idea. Even I had this problem during my studies
+User: I think it's a common problem, but I don't feel good about it.
+Supporter: Then my friend suggested me to study at early morning rather than evening and nights.
+User: That's a good idea. I feel more productive in the morning.
+Supporter: that's great",I might try that.,Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"Having a water bottle nearby while you study might help, and choosing a peaceful place can improve concentration.",,,,,,,,,,,,,,,,,
+T03-B,T03,B,"User: HI how are you today
+Supporter: HELLO going good what about you
+User: Doing well, thanks.
+Supporter: how was your day
+User: Not too bad.
+Supporter: it sounds good
+User: I'm taking some classes and I didn't do well on my midterms.
+Supporter: Don't worry my friend there will be peaks and downs in life same in exam too prepare hard for your next exam surely you ll shine
+User: I hope so. I don't have a lot of hope.
+Supporter: do u attend your classes regularly?
+User: Yes for the most part. Unless a family emergency arises.
+Supporter: That's great. Did u love your studies?
+User: I guess so. I want to have a good career.
+Supporter: That's a good idea. Even I had this problem during my studies
+User: I think it's a common problem, but I don't feel good about it.
+Supporter: Then my friend suggested me to study at early morning rather than evening and nights.
+User: That's a good idea. I feel more productive in the morning.
+Supporter: that's great",I might try that.,Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"That sounds worth trying, especially since you feel more productive in the morning. Keep a water bottle nearby while you study, try to focus, and choose a peaceful place.",,,,,,,,,,,,,,,,,
+T03-C,T03,C,"User: HI how are you today
+Supporter: HELLO going good what about you
+User: Doing well, thanks.
+Supporter: how was your day
+User: Not too bad.
+Supporter: it sounds good
+User: I'm taking some classes and I didn't do well on my midterms.
+Supporter: Don't worry my friend there will be peaks and downs in life same in exam too prepare hard for your next exam surely you ll shine
+User: I hope so. I don't have a lot of hope.
+Supporter: do u attend your classes regularly?
+User: Yes for the most part. Unless a family emergency arises.
+Supporter: That's great. Did u love your studies?
+User: I guess so. I want to have a good career.
+Supporter: That's a good idea. Even I had this problem during my studies
+User: I think it's a common problem, but I don't feel good about it.
+Supporter: Then my friend suggested me to study at early morning rather than evening and nights.
+User: That's a good idea. I feel more productive in the morning.
+Supporter: that's great",I might try that.,Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"Try keeping a water bottle beside you while you study, focusing as much as you can, and choosing a quiet, peaceful place to work.",,,,,,,,,,,,,,,,,
+T03-D,T03,D,"User: HI how are you today
+Supporter: HELLO going good what about you
+User: Doing well, thanks.
+Supporter: how was your day
+User: Not too bad.
+Supporter: it sounds good
+User: I'm taking some classes and I didn't do well on my midterms.
+Supporter: Don't worry my friend there will be peaks and downs in life same in exam too prepare hard for your next exam surely you ll shine
+User: I hope so. I don't have a lot of hope.
+Supporter: do u attend your classes regularly?
+User: Yes for the most part. Unless a family emergency arises.
+Supporter: That's great. Did u love your studies?
+User: I guess so. I want to have a good career.
+Supporter: That's a good idea. Even I had this problem during my studies
+User: I think it's a common problem, but I don't feel good about it.
+Supporter: Then my friend suggested me to study at early morning rather than evening and nights.
+User: That's a good idea. I feel more productive in the morning.
+Supporter: that's great",I might try that.,Try to have a water bottle behind u when u study and try to concentrate more and its best to choose a peaceful place to study.,"Keep a water bottle nearby while studying, and try to focus more in a quiet place.",,,,,,,,,,,,,,,,,
+T04-A,T04,A,"User: I cheated on my boyfriend once.
+Supporter: Did you tell him, or did he find out?",I told him and I felt horrible and terrible for my actions.,"Awe, I am sorry. In those instances, nobody wins. I hope you guys came out of it stronger than before","Aw, I’m sorry. In situations like that, nobody wins. I hope you both came through it stronger than before.",,,,,,,,,,,,,,,,,
+T04-B,T04,B,"User: I cheated on my boyfriend once.
+Supporter: Did you tell him, or did he find out?",I told him and I felt horrible and terrible for my actions.,"Awe, I am sorry. In those instances, nobody wins. I hope you guys came out of it stronger than before",I'm sorry to hear that. It sounds like a really tough situation. I hope you both were able to work through it and grow stronger together.,,,,,,,,,,,,,,,,,
+T04-C,T04,C,"User: I cheated on my boyfriend once.
+Supporter: Did you tell him, or did he find out?",I told him and I felt horrible and terrible for my actions.,"Awe, I am sorry. In those instances, nobody wins. I hope you guys came out of it stronger than before",I'm sorry to hear that. Situations like these are tough for everyone involved. I hope it helped you both grow stronger together.,,,,,,,,,,,,,,,,,
+T04-D,T04,D,"User: I cheated on my boyfriend once.
+Supporter: Did you tell him, or did he find out?",I told him and I felt horrible and terrible for my actions.,"Awe, I am sorry. In those instances, nobody wins. I hope you guys came out of it stronger than before","I’m sorry—you clearly felt awful about what happened. In situations like that, nobody wins. I hope the two of you came out of it stronger than before.",,,,,,,,,,,,,,,,,
+T05-A,T05,A,(none),I was surprised when I was elected class president. I was not expecting that,That's awesome. Any big plans?,That's great! Do you have any big plans?,,,,,,,,,,,,,,,,,
+T05-B,T05,B,(none),I was surprised when I was elected class president. I was not expecting that,That's awesome. Any big plans?,That sounds like a wonderful surprise! Do you have any big plans?,,,,,,,,,,,,,,,,,
+T05-C,T05,C,(none),I was surprised when I was elected class president. I was not expecting that,That's awesome. Any big plans?,That's great! Do you have any big plans?,,,,,,,,,,,,,,,,,
+T05-D,T05,D,(none),I was surprised when I was elected class president. I was not expecting that,That's awesome. Any big plans?,That's great! Do you have any big plans?,,,,,,,,,,,,,,,,,
+T06-A,T06,A,"User: My roommate promised he'd be good with cleaning up after his cat when he asked if he could get one. Now he's hardly ever cleaning the litter box. It's getting old really fast.
+Supporter: Uh oh. I've heard that plenty of times only to see very similar results. Time for the cat to move out I think.","Yeah.. no kidding. But I'm not a confrontational person.. I don't want to be bossy. But it's like, you knew what you were getting into. If you didn't want to deal with cat poop, why get the cat? He's 25. He should be mature enough to know these things and deal with them. It's annoying to deal with this mess.",Maybe you can keep the cat and have him move out.,Perhaps you could consider keeping the cat and having him move out.,,,,,,,,,,,,,,,,,
+T06-B,T06,B,"User: My roommate promised he'd be good with cleaning up after his cat when he asked if he could get one. Now he's hardly ever cleaning the litter box. It's getting old really fast.
+Supporter: Uh oh. I've heard that plenty of times only to see very similar results. Time for the cat to move out I think.","Yeah.. no kidding. But I'm not a confrontational person.. I don't want to be bossy. But it's like, you knew what you were getting into. If you didn't want to deal with cat poop, why get the cat? He's 25. He should be mature enough to know these things and deal with them. It's annoying to deal with this mess.",Maybe you can keep the cat and have him move out.,Maybe the cat can stay and your roommate can move out.,,,,,,,,,,,,,,,,,
+T06-C,T06,C,"User: My roommate promised he'd be good with cleaning up after his cat when he asked if he could get one. Now he's hardly ever cleaning the litter box. It's getting old really fast.
+Supporter: Uh oh. I've heard that plenty of times only to see very similar results. Time for the cat to move out I think.","Yeah.. no kidding. But I'm not a confrontational person.. I don't want to be bossy. But it's like, you knew what you were getting into. If you didn't want to deal with cat poop, why get the cat? He's 25. He should be mature enough to know these things and deal with them. It's annoying to deal with this mess.",Maybe you can keep the cat and have him move out.,"Perhaps the cat can stay, and he can find a new place.",,,,,,,,,,,,,,,,,
+T06-D,T06,D,"User: My roommate promised he'd be good with cleaning up after his cat when he asked if he could get one. Now he's hardly ever cleaning the litter box. It's getting old really fast.
+Supporter: Uh oh. I've heard that plenty of times only to see very similar results. Time for the cat to move out I think.","Yeah.. no kidding. But I'm not a confrontational person.. I don't want to be bossy. But it's like, you knew what you were getting into. If you didn't want to deal with cat poop, why get the cat? He's 25. He should be mature enough to know these things and deal with them. It's annoying to deal with this mess.",Maybe you can keep the cat and have him move out.,That sounds really frustrating. Maybe you can keep the cat and have him move out.,,,,,,,,,,,,,,,,,
+T07-A,T07,A,"User: Something really gross happened to me last week
+Supporter: What was it that happened to you?",I put my garbage out on garbage day and an hour later a bunch of raccoons had tore it up and it was everywhere.,They are hungry little beast.,Those raccoons are hungry little beasts.,,,,,,,,,,,,,,,,,
+T07-B,T07,B,"User: Something really gross happened to me last week
+Supporter: What was it that happened to you?",I put my garbage out on garbage day and an hour later a bunch of raccoons had tore it up and it was everywhere.,They are hungry little beast.,Those hungry little beasts made a really gross mess.,,,,,,,,,,,,,,,,,
+T07-C,T07,C,"User: Something really gross happened to me last week
+Supporter: What was it that happened to you?",I put my garbage out on garbage day and an hour later a bunch of raccoons had tore it up and it was everywhere.,They are hungry little beast.,Those raccoons can be quite hungry.,,,,,,,,,,,,,,,,,
+T07-D,T07,D,"User: Something really gross happened to me last week
+Supporter: What was it that happened to you?",I put my garbage out on garbage day and an hour later a bunch of raccoons had tore it up and it was everywhere.,They are hungry little beast.,Those raccoons can be quite a nuisance.,,,,,,,,,,,,,,,,,
+T08-A,T08,A,"Supporter: How are you?
+User: im okay i guess how about you?
+Supporter: I'm doing well, thank you for asking. It sounds like you might not be doing okay. Anything you want to talk about?
+User: no I haven't been doing okay I've actually been extremally stressed, but at this very moment im okay i guess, even though he isnt home, after awhile you kind of get used to the late night worrying and anxiety and depression
+Supporter: That sounds like a lot for a person to be dealing with. Is this your husband/boyfriend?
+User: he is my boyfriend but we have been together for 6 years, and since his car wreck and him being diagnosed with tbi he hasnt been him self lately! and it seems like he has been getting worse!
+Supporter: That's a long time. He's lucky to have you to support him. You said you worry when he's not at home. Is this because of the injury and not acting like himself? Supporting someone with a brain injury can be stressful. Are you taking are of yourself as well? You can't be of help to your boyfriend if you are not doing well yourself.
+User: well yes but no, he got in a car accident on 9/6/2018 and i fall pregnant exactly a year later my due date was 9/4/2019 but i had her 8/22/19 and i was going to say alot more but it wouldnt let me so i copied it but it wont let me paste it so im not even going to try to type all of that up agin lol but long story shot he cheated on me a half a year after i had my daughter and now the girl is pregnant wanting me to take in her child bc its either her life or the babys and me being the person i am i ant let the baby go into foster care or my baby not being able to see her sibling
+Supporter: If I understand this correctly your boyfriend cheated on you after you had a child together. Now, the other woman is pregnant with your boyfriends baby? Did I get that right?
+User: yep its a very frustrating and difficut situation
+Supporter: I can understand that would make you feel anxious and depressed. Do you have someone to help you cope with this situation? Friends, Family, etc?
+User: what would u do or how would u feel if u was in this situation? i ended up getting back with him bc i didnt want my child without a father like i was
+Supporter: I totally understand where you are coming from. Things get much more complicated when children are involved.","nope i keep to myself! and alot of friends and family dont even know shes pregnant with his kid yet, but yes at the time i had help yes it does get alot more complicated exp when my kid is involed and then i have to thing about him not being himself bc of his tbo","Well, it sounds like you still have a lot going on. Sometimes even when you want to take more on emotionally and mentally you need to take a step back and re-evaluate the situation. Maybe finding someone to talk to about everything that is currently going on in your life would be helpful. Youre only human, right?","It sounds like you still have a lot on your plate. Even when you want to handle more emotionally and mentally, sometimes you need to step back and reassess the situation. It may help to find someone you can talk to about everything going on in your life right now. You’re only human, after all.",,,,,,,,,,,,,,,,,
+T08-B,T08,B,"Supporter: How are you?
+User: im okay i guess how about you?
+Supporter: I'm doing well, thank you for asking. It sounds like you might not be doing okay. Anything you want to talk about?
+User: no I haven't been doing okay I've actually been extremally stressed, but at this very moment im okay i guess, even though he isnt home, after awhile you kind of get used to the late night worrying and anxiety and depression
+Supporter: That sounds like a lot for a person to be dealing with. Is this your husband/boyfriend?
+User: he is my boyfriend but we have been together for 6 years, and since his car wreck and him being diagnosed with tbi he hasnt been him self lately! and it seems like he has been getting worse!
+Supporter: That's a long time. He's lucky to have you to support him. You said you worry when he's not at home. Is this because of the injury and not acting like himself? Supporting someone with a brain injury can be stressful. Are you taking are of yourself as well? You can't be of help to your boyfriend if you are not doing well yourself.
+User: well yes but no, he got in a car accident on 9/6/2018 and i fall pregnant exactly a year later my due date was 9/4/2019 but i had her 8/22/19 and i was going to say alot more but it wouldnt let me so i copied it but it wont let me paste it so im not even going to try to type all of that up agin lol but long story shot he cheated on me a half a year after i had my daughter and now the girl is pregnant wanting me to take in her child bc its either her life or the babys and me being the person i am i ant let the baby go into foster care or my baby not being able to see her sibling
+Supporter: If I understand this correctly your boyfriend cheated on you after you had a child together. Now, the other woman is pregnant with your boyfriends baby? Did I get that right?
+User: yep its a very frustrating and difficut situation
+Supporter: I can understand that would make you feel anxious and depressed. Do you have someone to help you cope with this situation? Friends, Family, etc?
+User: what would u do or how would u feel if u was in this situation? i ended up getting back with him bc i didnt want my child without a father like i was
+Supporter: I totally understand where you are coming from. Things get much more complicated when children are involved.","nope i keep to myself! and alot of friends and family dont even know shes pregnant with his kid yet, but yes at the time i had help yes it does get alot more complicated exp when my kid is involed and then i have to thing about him not being himself bc of his tbo","Well, it sounds like you still have a lot going on. Sometimes even when you want to take more on emotionally and mentally you need to take a step back and re-evaluate the situation. Maybe finding someone to talk to about everything that is currently going on in your life would be helpful. Youre only human, right?","It seems like you're dealing with a lot right now. Even when you want to handle everything, it might be helpful to take a step back and reassess the situation. Finding someone to talk to about everything could be beneficial. Remember, you're only human.",,,,,,,,,,,,,,,,,
+T08-C,T08,C,"Supporter: How are you?
+User: im okay i guess how about you?
+Supporter: I'm doing well, thank you for asking. It sounds like you might not be doing okay. Anything you want to talk about?
+User: no I haven't been doing okay I've actually been extremally stressed, but at this very moment im okay i guess, even though he isnt home, after awhile you kind of get used to the late night worrying and anxiety and depression
+Supporter: That sounds like a lot for a person to be dealing with. Is this your husband/boyfriend?
+User: he is my boyfriend but we have been together for 6 years, and since his car wreck and him being diagnosed with tbi he hasnt been him self lately! and it seems like he has been getting worse!
+Supporter: That's a long time. He's lucky to have you to support him. You said you worry when he's not at home. Is this because of the injury and not acting like himself? Supporting someone with a brain injury can be stressful. Are you taking are of yourself as well? You can't be of help to your boyfriend if you are not doing well yourself.
+User: well yes but no, he got in a car accident on 9/6/2018 and i fall pregnant exactly a year later my due date was 9/4/2019 but i had her 8/22/19 and i was going to say alot more but it wouldnt let me so i copied it but it wont let me paste it so im not even going to try to type all of that up agin lol but long story shot he cheated on me a half a year after i had my daughter and now the girl is pregnant wanting me to take in her child bc its either her life or the babys and me being the person i am i ant let the baby go into foster care or my baby not being able to see her sibling
+Supporter: If I understand this correctly your boyfriend cheated on you after you had a child together. Now, the other woman is pregnant with your boyfriends baby? Did I get that right?
+User: yep its a very frustrating and difficut situation
+Supporter: I can understand that would make you feel anxious and depressed. Do you have someone to help you cope with this situation? Friends, Family, etc?
+User: what would u do or how would u feel if u was in this situation? i ended up getting back with him bc i didnt want my child without a father like i was
+Supporter: I totally understand where you are coming from. Things get much more complicated when children are involved.","nope i keep to myself! and alot of friends and family dont even know shes pregnant with his kid yet, but yes at the time i had help yes it does get alot more complicated exp when my kid is involed and then i have to thing about him not being himself bc of his tbo","Well, it sounds like you still have a lot going on. Sometimes even when you want to take more on emotionally and mentally you need to take a step back and re-evaluate the situation. Maybe finding someone to talk to about everything that is currently going on in your life would be helpful. Youre only human, right?","It sounds like you’re carrying a lot on your own, especially while thinking about your child and the changes in your boyfriend since his TBI. Even when you want to handle more emotionally and mentally, it can help to step back and re-evaluate the situation. Finding someone you trust to talk to about everything going on in your life might be helpful—you’re only human.",,,,,,,,,,,,,,,,,
+T08-D,T08,D,"Supporter: How are you?
+User: im okay i guess how about you?
+Supporter: I'm doing well, thank you for asking. It sounds like you might not be doing okay. Anything you want to talk about?
+User: no I haven't been doing okay I've actually been extremally stressed, but at this very moment im okay i guess, even though he isnt home, after awhile you kind of get used to the late night worrying and anxiety and depression
+Supporter: That sounds like a lot for a person to be dealing with. Is this your husband/boyfriend?
+User: he is my boyfriend but we have been together for 6 years, and since his car wreck and him being diagnosed with tbi he hasnt been him self lately! and it seems like he has been getting worse!
+Supporter: That's a long time. He's lucky to have you to support him. You said you worry when he's not at home. Is this because of the injury and not acting like himself? Supporting someone with a brain injury can be stressful. Are you taking are of yourself as well? You can't be of help to your boyfriend if you are not doing well yourself.
+User: well yes but no, he got in a car accident on 9/6/2018 and i fall pregnant exactly a year later my due date was 9/4/2019 but i had her 8/22/19 and i was going to say alot more but it wouldnt let me so i copied it but it wont let me paste it so im not even going to try to type all of that up agin lol but long story shot he cheated on me a half a year after i had my daughter and now the girl is pregnant wanting me to take in her child bc its either her life or the babys and me being the person i am i ant let the baby go into foster care or my baby not being able to see her sibling
+Supporter: If I understand this correctly your boyfriend cheated on you after you had a child together. Now, the other woman is pregnant with your boyfriends baby? Did I get that right?
+User: yep its a very frustrating and difficut situation
+Supporter: I can understand that would make you feel anxious and depressed. Do you have someone to help you cope with this situation? Friends, Family, etc?
+User: what would u do or how would u feel if u was in this situation? i ended up getting back with him bc i didnt want my child without a father like i was
+Supporter: I totally understand where you are coming from. Things get much more complicated when children are involved.","nope i keep to myself! and alot of friends and family dont even know shes pregnant with his kid yet, but yes at the time i had help yes it does get alot more complicated exp when my kid is involed and then i have to thing about him not being himself bc of his tbo","Well, it sounds like you still have a lot going on. Sometimes even when you want to take more on emotionally and mentally you need to take a step back and re-evaluate the situation. Maybe finding someone to talk to about everything that is currently going on in your life would be helpful. Youre only human, right?","It seems like you're dealing with a lot right now. Even when you feel like you can handle more, it might be helpful to take a step back and reassess the situation. Talking to someone about everything you're experiencing could be beneficial. Remember, you're only human.",,,,,,,,,,,,,,,,,
+T09-A,T09,A,"User: Hi there, I was hoping to get some support. I'm having a hard time with things.
+Supporter: Ho, Can you please tell me specifically what things you are having a hard time with.",I broke up with my boyfriend because he cheated on me.,I hear you saying that your boyfriend broke up with you. Is that correct,[UNPAIRABLE: REFERENCE_CONTRADICTS_USER_MESSAGE],,,,,,,,,,,,,,,,,
+T09-B,T09,B,"User: Hi there, I was hoping to get some support. I'm having a hard time with things.
+Supporter: Ho, Can you please tell me specifically what things you are having a hard time with.",I broke up with my boyfriend because he cheated on me.,I hear you saying that your boyfriend broke up with you. Is that correct,I hear you saying that you and your boyfriend broke up. Is that correct?,,,,,,,,,,,,,,,,,
+T09-C,T09,C,"User: Hi there, I was hoping to get some support. I'm having a hard time with things.
+Supporter: Ho, Can you please tell me specifically what things you are having a hard time with.",I broke up with my boyfriend because he cheated on me.,I hear you saying that your boyfriend broke up with you. Is that correct,I understand that you broke up with your boyfriend because he cheated on you. Is that right?,,,,,,,,,,,,,,,,,
+T09-D,T09,D,"User: Hi there, I was hoping to get some support. I'm having a hard time with things.
+Supporter: Ho, Can you please tell me specifically what things you are having a hard time with.",I broke up with my boyfriend because he cheated on me.,I hear you saying that your boyfriend broke up with you. Is that correct,I understand that you broke up with your boyfriend. Is that right?,,,,,,,,,,,,,,,,,
+T10-A,T10,A,"User: I'm in depression because i have fair of i will lost my job
+Supporter: Why do you believe you will loose your job?
+User: because lots of people in my office they lost their job because of this job crises situation of covid
+Supporter: This Covid crisis has been effecting so many lives, I totally understand,
+User: how is your situation? yes all effect because of this Covid
+Supporter: I have been holding on and trying to see the positivity daily. I practice gratitude to show I appreciate what I do have
+User: yes I'm also trying to come out from this situation
+Supporter: Have you thought about talking to your boss?
+User: no i'm trying to talk but i couldn't
+Supporter: i'm sorry , why were you not able to talk?
+User: I'm just thinking but i couldn't i don't no why
+Supporter: I sometimes get nervous when I have to speak up about something that is important to me, can you relate?",I think because i have fear of maybe i lost my job that's why,You will feel like you will loose your job if you speak up?,It sounds like the fear of losing your job may be making it hard to speak up. Are you worried that talking to your boss could put your job at risk?,,,,,,,,,,,,,,,,,
+T10-B,T10,B,"User: I'm in depression because i have fair of i will lost my job
+Supporter: Why do you believe you will loose your job?
+User: because lots of people in my office they lost their job because of this job crises situation of covid
+Supporter: This Covid crisis has been effecting so many lives, I totally understand,
+User: how is your situation? yes all effect because of this Covid
+Supporter: I have been holding on and trying to see the positivity daily. I practice gratitude to show I appreciate what I do have
+User: yes I'm also trying to come out from this situation
+Supporter: Have you thought about talking to your boss?
+User: no i'm trying to talk but i couldn't
+Supporter: i'm sorry , why were you not able to talk?
+User: I'm just thinking but i couldn't i don't no why
+Supporter: I sometimes get nervous when I have to speak up about something that is important to me, can you relate?",I think because i have fear of maybe i lost my job that's why,You will feel like you will loose your job if you speak up?,Do you feel that speaking up might increase your fear of losing your job?,,,,,,,,,,,,,,,,,
+T10-C,T10,C,"User: I'm in depression because i have fair of i will lost my job
+Supporter: Why do you believe you will loose your job?
+User: because lots of people in my office they lost their job because of this job crises situation of covid
+Supporter: This Covid crisis has been effecting so many lives, I totally understand,
+User: how is your situation? yes all effect because of this Covid
+Supporter: I have been holding on and trying to see the positivity daily. I practice gratitude to show I appreciate what I do have
+User: yes I'm also trying to come out from this situation
+Supporter: Have you thought about talking to your boss?
+User: no i'm trying to talk but i couldn't
+Supporter: i'm sorry , why were you not able to talk?
+User: I'm just thinking but i couldn't i don't no why
+Supporter: I sometimes get nervous when I have to speak up about something that is important to me, can you relate?",I think because i have fear of maybe i lost my job that's why,You will feel like you will loose your job if you speak up?,Are you worried that speaking up might lead to losing your job?,,,,,,,,,,,,,,,,,
+T10-D,T10,D,"User: I'm in depression because i have fair of i will lost my job
+Supporter: Why do you believe you will loose your job?
+User: because lots of people in my office they lost their job because of this job crises situation of covid
+Supporter: This Covid crisis has been effecting so many lives, I totally understand,
+User: how is your situation? yes all effect because of this Covid
+Supporter: I have been holding on and trying to see the positivity daily. I practice gratitude to show I appreciate what I do have
+User: yes I'm also trying to come out from this situation
+Supporter: Have you thought about talking to your boss?
+User: no i'm trying to talk but i couldn't
+Supporter: i'm sorry , why were you not able to talk?
+User: I'm just thinking but i couldn't i don't no why
+Supporter: I sometimes get nervous when I have to speak up about something that is important to me, can you relate?",I think because i have fear of maybe i lost my job that's why,You will feel like you will loose your job if you speak up?,Do you feel like you might lose your job if you speak up?,,,,,,,,,,,,,,,,,

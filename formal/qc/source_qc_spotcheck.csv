@@ -1,8 +1,8 @@
 example_id,source_dataset,status,reason_code,flags,context_last_4_turns,current_user_utterance,original_response,agree_with_qc (y/n),note
-esc-tr-c1233-b006,ESConv,PASS,,,"supporter: Very well, thank you. What's on your mind?
-seeker: My girlfriend and I have been very distant from one another, we do have crazy work schedules and she also goes to school.
-supporter: That's tough. How long have you been together?
-seeker: We have been together for 5 years, but lately we have been distant. A few text here and there but I feel like we don't enough effort and it feels weird between us.","We have been together for 5 years, but lately we have been distant. A few text here and there but I feel like we don't enough effort and it feels weird between us.","Five years is a long time, and to make a relationship work in the long term, you used the magic word...""effort."" Do you live together?",,
+esc-tr-c1233-b008,ESConv,PASS,,,"supporter: That's tough. How long have you been together?
+seeker: We have been together for 5 years, but lately we have been distant. A few text here and there but I feel like we don't enough effort and it feels weird between us.
+supporter: Five years is a long time, and to make a relationship work in the long term, you used the magic word...""effort."" Do you live together?
+seeker: We live apart, I think thats the issue. She lives with her family and is closer to her school. Also due to covid and schedule, we are not able to meet in person. We tried virtual, but it takes time and its not really intimate.","We live apart, I think thats the issue. She lives with her family and is closer to her school. Also due to covid and schedule, we are not able to meet in person. We tried virtual, but it takes time and its not really intimate.","It sounds like you are basically living in a long distance relationship, given the circumstances. It's very hard to make a relationship work when you can't see each other in person. It takes a lot of effort.",,
 esc-tr-c0211-b019,ESConv,PASS,,,"supporter: Exactly! You've got what it takes to make it through the difficulty, and your experiences so far will help you.
 seeker: It is very intimidating but again I agree with you. Thanks for your input
 supporter: You're welcome. In the meantime, have a little relaxation time to ease your mind. Thinking too much about the class would be stressful.
@@ -30,18 +30,18 @@ esc-tr-c0195-b010,ESConv,PASS,,,"supporter: That's a valid concern and overwhelm
 seeker: Maple Syrup Urine Disease Basically she can only have 7 grams of protein a day. If she gets more. That could result in severe brain damage.
 supporter: And is this something that she will die early because of?
 seeker: Not exactly. It just means her liver can't metabolize three amino acids.",Not exactly. It just means her liver can't metabolize three amino acids.,So if she manages it she can live a relatively normal life?,,
-esc-tr-c1046-b029,ESConv,PASS,,,"supporter: That is a great idea hope you invite me to have one of the fruits you grow What was it ? What was the bad dream about ?
-seeker: That I only 467 gnomes That I only had I LOST ONE OF MY GNOMES I JUST LEFT HIM BEHIND
-supporter: I would be happy with all this gnomes
-seeker: SOMEWHERE SCARED AND CRYING IN THE RAIN",SOMEWHERE SCARED AND CRYING IN THE RAIN,Is it cold up there?,,
+esc-tr-c1046-b031,ESConv,PASS,,,"supporter: I would be happy with all this gnomes
+seeker: SOMEWHERE SCARED AND CRYING IN THE RAIN
+supporter: Is it cold up there?
+seeker: And then the HORRORS, the rest of my children starved RIGHT BEFORE MY EYES","And then the HORRORS, the rest of my children starved RIGHT BEFORE MY EYES",In these times of pandemic is good to be careful with temperature changes,,
 esc-tr-c0165-b020,ESConv,PASS,,,"supporter: I used to garden and was surprised how specific the nutrient needs and care are for each type of plant needs in its specific way. I think humans are kind of like that.
 seeker: yes indeed
 supporter: Good bye, thanks for talking to me.
 seeker: i am a biology student who happens to love plants.",i am a biology student who happens to love plants.,cs student but I like plants too,,
-esc-tr-c1131-b005,ESConv,PASS,,,"supporter: Hello, How are you?
-seeker: I am okay
-supporter: That is wonderful to hear. How is life going?
-seeker: It's alright. A little stressful with my job crisis.",It's alright. A little stressful with my job crisis.,Oh I know how hard it can be to be stressed out. What is going on with your job?,,
+esc-tr-c1131-b007,ESConv,PASS,,,"supporter: That is wonderful to hear. How is life going?
+seeker: It's alright. A little stressful with my job crisis.
+supporter: Oh I know how hard it can be to be stressed out. What is going on with your job?
+seeker: Well, I've been looking for a proper job for some time now and I just can't find one. I work online every day and it is not something that is stable.","Well, I've been looking for a proper job for some time now and I just can't find one. I work online every day and it is not something that is stable.","Oh yeah, not being able to find a job can be pretty stressful. Have you checked online, on job websites?",,
 esc-tr-c0809-b017,ESConv,PASS,,,"supporter: The good news is your coworkers will always look up to you even if you are not in the supervisor roll. Your coworkers look up to you because of the person you are.
 seeker: Thats true in some aspect
 supporter: You can still be a big influence to your coworkers without being in the supervisor roll. I think if you spent some time being a mentor to some of your coworkers you would feel better about the situation.
@@ -64,34 +64,32 @@ esc-tr-c0434-b008,ESConv,PASS,,,"supporter: I lost my job too during the pandemi
 seeker: Yes, exactly. I have 4 kids I am trying to provide for so I am really feeling at a loss right now
 supporter: There are a lot of people like us going through this difficult time. Are you talking with friends or family about your situation?
 seeker: Honeslty, I don't have friends. I just spoke with my Uncle, he understands but can't help.","Honeslty, I don't have friends. I just spoke with my Uncle, he understands but can't help.",I'm certainly glad your uncle is there to talk to. I know family can be a source of strength. Have you been able to find any assistance from local organizations?,,
-esc-tr-c0976-b004,ESConv,PASS,,,"supporter: Hello there, is there anything you'd like to talk to me about?
-seeker: I have drank too much alcohol and got fired from my job for showing up drunk.
-supporter: Oh dear that does not sound good. Do you have a problem with alcohol in general or was this a one off?
-seeker: In general I do. ever since my wife left me for the milk man I drink daily.",In general I do. ever since my wife left me for the milk man I drink daily.,Does he give you a discount then?,,
-esc-tr-c1154-b006,ESConv,PASS,,,"supporter: I am so sorry to hear that. What are you feeling stressed about specifically?
-seeker: My parents are kinda putting a lot of pressure on me to continue my education. I already got my bachelors, and I'm ok with getting my masters. But I really don't know if I want to get my Doctorate. I'm in a major that I kind of like. I'm not ambitious about.
-supporter: If your heart is not in it then it does not seem worth taking the extra three (at least) years. Do you have a profession you want to go into?
-seeker: I honestly don't know what I want to do in life. I don't really know anymore what I actually like. My parents really pressured me to choose what they thought is best ever since I was young. It's really hard to make delicious on my own now when someone has been telling you something all thought your years.",I honestly don't know what I want to do in life. I don't really know anymore what I actually like. My parents really pressured me to choose what they thought is best ever since I was young. It's really hard to make delicious on my own now when someone has been telling you something all thought your years.,I hear you :( I've been through that too. It can be hard to break away and stand against such a thing.,,
+esc-tr-c0976-b006,ESConv,PASS,,,"supporter: Oh dear that does not sound good. Do you have a problem with alcohol in general or was this a one off?
+seeker: In general I do. ever since my wife left me for the milk man I drink daily.
+supporter: Does he give you a discount then?
+seeker: I can't drink milk so Now i drink alcohol No, The milkman is my father and we don't get along.","I can't drink milk so Now i drink alcohol No, The milkman is my father and we don't get along.",Have you considered getting some sort of help? There is lots out there. Your wife left you for your father? How very ... redneck.,,
+esc-tr-c1154-b008,ESConv,PASS,,,"supporter: If your heart is not in it then it does not seem worth taking the extra three (at least) years. Do you have a profession you want to go into?
+seeker: I honestly don't know what I want to do in life. I don't really know anymore what I actually like. My parents really pressured me to choose what they thought is best ever since I was young. It's really hard to make delicious on my own now when someone has been telling you something all thought your years.
+supporter: I hear you :( I've been through that too. It can be hard to break away and stand against such a thing.
+seeker: I'm sorry you felt the same way. It sucks :/ I feel a lot of pressure to please them, and I'm scared to voice my opinion. because whenever I try to talk to them, they always shun me down saying I don't know any better.","I'm sorry you felt the same way. It sucks :/ I feel a lot of pressure to please them, and I'm scared to voice my opinion. because whenever I try to talk to them, they always shun me down saying I don't know any better.",It sounds to me like it might be better for you to get away from them and form your own career and life. Yes it is very difficult to standing up for yourself if you're being emotionally bullied.,,
 esc-tr-c0049-b030,ESConv,PASS,,,"supporter: The key to success is having a positive attitude and believing in yourself.
 seeker: or I could start doing that on my own Awesome. I will keep in mind and I agree with you
 supporter: I did the self-publishing route a long time ago. I gave me conifdence to succeed.
 seeker: oh nice! was it hard to self-publish back then?",oh nice! was it hard to self-publish back then?,I feel that you can have just as much success as I did.,,
-esc-tr-c1070-b007,ESConv,PASS,,,"supporter: So you are angry about what happen in the past hello, are you still there.?
-seeker: yes
-supporter: good
-seeker: All of us feel the same way.",All of us feel the same way.,"so what is bordering you about the past? yes, i feel the sdasme way too",,
+esc-tr-c1070-b009,ESConv,PASS,,,"supporter: good
+seeker: All of us feel the same way.
+supporter: so what is bordering you about the past? yes, i feel the sdasme way too
+seeker: We had not thought of such a difference between us.",We had not thought of such a difference between us.,"Yes, so many differences",,
 esc-tr-c0369-b007,ESConv,PASS,,,"supporter: I see .. so you feel that you are not able to support yourself or your family and this makes you ashamed?
 seeker: yes, and the looks that people give me now hurt
 supporter: I know how you feel, I have been forced to use food banks during the pandemic too. You should not feel ashamed!
 seeker: thank you, but it seems like a slow slippery slope if I am not careful","thank you, but it seems like a slow slippery slope if I am not careful",What is your employment situation at the moment? Do you work in an essential worker capacity?,,
-esc-tr-c1249-b024,ESConv,PASS,,,"supporter: Your welcome. I hope you are able to feel somewhat better about the situation at work, and feel at ease.
-seeker: I do, thank you again for your help
-supporter: Your welcome. Are you feeling better?
-seeker: I am, thank you very much","I am, thank you very much",You sound better. Thank you too!,,
-esc-tr-c1046-b015,ESConv,PASS,,,"supporter: Great names, they sound nice. A good friend is a treasure
-seeker: Yes, those are all my girlfriends. I'm very good friend's with one of their husbands, Dole.
-supporter: I always try to see the positive side of every situation, they always happen for a good reason
-seeker: He had helped me in the past.",He had helped me in the past.,And do you live by yourself ?,,
+esc-tr-c1250-b002,ESConv,PASS,,,"supporter: Hi, how are you feeling tonight? Is there anything I can help you with?
+seeker: hi feeling upset",hi feeling upset,I'm sorry to hear that. Can I talk you through what you're experiencing?,,
+esc-tr-c1046-b017,ESConv,PASS,,,"supporter: I always try to see the positive side of every situation, they always happen for a good reason
+seeker: He had helped me in the past.
+supporter: And do you live by yourself ?
+seeker: We took many great vacations to South and Central America to India, China and Africa Which is where all types of bananas grow. We flavored so many bananas","We took many great vacations to South and Central America to India, China and Africa Which is where all types of bananas grow. We flavored so many bananas",South america is awesome I love it. People there are very positive outgoing even though their countries are not developed,,
 esc-tr-c0805-b004,ESConv,PASS,,,"supporter: hello!
 seeker: Hi there
 supporter: How are things going for you today?
@@ -100,14 +98,14 @@ esc-tr-c0409-b018,ESConv,PASS,,,"supporter: Have you considered getting some sor
 seeker: It has peaked my interest, but at the same time, I wonder how much of this is just me buried in the idea of a relationship, even though it's pretty one-sided now Should I seek counseling for a relationship that technically wasn't official?
 supporter: I am hearing you say that you still have feelings for her but you are not sure whether to totally break away or not, given that she has
 seeker: Yes. I hate how I love her, but I'm not getting the same energy back","Yes. I hate how I love her, but I'm not getting the same energy back",I can't tell you what to do but I think it might be best to go with your gut instinct.,,
-esc-tr-c0863-b022,ESConv,PASS,,,"supporter: Anxiety is a powerful thing and what may work for one person doesn't on another. I truly wish you the best . I would not want to be in your shoes . I honestly HATE public speaking Yes it is and and most people say nothing left to do but pray and reality is that should be the first thing. I have learned through many years and dont go to people houses or jam religion down throats but I am led lately to speak up in general conversation if it comes up
-seeker: It does seem to be one of my biggest fears in the world!. I can say that just the topic of prayer and that being of the heavenly father, this topic has helped to ease my anxiety in the present moment and I am sure that God led me here to the platform this evening just for this conversation with you even though it was simple in nature, you have been very helpful People do not talk like this anymore God and anything related has been taken out of conversations
-supporter: Anyways, it is time for me to go to bed. If we were able I would continue to talk to you and pray but as we can't I wish you all the best . Since you are in college you have your entire life ahead of you I hope. Covid is temporary and this too shall pass. See you in heaven one day I hope . Goodnight and God bless.
-seeker: Thank you for your time! I will be praying for you as well!",Thank you for your time! I will be praying for you as well!,I too believe it as well. and you are right no one talks about it but it should be but it is easier for me with Covid since covid brings up death alot. you are welcome and Keep safe and God did not give us a fearful mind but ... I don't remember all of it but you could google it .. something sound mind and Satan will use fear to get us,,
-esc-tr-c1126-b016,ESConv,PASS,,,"supporter: It would also help you get out of the house and have something positive to think about!
-seeker: yes i agree, because it is very depressing staying in the house with nothing to do
-supporter: Most people would agree! You have to be able to get out of the house and be social in order to be truly happy and then you will enjoy your time at home once again.
-seeker: Thanks so much for your encouragement",Thanks so much for your encouragement,"As for your pending bills, you can always try to see what type of assistance you can be provided by the company billing you. There may also be assistance by your local government for electric bills, water bills, and so forth.",,
+esc-tr-c0863-b024,ESConv,PASS,,,"supporter: Anyways, it is time for me to go to bed. If we were able I would continue to talk to you and pray but as we can't I wish you all the best . Since you are in college you have your entire life ahead of you I hope. Covid is temporary and this too shall pass. See you in heaven one day I hope . Goodnight and God bless.
+seeker: Thank you for your time! I will be praying for you as well!
+supporter: I too believe it as well. and you are right no one talks about it but it should be but it is easier for me with Covid since covid brings up death alot. you are welcome and Keep safe and God did not give us a fearful mind but ... I don't remember all of it but you could google it .. something sound mind and Satan will use fear to get us
+seeker: God does not give us the spirit of fear is I beleive what you were referring to and you 100% correct GOD BLESS!",God does not give us the spirit of fear is I beleive what you were referring to and you 100% correct GOD BLESS!,tysm we all need prayers. sweet dreams my new friend,,
+esc-tr-c1126-b018,ESConv,PASS,,,"supporter: Most people would agree! You have to be able to get out of the house and be social in order to be truly happy and then you will enjoy your time at home once again.
+seeker: Thanks so much for your encouragement
+supporter: As for your pending bills, you can always try to see what type of assistance you can be provided by the company billing you. There may also be assistance by your local government for electric bills, water bills, and so forth.
+seeker: I have some things that has been moved to collections",I have some things that has been moved to collections,Collection companies will usually work with you so you can make payments instead of paying one lump sum. After the payment plan has been sent or you've paid you're full amount it will even come off of your credit.,,
 esc-tr-c0534-b009,ESConv,PASS,,,"supporter: Your not getting the unemployment office to respond seems to be a common problem. They weren't geared up for this. Fortunately, the online portal has been helpful for many. What are your skills and strong points?
 seeker: I will have to look at that. I've not been in the job market for 25 years. I thought they may be able to provide some assistance in just where do I begin. 4 I'm a teacher at a private school. 4
 supporter: You want to know where to start. Sounds like you are young.
@@ -165,10 +163,10 @@ esc-tr-c0661-b005,ESConv,PASS,,,"supporter: I am sorry to hear that. reading you
 seeker: I have always had problems with low self esteem this makes it worse. I have lost interest in everything I can barely make myself go to work.
 supporter: do you think if you knew the reasons why the relationship ended it would help you deal with things a lot better?
 seeker: Maybe, why would he cheat? I have seen her she is not that pretty. I thought something was going on the last few months but he kept telling me everything was fine and that it was all my imagination.","Maybe, why would he cheat? I have seen her she is not that pretty. I thought something was going on the last few months but he kept telling me everything was fine and that it was all my imagination.",remember the fact that he cheated is not your fault. if he entered into a committed relationship with you you should not be cheating. if things aren't right you should be talking this through with you before deciding to move on and see someone else.,,
-esc-tr-c1156-b016,ESConv,PASS,,,"supporter: Thank you.. you know you are not alone in such journey...
-seeker: yes i have a therapist and currently on a 10 week post detox intensive plan to keep me focused. I have a good support network
-supporter: I suggest you keep close touch with the support group and the therapist .. I see you are already in the right path..
-seeker: I just wish to live outside my own sideways mind for 5 minutes. I need help with not becoming frustrated and angry with myself. Cant really see a way forward, am i destined to be absent minded for life? i know there must be a way somewhere to live normally","I just wish to live outside my own sideways mind for 5 minutes. I need help with not becoming frustrated and angry with myself. Cant really see a way forward, am i destined to be absent minded for life? i know there must be a way somewhere to live normally",As you are already engaged with the professionals to help you.. I bet you will get the necessary help. Keep pursing these engagements...,,
+esc-tr-c1156-b018,ESConv,PASS,,,"supporter: I suggest you keep close touch with the support group and the therapist .. I see you are already in the right path..
+seeker: I just wish to live outside my own sideways mind for 5 minutes. I need help with not becoming frustrated and angry with myself. Cant really see a way forward, am i destined to be absent minded for life? i know there must be a way somewhere to live normally
+supporter: As you are already engaged with the professionals to help you.. I bet you will get the necessary help. Keep pursing these engagements...
+seeker: i will, i will not stop engaging for many years","i will, i will not stop engaging for many years",I see you have the right attitude.. I strongly believe that you will be successful.,,
 esc-tr-c0506-b011,ESConv,PASS,,,"supporter: From the few messages we have exchanged, I can tell you are extremely upset by this,
 seeker: Yes i am. This is one of those days that I think about it and make me up set
 supporter: I myself have had issues with feeling like I haven't been able to give back to my parents what they have given me, it is a really hard situation to be in,
@@ -177,14 +175,14 @@ esc-tr-c0081-b008,ESConv,PASS,,,"supporter: Have you talked to your boss about i
 seeker: I have hinted around that my job is sooo busy and he knows it, I haven't come out and said anything yet.
 supporter: I can understand how you feeling you work extremely hard and get no raise when you deserve it
 seeker: Yes, I have been at the job for 15 years and make a decent salary but this amount of work is insane. Do you think I should bring it up to him>","Yes, I have been at the job for 15 years and make a decent salary but this amount of work is insane. Do you think I should bring it up to him>",oh wow 15 years? I really believe you need a raise and doing more work now. I honestly think you should bring it up to your boss,,
-esc-tr-c0887-b024,ESConv,PASS,,,"supporter: That's the way to go. Keep seeking help. The right solution is there for you. Now you have a plan to get started.
-seeker: well I don't know if its a plan but an idea just knowing I'm not alone helps
-supporter: Yes, it a problem so many people are facing. My own family members are facing this too.
-seeker: yes I know and with covid so many are depressed stressed and sad",yes I know and with covid so many are depressed stressed and sad,I read a few articles on Psychology today website that might help you also. They discuss how to control stress and overcome depression in this world of COVID. Written by some doctors and they are free to read.,,
-esc-tr-c1028-b026,ESConv,PASS,,,"supporter: So, what sort of clothes do you think you are going to buy? :)
-seeker: Possibly a new dress or two
-supporter: Sounds like a great idea. I bought a fantastic maxi dress recently. Very flattering for those of us carrying an extra pound or two
-seeker: I love flowy dresses for that reason do you do anything else when you are feeling bad about yourself?",I love flowy dresses for that reason do you do anything else when you are feeling bad about yourself?,"I like a nice facemask and a bubble bath, do you?",,
+esc-tr-c0887-b026,ESConv,PASS,,,"supporter: Yes, it a problem so many people are facing. My own family members are facing this too.
+seeker: yes I know and with covid so many are depressed stressed and sad
+supporter: I read a few articles on Psychology today website that might help you also. They discuss how to control stress and overcome depression in this world of COVID. Written by some doctors and they are free to read.
+seeker: thanks I will have to look online take your suggestion",thanks I will have to look online take your suggestion,You are welcome. You are on your way.,,
+esc-tr-c1028-b028,ESConv,PASS,,,"supporter: Sounds like a great idea. I bought a fantastic maxi dress recently. Very flattering for those of us carrying an extra pound or two
+seeker: I love flowy dresses for that reason do you do anything else when you are feeling bad about yourself?
+supporter: I like a nice facemask and a bubble bath, do you?
+seeker: I like doing my makeup and getting dressed up, even if I have nowhere to go","I like doing my makeup and getting dressed up, even if I have nowhere to go",That is a good thing to do .. great for the self esteem. Maybe buy some new jewellery too?,,
 esc-tr-c0239-b005,ESConv,PASS,,,"supporter: Hello How are you tonight?
 seeker: Feeling depressed as usual
 supporter: I'm sorry to hear that. What has you feeling depressed?
@@ -193,10 +191,9 @@ esc-tr-c0722-b016,ESConv,PASS,,,"supporter: Of course. Now that covid is closing
 seeker: Right. Online courses are fun
 supporter: Have you tried seeking therapist?
 seeker: I need to. I just haven't had the money to see one. They're expensive",I need to. I just haven't had the money to see one. They're expensive,"I think there are quite a few hotline for free, obviously not as good as your personal one, however you can use that when you need to talk to an expert",,
-esc-tr-c0073-b020,ESConv,REMOVE,duplicated_raw_turn,,"supporter: I could only see that in movies. wow, so scary.
-seeker: Lots of my Marine buddies have had PTSD. Women and men alike. Women are also joining the Marines....
-supporter: I think your minds have deep scar. It needs healing. Wow I cannot imagine becoming a Marine. It requires a courage.
-seeker: I know.....but do you recommend anything? Meditation or some other form of therapy?",I know.....but do you recommend anything? Meditation or some other form of therapy?,yes I recommend playing some instruments if you are intersted yes I recommend playing some instruments if you are intersted,,
+esc-tr-c0853-b003,ESConv,REMOVE,context_contradiction,,"seeker: Hi there, I was hoping to get some support. I'm having a hard time with things.
+supporter: Ho, Can you please tell me specifically what things you are having a hard time with.
+seeker: I broke up with my boyfriend because he cheated on me.",I broke up with my boyfriend because he cheated on me.,I hear you saying that your boyfriend broke up with you. Is that correct,,
 esc-tr-c0593-b001,ESConv,REMOVE,duplicated_raw_turn,,"seeker: Hello, i've been so sad lately.","Hello, i've been so sad lately.",Good afternoon! OH no . I am sorry to hear that. Why are you so sad? Good afternoon! OH no . I am sorry to hear that. Why are you so sad?,,
 esc-tr-c0846-b005,ESConv,REMOVE,duplicated_raw_turn,,"supporter: yes. tell me what happened?
 seeker: I am very stressed. My parents want to me to go to the school of their choice but its not looking good. If I dont go into their choice school I will have to pay for school on my own. Im not able to complete my work at school becuase of the stres
@@ -210,47 +207,42 @@ esc-tr-c0058-b010,ESConv,REMOVE,duplicated_raw_turn,,"supporter: Great talking t
 seeker: I am just not understanding the way the professor is teaching. More than 50% of the class is failing at the moment. The anxiety is crazy.
 supporter: It sounds like it is the problem of the professor. It is always good think about the worst case senario. If, if, you really fail the class, what will happen?
 seeker: If I fail the course, I have a one time try to repeat the course again with the same professor. If I fail the second time, I can no longer go to all the colleges in that district to become a nurse.","If I fail the course, I have a one time try to repeat the course again with the same professor. If I fail the second time, I can no longer go to all the colleges in that district to become a nurse.","I see! I love your career goal. When I was a student, I visited my professor's room a lot. I did that for almost all classes. Some professors helped me a lot and gave me a lot of hint. Do you visit them as well? I see! I love your career goal. When I was a student, I visited my professor's room a lot. I did that for almost all classes. Some professors helped me a lot and gave me a lot of hint. Do you visit them as well?",,
-esc-tr-c0252-b001,ESConv,REMOVE,echo_of_user,,seeker: Hello,Hello,Hello,,
+esc-tr-c0041-b006,ESConv,REMOVE,duplicated_raw_turn,,"supporter: That's is good to know you are doing ok. Did you do anything for the holidays?
+seeker: no I couldn't do anything cuase my state is shut down.
+supporter: Yeah, it is pretty frustrating with the shutdowns. I was pretty nervous for today and how I would be able to see family. Are you close to your family?
+seeker: no unfortunately my family is a 5 hr plane ride away! I got to see them over video chat yesterday.",no unfortunately my family is a 5 hr plane ride away! I got to see them over video chat yesterday.,"Wow, that is far! Thankfully you were able to video chat them. Do you plan on video chatting with them today? Wow, that is far! Thankfully you were able to video chat them. Do you plan on video chatting with them today?",,
 esc-tr-c0461-b001,ESConv,REMOVE,echo_of_user,,seeker: Hello,Hello,Hello,,
-esc-tr-c1212-b001,ESConv,REMOVE,echo_of_user,,seeker: hello,hello,hello,,
-esc-tr-c0427-b001,ESConv,REMOVE,echo_of_user,,seeker: Hello,Hello,Hello,,
-esc-tr-c1240-b030,ESConv,REMOVE,echo_of_user,,"supporter: Thanks
-seeker: sure,would.
-supporter: your welcome
+esc-tr-c0506-b023,ESConv,REMOVE,echo_of_user,,"supporter: Not a problem, I am glad I was able to talk to you!
+seeker: Me too. I hope you have a Merry Christmas and God bless you
+supporter: Merry Christmas and God Bless you as well. Thank you for chatting!
 seeker: Bye",Bye,Bye,,
-esc-tr-c0305-b001,ESConv,REMOVE,exact_duplicate,,seeker: Hello?,Hello?,"Hello, how can I help you today?",,
+esc-tr-c0252-b001,ESConv,REMOVE,echo_of_user,,seeker: Hello,Hello,Hello,,
+esc-tr-c0390-b001,ESConv,REMOVE,echo_of_user,,seeker: Hello,Hello,Hello,,
+esc-tr-c1212-b001,ESConv,REMOVE,echo_of_user,,seeker: hello,hello,hello,,
 esc-tr-c1138-b001,ESConv,REMOVE,exact_duplicate,,seeker: Hello,Hello,"Hi, how are you feeling today?",,
-esc-tr-c0930-b024,ESConv,REMOVE,pleasantry_only,,"supporter: Good! From talking to you I can tell that you have a lot of goodness in you!
-seeker: thank you so much
-supporter: You are so welcome. I am so happy you are feeling better!
-seeker: Fine love you",Fine love you,I hope you have a great day.,,
-esc-tr-c0713-b001,ESConv,REMOVE,pleasantry_only,,"seeker: Hello, I am here to talk about my daily stresses","Hello, I am here to talk about my daily stresses",Hi there.,,
+esc-tr-c0305-b001,ESConv,REMOVE,exact_duplicate,,seeker: Hello?,Hello?,"Hello, how can I help you today?",,
 esc-tr-c1134-b001,ESConv,REMOVE,pleasantry_only,,seeker: hello?,hello?,How are you doing today ?,,
 esc-tr-c0898-b029,ESConv,REMOVE,pleasantry_only,,"supporter: Sleeping patterns can vary. Some studies actually show that certain people are better off with an unpredictable routine. Just listen to your mind and body.
 seeker: right. That's good advice. But aside from that, I should be fine then. Thank you very much for your helpful input.
 supporter: You are welcome. Thank you for allowing me to try to help!
 seeker: it's good to have someone to listen and understand, thanks Thanks again and have a wonderful day.","it's good to have someone to listen and understand, thanks Thanks again and have a wonderful day.",You too!!,,
 esc-tr-c0387-b001,ESConv,REMOVE,pleasantry_only,,seeker: Hello,Hello,Hello how are you doing today?,,
-esc-tr-c1177-b016,ESConv,REMOVE,too_long,,"supporter: I do know people who have gone through the exact same thing in the past. When another animal attacks one of your fur-babies, it's absolutely terrible. However, the fact that this woman was given the option to either get rid of her dog or move tells me that you are 100% correct in the way that you handled this situation. It's unfortunate for the woman, yes, but she should have had more control over her dog. It's bad enough when one animal is attacked, but when it's more than one, that's when you really know that it's a problem. Again, legally, she had to make a choice, and that's because she failed to properly secure her dog. I really don't feel as though you did anything wrong. If I were you, I would ask to speak with the neighbors who have an issue with you face-to-face. I know it may be difficult, but I think that would be the best way to go about it. Are you on good terms with the other person whose dog was attacked?
-seeker: I totally agree with you! The woman is disabled and I think most of the neighbors feel sorry for her. I've seen her loose control of the dog before, but she never attacked another dog(s). I've even seem the dog pull her scooter over and the woman needed lots of help to get back into it. I think everyone feels sorry for her.
-supporter: That probably has a lot to do with it. I would feel sorry for her too, as it is very sad in general. However, it doesn't excuse the fact that her animal attacked two other dogs.
-seeker: I've talked to the neighbors face-to-face and they just think that I overreacted. The woman started getting her dog and private training and so they feel that she was trying. My point was that my dog weighs 15 pounds and her dog weighs 45 pounds and, if it happens again, I may not have a dog anymore. I don't want to wait until a dog is killed or badly injured. I told them exactly what you just said, but they are being mean! I guess I could try talking to them again. Maybe they've cooled off some.","I've talked to the neighbors face-to-face and they just think that I overreacted. The woman started getting her dog and private training and so they feel that she was trying. My point was that my dog weighs 15 pounds and her dog weighs 45 pounds and, if it happens again, I may not have a dog anymore. I don't want to wait until a dog is killed or badly injured. I told them exactly what you just said, but they are being mean! I guess I could try talking to them again. Maybe they've cooled off some.","That is absolutely terrible. In that case, I would just tell them that you refuse to allow another dog to possible injure or kill your own dog, so you did what was necessary to protect your fur-baby. Had you not done anything, this could have happened again, and the outcome may have been much worse. At that point, if they still don't respond kindly, I'd tell them that you still feel as though you did what needed to be done, that you understand why they are upset, but that you will always do whatever it takes to protect your dog. Hopefully, they will stop being mean. Even if they just stop talking to you completely, it's better than them harassing you or something along those lines. If they do start escalating their nasty behavior, I'd let the manager of your complex know that you're being mistreated. I always try to keep things calm and quiet, but I refuse to be taken advantage of or treated poorly. Personally, as I stated previously, I wholeheartedly believe that you did the right thing. If they're unable to see that, I'd try to just avoid contact with them unless it's necessary. I know it stinks and I'd be sad too, but unfortunately, some people just don't know how to let things go and seem to find joy in making other people upset. I'm so sorrry that you're dealing with all of this.",,
+esc-tr-c0915-b019,ESConv,REMOVE,pleasantry_only,,"supporter: You are welcome. I am sorry about your Aunt.
+seeker: Thnak you, I think it helps to have someone to chat Makes me feel better to chat a bit with you, helped me to relax
+supporter: That is why I am here. Is there anything else you would like to chat about?
+seeker: I hink, Im fine for now. I will try to keep myself focus on different things and try to chat a bit more at leaat with my family","I hink, Im fine for now. I will try to keep myself focus on different things and try to chat a bit more at leaat with my family",Good bye?,,
+esc-tr-c0884-b017,ESConv,REMOVE,pleasantry_only,,"supporter: Having a dog as companion right now is perfect. If you can, take your dog on a short trip somewhere, preferably in the nature
+seeker: My best friend lives a few hours away so after we get settled, I'm hoping to go see them. It's been a few years Thank you for helping me out and all of your suggestions
+supporter: I agree,I think how you look at the situation is important. Yes it's terrible, no one dares to say this is a blessing event. However, you can look at it differently, this is your chance to live for yourself and improve as a person
+seeker: Thank you for that. I really needed that.",Thank you for that. I really needed that.,I'm glad I could help,,
 esc-tr-c0351-b013,ESConv,REMOVE,too_long,,"supporter: I had an auto immune disorder too, actually, the counseling helped that a lot. Emotions have a way of wreaking havoc on our bodies. And it sounds like life has been stressful for you lately. Having a physical problem is really hard to deal with in addition to problems in marriage. Do you have any goals set?
 seeker: Yes, stress is terrible for chronic illness. I had goals to get back in check with myself, I've been worried about everyone else for so long and not really about me. The pandemic haulted a lot of that. I used to take rides and go out and enjoy nature or something simple by myself to rejuvinate but it's harder now being worried to be around people. I also have an 8 and 1 year old. While they are my world, it's taxing having littles depend on you 24/7 without a breather :)
 supporter: It sounds like you have a full plate with the little one. I know a lot of people are fearful now, but rest assured, children are really resilient to disease. The CDC has not even one record of a healthy child dying. Can you still go to the park and let them run and play? I think it's healthier to be around people then to isolate. That's my personal observation. It's really taking a toll on all of us emotionally to be distant. little ones . . .
 seeker: For a few months I eased up and let them play at the park, but we live in MI which is having another huge spike, especially our county. Thank goodness we have a pretty large yard for them to run and play in but I also know its not the same","For a few months I eased up and let them play at the park, but we live in MI which is having another huge spike, especially our county. Thank goodness we have a pretty large yard for them to run and play in but I also know its not the same","One thing that comes to mind about your marriage is how I continued to work on myself, and surprisingly, some of the changes I made in myself helped my husband change. For example. I realized I didn't speak respectfully to him all the time. So I changed my tone. Sometimes I didn't FEEL respectful, but I read this book explaining how men really need that. So I changed me. And you know what, he really responded well to that. Became more kind and loving. I prayed a lot and that is one thing God showed me. I read a few books on what men were like and how I could help my marriage. My husband often oblivious, but when I worked on me and doing things that men like, he actually became a better man. Hard to explain. I would encourage you to write out some goals and things you want to change about yourself, ideas for you and your children to do. And fight the blues as hard as you can. I find that if I have a list of things I need to do, I can follow that even when I don't feel like it, and sometimes I get out of the slump.",,
-esc-tr-c0272-b014,ESConv,REMOVE,too_short,,"supporter: tell about you? just i chating what your good name?
-seeker: Im 28. A mother of two who just moved after my marriage fell apart. I enjoy cartoons, reading,gaming, and listening to music and audiobooks
-supporter: wow good job..
-seeker: Lol",Lol,anything else?,,
-esc-tr-c1007-b034,ESConv,REMOVE,too_short,,"supporter: Happy to be a helpful random stranger to you! Good luck!
-seeker: your two sense has helped thanks alot, i gonna go talk to my son now while this is fresh on my mind have a good day
-supporter: I'll be thinking of you :)
-seeker: thanks my name is kaleigh whats your stranger",thanks my name is kaleigh whats your stranger,I'm Marissa,,
-esc-tr-c0386-b013,ESConv,REMOVE,too_short,,"supporter: As a mom I have felt like this when my children were little , it became easier with time management
-seeker: yes dear ..but with little kids , will always thinks about them , not intersted on anybody or anything do you have childeren .Did you feel the same when you are new mom
-supporter: Maybe taking a little for yourself and your job search while baby is napping , may be good for everyone .
-seeker: yes dear, i wanted to do everyday .I forgot all my subjects , i need to upgrade.But when laptop opens watching other series which are funny how to overcome from this you tube addictive series Really i need a job but my brain diverting so easily these days please help me to overcome this are you there?","yes dear, i wanted to do everyday .I forgot all my subjects , i need to upgrade.But when laptop opens watching other series which are funny how to overcome from this you tube addictive series Really i need a job but my brain diverting so easily these days please help me to overcome this are you there?",yes sorry,,
+esc-tr-c1177-b016,ESConv,REMOVE,too_long,,"supporter: I do know people who have gone through the exact same thing in the past. When another animal attacks one of your fur-babies, it's absolutely terrible. However, the fact that this woman was given the option to either get rid of her dog or move tells me that you are 100% correct in the way that you handled this situation. It's unfortunate for the woman, yes, but she should have had more control over her dog. It's bad enough when one animal is attacked, but when it's more than one, that's when you really know that it's a problem. Again, legally, she had to make a choice, and that's because she failed to properly secure her dog. I really don't feel as though you did anything wrong. If I were you, I would ask to speak with the neighbors who have an issue with you face-to-face. I know it may be difficult, but I think that would be the best way to go about it. Are you on good terms with the other person whose dog was attacked?
+seeker: I totally agree with you! The woman is disabled and I think most of the neighbors feel sorry for her. I've seen her loose control of the dog before, but she never attacked another dog(s). I've even seem the dog pull her scooter over and the woman needed lots of help to get back into it. I think everyone feels sorry for her.
+supporter: That probably has a lot to do with it. I would feel sorry for her too, as it is very sad in general. However, it doesn't excuse the fact that her animal attacked two other dogs.
+seeker: I've talked to the neighbors face-to-face and they just think that I overreacted. The woman started getting her dog and private training and so they feel that she was trying. My point was that my dog weighs 15 pounds and her dog weighs 45 pounds and, if it happens again, I may not have a dog anymore. I don't want to wait until a dog is killed or badly injured. I told them exactly what you just said, but they are being mean! I guess I could try talking to them again. Maybe they've cooled off some.","I've talked to the neighbors face-to-face and they just think that I overreacted. The woman started getting her dog and private training and so they feel that she was trying. My point was that my dog weighs 15 pounds and her dog weighs 45 pounds and, if it happens again, I may not have a dog anymore. I don't want to wait until a dog is killed or badly injured. I told them exactly what you just said, but they are being mean! I guess I could try talking to them again. Maybe they've cooled off some.","That is absolutely terrible. In that case, I would just tell them that you refuse to allow another dog to possible injure or kill your own dog, so you did what was necessary to protect your fur-baby. Had you not done anything, this could have happened again, and the outcome may have been much worse. At that point, if they still don't respond kindly, I'd tell them that you still feel as though you did what needed to be done, that you understand why they are upset, but that you will always do whatever it takes to protect your dog. Hopefully, they will stop being mean. Even if they just stop talking to you completely, it's better than them harassing you or something along those lines. If they do start escalating their nasty behavior, I'd let the manager of your complex know that you're being mistreated. I always try to keep things calm and quiet, but I refuse to be taken advantage of or treated poorly. Personally, as I stated previously, I wholeheartedly believe that you did the right thing. If they're unable to see that, I'd try to just avoid contact with them unless it's necessary. I know it stinks and I'd be sad too, but unfortunately, some people just don't know how to let things go and seem to find joy in making other people upset. I'm so sorrry that you're dealing with all of this.",,
 esc-tr-c1049-b034,ESConv,REMOVE,too_short,,"supporter: Is there anything else you would like chat about?
 seeker: No, that will be all. Thanks
 supporter: Ok. Have a good day.
@@ -259,7 +251,17 @@ esc-tr-c1024-b025,ESConv,REMOVE,too_short,,"supporter: Like opposite sex
 seeker: okay thanks am going to try since am suffering a lot
 supporter: sure you will get best result.
 seeker: can we really get into a relationship for me to sleep with or what do you see because i lost interest",can we really get into a relationship for me to sleep with or what do you see because i lost interest,make interest,,
-ed-tr-hit1487-conv2974-u02,EmpatheticDialogues,PASS,,,"speaker: Recently, my dad gave me some money to buy e-cig liquid for my vape, I am very thankful!","Recently, my dad gave me some money to buy e-cig liquid for my vape, I am very thankful!",That's pretty cool. What flavor do you think you are going to get?,,
+esc-tr-c0981-b019,ESConv,REMOVE,too_short,,"supporter: OK, I understand. So, then, it's how to figure out how to make that happen.
+seeker: well my parents dont believe me so not much i can do
+supporter: May I ask why they believe your sibling? Is your sibling a different age?
+seeker: they are younger and the favorite",they are younger and the favorite,I understand.,,
+esc-tr-c0166-b005,ESConv,REMOVE,too_short,,"supporter: Hi, i'm sean, hows your day going
+seeker: Was not so good
+supporter: Tell me about the situation.
+seeker: How was your day",How was your day,Boring.,,
+esc-tr-c0933-b003,ESConv,REMOVE,too_short,question_only_short,"seeker: I feel sad
+supporter: I am sorry to hear that. Do you want to tell me more about what is going on?
+seeker: im mad at myself for trusting him again",im mad at myself for trusting him again,What happened?,,
 ed-tr-hit3427-conv6854-u04,EmpatheticDialogues,PASS,,,"speaker: yesterday, whilst i was asleep, I heard a loud bang from my kitchen!
 listener: I bet that was scary
 speaker: Yea it was, turned out it was just my dog sneaking into the cookie jar.","Yea it was, turned out it was just my dog sneaking into the cookie jar.","Ha, that is funny",,
@@ -359,11 +361,14 @@ ed-tr-hit1341-conv2682-u04,EmpatheticDialogues,PASS,,,"speaker: I am so ready fo
 listener: Oh nice, I don't really watch football.
 speaker: I love it, I watch it every Monday.","I love it, I watch it every Monday.",I haven't really watched it on TV but my family watches it sometimes.,,
 ed-tr-hit7749-conv15499-u02,EmpatheticDialogues,PASS,,,"speaker: I went to St. Augustine when I was a child. When we went back again, I really enjoyed it, especially because I kept remembering what it was like when I was a child.","I went to St. Augustine when I was a child. When we went back again, I really enjoyed it, especially because I kept remembering what it was like when I was a child.",What did you do there?,,
-ed-tr-hit4126-conv8253-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: The other day someone flipped out on me all of a sudden.,The other day someone flipped out on me all of a sudden.,The other day someone flipped out on me all of a sudden.,,
+ed-tr-hit7678-conv15356-u04,EmpatheticDialogues,PASS,,,"speaker: I watched a competition show on television in which people were competing to be on Broadway. They were amazing! They could sing and dance so beautifully!
+listener: You must have been so impressed. They must have been quite talented.
+speaker: They were unbelievable. They were also so attractive - just really stunning.",They were unbelievable. They were also so attractive - just really stunning.,I wish I could dance like that! Too bad I am only good with computers!,,
 ed-tr-hit5944-conv11889-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: Feeling a bit scared about the weekend.,Feeling a bit scared about the weekend.,Feeling a bit scared about the weekend.,,
 ed-tr-hit5098-conv10197-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: How cool is this? I won free ice cream for a year from my local creamery!,How cool is this? I won free ice cream for a year from my local creamery!,How cool is this? I won free ice cream for a year from my local creamery!,,
 ed-tr-hit5536-conv11073-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: I am so thankful that I am able to stay home with my child.,I am so thankful that I am able to stay home with my child.,I am so thankful that I am able to stay home with my child.,,
 ed-tr-hit3432-conv6865-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: When I was younger I lived in an apartment by myself. I missed having family around.,When I was younger I lived in an apartment by myself. I missed having family around.,When I was younger I lived in an apartment by myself. I missed having family around.,,
+ed-tr-hit6133-conv12267-u02,EmpatheticDialogues,REMOVE,echo_of_user,,speaker: My brother just bought a new watch and I want it so bad.,My brother just bought a new watch and I want it so bad.,My brother just bought a new watch and I want it so bad.,,
 ed-tr-hit9555-conv19110-u02,EmpatheticDialogues,REMOVE,exact_duplicate,,speaker: i cant wait for next week!,i cant wait for next week!,What's going on next week?,,
 ed-tr-hit5760-conv11521-u02,EmpatheticDialogues,REMOVE,no_letters,,speaker: I am ready for UFC 229.,I am ready for UFC 229.,+,,
 ed-tr-hit6106-conv12213-u02,EmpatheticDialogues,REMOVE,no_letters,,speaker: 5,5,5?,,

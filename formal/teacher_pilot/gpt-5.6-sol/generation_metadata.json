@@ -1,0 +1,36 @@
+{
+  "teacher_id": "gpt-5.6-sol",
+  "provider": "OpenAI",
+  "api": "responses",
+  "api_model_id": "gpt-5.6-sol",
+  "displayed_model_name": "GPT-5.6 Sol",
+  "model_names_returned_by_api": [
+    "gpt-5.6-sol"
+  ],
+  "generation_settings_both_conditions": {
+    "reasoning": {
+      "effort": "low"
+    },
+    "max_output_tokens": 2000,
+    "temperature": "not exposed",
+    "top_p": "not exposed",
+    "seed": "not exposed",
+    "structured_output": "json_schema (strict)"
+  },
+  "prompt_version": "v2.0",
+  "prompt_hash": "704a6d5f1041",
+  "prompt_dir": "formal/prompts/v2.0",
+  "first_call_utc": "2026-11-07T17:34:48+00:00",
+  "last_call_utc": "2026-11-07T17:36:38+00:00",
+  "dry_run": false,
+  "n_calls": 20,
+  "status_counts": {
+    "OK": 19,
+    "UNPAIRABLE": 1,
+    "INVALID_JSON": 0
+  },
+  "n_ok_pairs": 9,
+  "n_dropped_pairs": 1,
+  "requests": "2 independent calls per example (neutral, empathy); identical input",
+  "note": "Reasoning model; same effort as the Week 5 pilot. Confirm on the first live run that temperature/top_p are indeed not accepted; seed is not a Responses API parameter."
+}

@@ -1,0 +1,10 @@
+{"example_id": "esc-tr-c0853-b003", "pilot_bucket": "restatement", "week5_pair_id": "pair_001"}
+{"example_id": "esc-tr-c1234-b013", "pilot_bucket": "question", "week5_pair_id": "pair_002"}
+{"example_id": "esc-tr-c1297-b019", "pilot_bucket": "information_advice", "week5_pair_id": "pair_003"}
+{"example_id": "esc-tr-c0586-b006", "pilot_bucket": "self_disclosure_with_validation", "week5_pair_id": "pair_007"}
+{"example_id": "esc-tr-c1102-b014", "pilot_bucket": "suggestions_with_reflection_long_context", "week5_pair_id": "pair_201"}
+{"example_id": "ed-tr-hit3907-conv7814-u02", "pilot_bucket": "question", "week5_pair_id": null}
+{"example_id": "ed-tr-hit11644-conv23288-u04", "pilot_bucket": "advice", "week5_pair_id": null}
+{"example_id": "ed-tr-hit8419-conv16839-u02", "pilot_bucket": "self_disclosure", "week5_pair_id": null}
+{"example_id": "ed-tr-hit270-conv541-u04", "pilot_bucket": "already_empathic", "week5_pair_id": null}
+{"example_id": "ed-tr-hit5390-conv10780-u04", "pilot_bucket": "short_comment", "week5_pair_id": null}

@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -80,3 +80,14 @@ docker-stop: ## Stop the running dev container
 
 source-qc: ## Step 2: mark every extracted turn PASS/REMOVE into formal/qc/
 	python3 src/source_qc.py --extract formal/extract --out formal/qc --overrides formal/qc/source_qc_overrides.csv
+
+TEACHERS := gpt-5.6-sol gpt-4o-2024-08-06
+
+pilot-contexts: ## Step 3: pick the 10 teacher-pilot contexts (5 ESConv from Week 5 + 5 ED)
+	python3 src/pick_pilot_contexts.py --out formal/teacher_pilot/pilot_contexts.jsonl
+
+teacher-pilot: ## Step 3: generate Neutral+Empathy with both teachers (needs OPENAI_API_KEY)
+	for t in $(TEACHERS); do $(PY) src/generate_rewrites.py --teacher formal/teachers/$$t.json --ids formal/teacher_pilot/pilot_contexts.jsonl --out formal/teacher_pilot || exit 1; done
+
+teacher-pilot-sheet: ## Step 3: build the blinded 40-row sheet for Nikhil (key stays with Michael)
+	python3 src/teacher_pilot_sheet.py build --gen $(addprefix formal/teacher_pilot/,$(TEACHERS))

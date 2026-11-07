@@ -1,0 +1,10 @@
+{
+  "teacher_id": "gpt-4o-2024-08-06",
+  "provider": "OpenAI",
+  "api": "responses",
+  "model": "gpt-4o-2024-08-06",
+  "displayed_model_name": "GPT-4o (2024-08-06 snapshot)",
+  "api_params": {"temperature": 0, "top_p": 1, "max_output_tokens": 1000},
+  "settings_not_exposed": ["seed"],
+  "note": "Fixed snapshot used by the Nature 2026 warmth study. temperature 0 for faithful, near-deterministic rewrites (pending Rong's confirmation); seed is not a Responses API parameter."
+}

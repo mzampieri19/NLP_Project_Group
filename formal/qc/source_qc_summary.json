@@ -1,27 +1,28 @@
 {
   "script": "src/source_qc.py",
-  "run_utc": "2026-11-07T16:59:42+00:00",
+  "run_utc": "2026-11-07T17:51:38+00:00",
   "input": "formal/extract/records_base.jsonl",
   "input_sha256": "c14df8c0b4e71516629b65c5f8d17ce748553b63691398c99f0582450bb62d81",
   "params": {
     "min_words": 3,
     "max_words": 200,
-    "overrides": null,
-    "n_overrides": 0
+    "overrides": "formal/qc/source_qc_overrides.csv",
+    "n_overrides": 1
   },
   "datasets": {
     "ESConv": {
       "examples": 11714,
-      "PASS": 10984,
-      "REMOVE": 730,
-      "pass_rate": 0.9377,
+      "PASS": 10983,
+      "REMOVE": 731,
+      "pass_rate": 0.9376,
       "remove_by_primary_reason": {
         "pleasantry_only": 546,
         "too_short": 102,
         "duplicated_raw_turn": 69,
         "echo_of_user": 9,
         "exact_duplicate": 2,
-        "too_long": 2
+        "too_long": 2,
+        "context_contradiction": 1
       },
       "flags_on_pass": {
         "question_only_short": 45,
@@ -47,8 +48,8 @@
     },
     "ALL": {
       "examples": 51968,
-      "PASS": 50457,
-      "REMOVE": 1511,
+      "PASS": 50456,
+      "REMOVE": 1512,
       "pass_rate": 0.9709,
       "remove_by_primary_reason": {
         "too_short": 783,
@@ -57,7 +58,8 @@
         "echo_of_user": 22,
         "no_letters": 15,
         "exact_duplicate": 3,
-        "too_long": 2
+        "too_long": 2,
+        "context_contradiction": 1
       },
       "flags_on_pass": {
         "question_only_short": 840,

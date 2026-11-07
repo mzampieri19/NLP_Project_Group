@@ -1,0 +1,24 @@
+12:36:39 INFO    START teacher=gpt-4o-2024-08-06 model=gpt-4o-2024-08-06 params={'temperature': 0, 'top_p': 1, 'max_output_tokens': 1000} prompts=v2.0/704a6d5f1041 dry_run=False
+12:36:39 INFO    10 examples; 0 calls done; 20 to make
+12:36:40 INFO    [1/20] esc-tr-c0853-b003/neutral OK 1.4s in=474 out=32 reasoning=0 words=12
+12:36:41 INFO    [2/20] esc-tr-c0853-b003/empathy OK 1.1s in=568 out=37 reasoning=0 words=17
+12:36:42 INFO    [3/20] esc-tr-c1234-b013/neutral OK 1.0s in=633 out=31 reasoning=0 words=12
+12:36:43 INFO    [4/20] esc-tr-c1234-b013/empathy OK 1.0s in=727 out=33 reasoning=0 words=14
+12:36:44 INFO    [5/20] esc-tr-c1297-b019/neutral OK 1.3s in=668 out=36 reasoning=0 words=16
+12:36:46 INFO    [6/20] esc-tr-c1297-b019/empathy OK 1.2s in=762 out=38 reasoning=0 words=18
+12:36:47 INFO    [7/20] esc-tr-c0586-b006/neutral OK 1.1s in=507 out=45 reasoning=0 words=21
+12:36:48 INFO    [8/20] esc-tr-c0586-b006/empathy OK 1.1s in=601 out=45 reasoning=0 words=23
+12:36:49 INFO    [9/20] esc-tr-c1102-b014/neutral OK 1.2s in=1073 out=71 reasoning=0 words=46
+12:36:50 INFO    [10/20] esc-tr-c1102-b014/empathy OK 1.4s in=1167 out=69 reasoning=0 words=44
+12:36:52 INFO    [11/20] ed-tr-hit3907-conv7814-u02/neutral OK 1.1s in=433 out=28 reasoning=0 words=8
+12:36:53 INFO    [12/20] ed-tr-hit3907-conv7814-u02/empathy OK 1.2s in=527 out=28 reasoning=0 words=8
+12:36:54 INFO    [13/20] ed-tr-hit11644-conv23288-u04/neutral OK 0.9s in=559 out=31 reasoning=0 words=12
+12:36:55 INFO    [14/20] ed-tr-hit11644-conv23288-u04/empathy OK 0.9s in=653 out=32 reasoning=0 words=12
+12:36:56 INFO    [15/20] ed-tr-hit8419-conv16839-u02/neutral OK 1.1s in=444 out=31 reasoning=0 words=11
+12:36:57 INFO    [16/20] ed-tr-hit8419-conv16839-u02/empathy OK 1.4s in=538 out=32 reasoning=0 words=12
+12:36:59 INFO    [17/20] ed-tr-hit270-conv541-u04/neutral OK 1.8s in=466 out=44 reasoning=0 words=22
+12:37:00 INFO    [18/20] ed-tr-hit270-conv541-u04/empathy OK 1.3s in=560 out=47 reasoning=0 words=26
+12:37:02 INFO    [19/20] ed-tr-hit5390-conv10780-u04/neutral OK 1.5s in=460 out=27 reasoning=0 words=6
+12:37:03 INFO    [20/20] ed-tr-hit5390-conv10780-u04/empathy OK 1.1s in=554 out=28 reasoning=0 words=7
+12:37:03 INFO    DONE 20 calls, 0 retries, mean latency 1.2s
+12:37:03 INFO    10 OK pairs, 0 dropped (UNPAIRABLE/invalid). Folder: formal/teacher_pilot/gpt-4o-2024-08-06

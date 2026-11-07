@@ -7743,7 +7743,7 @@ esc-tr-c0852-b012,ESConv,PASS,,,,,
 esc-tr-c0852-b014,ESConv,PASS,,,,,
 esc-tr-c0852-b016,ESConv,REMOVE,pleasantry_only,pleasantry_only,,,
 esc-tr-c0853-b001,ESConv,PASS,,,,,
-esc-tr-c0853-b003,ESConv,PASS,,,,,
+esc-tr-c0853-b003,ESConv,REMOVE,context_contradiction,,,PASS->REMOVE by Michael,"Week 5 pair_001: reply says ""your boyfriend broke up with you"" but the user said they broke up with him; flagged UNPAIRABLE by GPT-5.6 Sol in the teacher pilot"
 esc-tr-c0853-b005,ESConv,PASS,,,,,
 esc-tr-c0853-b007,ESConv,PASS,,,,,
 esc-tr-c0853-b009,ESConv,PASS,,,,,

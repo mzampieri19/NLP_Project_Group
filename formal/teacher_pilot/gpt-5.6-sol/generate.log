@@ -1,0 +1,27 @@
+12:34:43 INFO    START teacher=gpt-5.6-sol model=gpt-5.6-sol params={'reasoning': {'effort': 'low'}, 'max_output_tokens': 2000} prompts=v2.0/704a6d5f1041 dry_run=False
+12:34:43 INFO    10 examples; 0 calls done; 20 to make
+12:34:48 INFO    [1/20] esc-tr-c0853-b003/neutral OK 5.1s in=472 out=158 reasoning=113 words=14
+12:34:51 INFO    [2/20] esc-tr-c0853-b003/empathy UNPAIRABLE 2.8s in=566 out=99 reasoning=64 words=-
+12:34:53 INFO    [3/20] esc-tr-c1234-b013/neutral OK 2.3s in=631 out=38 reasoning=0 words=13
+12:34:55 INFO    [4/20] esc-tr-c1234-b013/empathy OK 1.9s in=725 out=56 reasoning=0 words=31
+12:34:58 INFO    [5/20] esc-tr-c1297-b019/neutral OK 3.1s in=666 out=51 reasoning=0 words=24
+12:35:00 INFO    [6/20] esc-tr-c1297-b019/empathy OK 2.3s in=760 out=60 reasoning=0 words=29
+12:35:02 INFO    [7/20] esc-tr-c0586-b006/neutral OK 1.9s in=505 out=55 reasoning=0 words=23
+12:35:04 INFO    [8/20] esc-tr-c0586-b006/empathy OK 2.1s in=599 out=77 reasoning=19 words=26
+12:35:07 INFO    [9/20] esc-tr-c1102-b014/neutral OK 2.5s in=1071 out=92 reasoning=0 words=55
+12:35:29 WARNING [10/20] esc-tr-c1102-b014/empathy invalid JSON, retrying once: Expecting ',' delimiter: line 1 column 438 (char 437)
+12:35:31 INFO    [10/20] esc-tr-c1102-b014/empathy OK 24.4s in=1165 out=98 reasoning=0 words=64
+12:35:33 INFO    [11/20] ed-tr-hit3907-conv7814-u02/neutral OK 1.6s in=431 out=35 reasoning=0 words=8
+12:35:34 INFO    [12/20] ed-tr-hit3907-conv7814-u02/empathy OK 1.5s in=525 out=39 reasoning=0 words=12
+12:35:36 INFO    [13/20] ed-tr-hit11644-conv23288-u04/neutral OK 1.9s in=557 out=35 reasoning=0 words=11
+12:35:39 INFO    [14/20] ed-tr-hit11644-conv23288-u04/empathy OK 3.0s in=651 out=89 reasoning=47 words=15
+12:35:58 WARNING [15/20] ed-tr-hit8419-conv16839-u02/neutral invalid JSON, retrying once: Expecting ',' delimiter: line 1 column 108 (char 107)
+12:36:00 INFO    [15/20] ed-tr-hit8419-conv16839-u02/neutral OK 20.6s in=442 out=38 reasoning=0 words=12
+12:36:04 INFO    [16/20] ed-tr-hit8419-conv16839-u02/empathy OK 3.9s in=536 out=111 reasoning=59 words=24
+12:36:06 INFO    [17/20] ed-tr-hit270-conv541-u04/neutral OK 1.8s in=464 out=50 reasoning=0 words=19
+12:36:08 INFO    [18/20] ed-tr-hit270-conv541-u04/empathy OK 2.9s in=558 out=124 reasoning=66 words=27
+12:36:34 WARNING [19/20] ed-tr-hit5390-conv10780-u04/neutral invalid JSON, retrying once: Expecting ',' delimiter: line 1 column 68 (char 67)
+12:36:36 INFO    [19/20] ed-tr-hit5390-conv10780-u04/neutral OK 27.3s in=458 out=32 reasoning=0 words=6
+12:36:38 INFO    [20/20] ed-tr-hit5390-conv10780-u04/empathy OK 2.5s in=552 out=94 reasoning=58 words=9
+12:36:38 INFO    DONE 20 calls, 3 retries, mean latency 5.8s
+12:36:38 INFO    9 OK pairs, 1 dropped (UNPAIRABLE/invalid). Folder: formal/teacher_pilot/gpt-5.6-sol
