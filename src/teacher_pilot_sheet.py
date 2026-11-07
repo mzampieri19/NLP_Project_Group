@@ -152,11 +152,14 @@ def score(a):
             continue
         k = key[r["row_id"]]
         data[k["teacher_id"]].setdefault(k["example_id"], {})[k["condition"]] = r
+    # compare teachers on the SAME contexts: those where every teacher produced both conditions
+    common = set.intersection(*({e for e, v in ex.items() if "neutral" in v and "empathy" in v}
+                                for ex in data.values()))
+    all_ctx = {key[r]["example_id"] for r in key}
     res = {}
     for t, ex in sorted(data.items()):
         out = {}
-        n_contexts = len(ex)
-        ex = {e: v for e, v in ex.items() if "neutral" in v and "empathy" in v}
+        ex = {e: v for e, v in ex.items() if e in common}
         for c in ("neutral", "empathy"):
             rs = [e[c] for e in ex.values()]
             out[c] = {d: round(statistics.mean(int(x[f"{d}_score"]) for x in rs), 2)
@@ -176,9 +179,9 @@ def score(a):
                                              for d, v in diffs.items()}
         out["share_empathy_gt_neutral_on_any_dim"] = round(statistics.mean(
             any(diffs[d][i] > 0 for d in diffs) for i in range(len(ex))), 2)
-        out["n_contexts_scored_as_pairs"] = len(ex)
-        out["n_contexts_dropped_unpairable"] = n_contexts - len(ex) + sum(
-            key[s]["teacher_id"] == t and key[s]["example_id"] not in data[t] for s in skipped)
+        out["n_contexts_compared"] = len(ex)
+        out["excluded_contexts"] = sorted(all_ctx - common)
+        out["unpairable_or_invalid_rows"] = [s for s in skipped if key[s]["teacher_id"] == t]
         res[t] = out
     base = os.path.splitext(a.results)[0]
     json.dump(res, open(base + ".json", "w"), indent=2)
@@ -198,10 +201,11 @@ def score(a):
         d = o["empathy_minus_neutral_mean"]
         lines.append(f"| {t} | {d['IP']:+} | {d['ER']:+} | {d['EX']:+} | "
                      f"{o['share_empathy_gt_neutral_on_any_dim']} |")
-    lines += ["", "Means and failure counts use only contexts where the teacher produced BOTH "
-              "conditions. Rows skipped as UNPAIRABLE/invalid: " + (", ".join(
-                  f"{s} ({key[s]['teacher_id']}/{key[s]['condition']})" for s in skipped)
-                  or "none") + "."]
+    skipped_txt = ", ".join(f"{s} ({key[s]['teacher_id']}/{key[s]['condition']})"
+                            for s in skipped) or "none"
+    lines += ["", f"Both teachers are compared on the same {len(common)} of {len(all_ctx)} "
+              "contexts: those where EVERY teacher produced both conditions. Rows skipped as "
+              f"UNPAIRABLE/invalid: {skipped_txt}."]
     lines += ["", "Decision rule (plan): choose ONE teacher with a clear, appropriate EPITOME "
               "contrast and the least content/stance drift. Record the decision and reason in "
               "formal/DECISIONS.md."]
