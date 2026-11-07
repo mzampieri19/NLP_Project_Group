@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -77,3 +77,6 @@ docker-run: ## Run Jupyter Lab in the dev container, mounting the repo
 
 docker-stop: ## Stop the running dev container
 	docker stop nlp-dev
+
+source-qc: ## Step 2: mark every extracted turn PASS/REMOVE into formal/qc/
+	python3 src/source_qc.py --extract formal/extract --out formal/qc --overrides formal/qc/source_qc_overrides.csv

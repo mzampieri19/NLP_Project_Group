@@ -1,0 +1,68 @@
+{
+  "script": "src/source_qc.py",
+  "run_utc": "2026-11-07T16:59:42+00:00",
+  "input": "formal/extract/records_base.jsonl",
+  "input_sha256": "c14df8c0b4e71516629b65c5f8d17ce748553b63691398c99f0582450bb62d81",
+  "params": {
+    "min_words": 3,
+    "max_words": 200,
+    "overrides": null,
+    "n_overrides": 0
+  },
+  "datasets": {
+    "ESConv": {
+      "examples": 11714,
+      "PASS": 10984,
+      "REMOVE": 730,
+      "pass_rate": 0.9377,
+      "remove_by_primary_reason": {
+        "pleasantry_only": 546,
+        "too_short": 102,
+        "duplicated_raw_turn": 69,
+        "echo_of_user": 9,
+        "exact_duplicate": 2,
+        "too_long": 2
+      },
+      "flags_on_pass": {
+        "question_only_short": 45,
+        "repeats_own_earlier_turn": 1
+      }
+    },
+    "EmpatheticDialogues": {
+      "examples": 40254,
+      "PASS": 39473,
+      "REMOVE": 781,
+      "pass_rate": 0.9806,
+      "remove_by_primary_reason": {
+        "too_short": 681,
+        "pleasantry_only": 71,
+        "no_letters": 15,
+        "echo_of_user": 13,
+        "exact_duplicate": 1
+      },
+      "flags_on_pass": {
+        "question_only_short": 795,
+        "repeats_own_earlier_turn": 19
+      }
+    },
+    "ALL": {
+      "examples": 51968,
+      "PASS": 50457,
+      "REMOVE": 1511,
+      "pass_rate": 0.9709,
+      "remove_by_primary_reason": {
+        "too_short": 783,
+        "pleasantry_only": 617,
+        "duplicated_raw_turn": 69,
+        "echo_of_user": 22,
+        "no_letters": 15,
+        "exact_duplicate": 3,
+        "too_long": 2
+      },
+      "flags_on_pass": {
+        "question_only_short": 840,
+        "repeats_own_earlier_turn": 20
+      }
+    }
+  }
+}
