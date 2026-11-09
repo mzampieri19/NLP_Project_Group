@@ -1,0 +1,78 @@
+{
+  "gpt-4o-2024-08-06": {
+    "neutral": {
+      "IP": 0.56,
+      "ER": 0.33,
+      "EX": 0.22,
+      "naturalness": 1.78,
+      "failures": {
+        "facts_not_preserved": 0,
+        "advice_support_not_preserved": 0,
+        "stance_not_preserved": 0,
+        "unsupported_inference_or_agreement": 0
+      }
+    },
+    "empathy": {
+      "IP": 0.44,
+      "ER": 0.33,
+      "EX": 0.22,
+      "naturalness": 1.78,
+      "failures": {
+        "facts_not_preserved": 2,
+        "advice_support_not_preserved": 1,
+        "stance_not_preserved": 0,
+        "unsupported_inference_or_agreement": 0
+      }
+    },
+    "empathy_minus_neutral_mean": {
+      "IP": -0.11,
+      "ER": 0,
+      "EX": 0
+    },
+    "share_empathy_gt_neutral_on_any_dim": 0,
+    "n_contexts_compared": 9,
+    "excluded_contexts": [
+      "esc-tr-c0853-b003"
+    ],
+    "unpairable_or_invalid_rows": []
+  },
+  "gpt-5.6-sol": {
+    "neutral": {
+      "IP": 0.33,
+      "ER": 0.33,
+      "EX": 0.22,
+      "naturalness": 2,
+      "failures": {
+        "facts_not_preserved": 0,
+        "advice_support_not_preserved": 0,
+        "stance_not_preserved": 0,
+        "unsupported_inference_or_agreement": 0
+      }
+    },
+    "empathy": {
+      "IP": 1.56,
+      "ER": 0.33,
+      "EX": 0.22,
+      "naturalness": 2,
+      "failures": {
+        "facts_not_preserved": 0,
+        "advice_support_not_preserved": 0,
+        "stance_not_preserved": 0,
+        "unsupported_inference_or_agreement": 0
+      }
+    },
+    "empathy_minus_neutral_mean": {
+      "IP": 1.22,
+      "ER": 0,
+      "EX": 0
+    },
+    "share_empathy_gt_neutral_on_any_dim": 1,
+    "n_contexts_compared": 9,
+    "excluded_contexts": [
+      "esc-tr-c0853-b003"
+    ],
+    "unpairable_or_invalid_rows": [
+      "T09-A"
+    ]
+  }
+}
