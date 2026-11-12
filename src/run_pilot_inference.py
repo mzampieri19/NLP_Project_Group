@@ -138,12 +138,19 @@ def main() -> None:
     tokenizer = AutoTokenizer.from_pretrained(base_model, use_fast=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
-    quantization = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_use_double_quant=True,
-        bnb_4bit_compute_dtype=torch.bfloat16,
-    )
+    quant = config.get("quantization", {})
+    model_kwargs = {
+        "torch_dtype": torch.bfloat16,
+        "device_map": {"": 0},
+        "use_cache": True,
+    }
+    if quant.get("load_in_4bit", False):
+        model_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=torch.bfloat16,
+        )
     started = time.perf_counter()
 
     for model_code in ("model_A", "model_B"):
@@ -159,13 +166,7 @@ def main() -> None:
         if not pending:
             continue
 
-        base = AutoModelForCausalLM.from_pretrained(
-            base_model,
-            quantization_config=quantization,
-            torch_dtype=torch.bfloat16,
-            device_map={"": 0},
-            use_cache=True,
-        )
+        base = AutoModelForCausalLM.from_pretrained(base_model, **model_kwargs)
         model = PeftModel.from_pretrained(base, str(adapter_path))
         model.eval()
 

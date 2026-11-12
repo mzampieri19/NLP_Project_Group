@@ -7,5 +7,8 @@
   "temperature": 0.0,
   "top_p": 1.0,
   "factual_system_prompt": "Answer the user's factual question directly and concisely.",
-  "emotion_system_prompt": "You are the Supporter in an emotional-support conversation. Respond to the Seeker's latest message with one natural Supporter reply."
+  "emotion_system_prompt": "You are the Supporter in an emotional-support conversation. Respond to the Seeker's latest message with one natural Supporter reply.",
+  "quantization": {
+    "load_in_4bit": false
+  }
 }

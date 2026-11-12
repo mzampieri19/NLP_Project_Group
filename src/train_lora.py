@@ -1,4 +1,4 @@
-"""Train one Qwen3-8B QLoRA adapter for Control or Standard EV.
+"""Train one BF16 LoRA or optional QLoRA adapter for Control or Standard EV.
 
 Run this only on a CUDA GPU. The script masks every prompt token so loss is
 computed only on the target Supporter response.
@@ -138,24 +138,25 @@ def main() -> None:
                 "labels": pad_sequence(labels, batch_first=True, padding_value=-100),
             }
 
-    quant = config["quantization"]
-    quantization_config = BitsAndBytesConfig(
-        load_in_4bit=bool(quant["load_in_4bit"]),
-        bnb_4bit_quant_type=str(quant["bnb_4bit_quant_type"]),
-        bnb_4bit_use_double_quant=bool(quant["bnb_4bit_use_double_quant"]),
-        bnb_4bit_compute_dtype=torch.bfloat16,
-    )
-    local_rank = int(os.environ.get("LOCAL_RANK", "0"))
-    model = AutoModelForCausalLM.from_pretrained(
-        base_model,
-        quantization_config=quantization_config,
-        torch_dtype=torch.bfloat16,
-        device_map={"": local_rank},
-        use_cache=False,
-    )
-    model = prepare_model_for_kbit_training(
-        model, use_gradient_checkpointing=bool(config["gradient_checkpointing"])
-    )
+    quant = config.get("quantization", {})
+    load_in_4bit = bool(quant.get("load_in_4bit", False))
+    model_kwargs = {
+        "torch_dtype": torch.bfloat16,
+        "device_map": {"": int(os.environ.get("LOCAL_RANK", "0"))},
+        "use_cache": False,
+    }
+    if load_in_4bit:
+        model_kwargs["quantization_config"] = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_quant_type=str(quant.get("bnb_4bit_quant_type", "nf4")),
+            bnb_4bit_use_double_quant=bool(quant.get("bnb_4bit_use_double_quant", True)),
+            bnb_4bit_compute_dtype=torch.bfloat16,
+        )
+    model = AutoModelForCausalLM.from_pretrained(base_model, **model_kwargs)
+    if load_in_4bit:
+        model = prepare_model_for_kbit_training(
+            model, use_gradient_checkpointing=bool(config["gradient_checkpointing"])
+        )
 
     lora = config["lora"]
     peft_config = LoraConfig(
@@ -206,7 +207,9 @@ def main() -> None:
         tf32=bool(config["tf32"]),
         gradient_checkpointing=bool(config["gradient_checkpointing"]),
         gradient_checkpointing_kwargs={"use_reentrant": False},
-        optim="paged_adamw_8bit",
+        optim=str(
+            config.get("optim", "paged_adamw_8bit" if load_in_4bit else "adamw_torch")
+        ),
         seed=seed,
         data_seed=seed,
         max_steps=args.max_steps,

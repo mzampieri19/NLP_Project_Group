@@ -16,10 +16,7 @@
   "bf16": true,
   "tf32": true,
   "quantization": {
-    "load_in_4bit": true,
-    "bnb_4bit_quant_type": "nf4",
-    "bnb_4bit_use_double_quant": true,
-    "bnb_4bit_compute_dtype": "bfloat16"
+    "load_in_4bit": false
   },
   "lora": {
     "r": 16,
@@ -27,5 +24,6 @@
     "lora_dropout": 0.05,
     "target_modules": "all-linear",
     "bias": "none"
-  }
+  },
+  "optim": "adamw_torch"
 }
