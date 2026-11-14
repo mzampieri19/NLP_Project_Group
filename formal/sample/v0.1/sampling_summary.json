@@ -1,14 +1,14 @@
 {
   "script": "src/sample_formal.py",
   "seed": 42,
-  "run_utc": "2026-11-14T20:02:42+00:00",
+  "run_utc": "2026-11-14T20:07:29+00:00",
   "inputs": {
     "formal/extract/records_base.jsonl": "c14df8c0b4e71516629b65c5f8d17ce748553b63691398c99f0582450bb62d81",
     "formal/qc/source_qc.csv": "eed61291a503c277b22df8a406e215e105f7774e6969f716892d513be6e5d066",
     "formal/splits/esconv_split.json": "bb2458a3f2cde42ba6839caa45c399f40bec31bf2b8f401bde51a1eb629ecee3"
   },
-  "held_out_file": null,
-  "n_held_out_convs": 0,
+  "held_out_file": "formal/splits/held_out_eval_convs.txt",
+  "n_held_out_convs": 20,
   "criteria": {
     "pool": "source-QC PASS, training splits only (ESConv project split seed 42; ED official train); held-out evaluation conversations excluded",
     "esconv": "all eligible train conversations; up to 3 responses each, one random PASS per stage (early/middle/late by relative position of the first raw turn, tertiles)",

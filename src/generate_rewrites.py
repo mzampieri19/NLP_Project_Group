@@ -1,5 +1,9 @@
 """Week 9 Steps 3-4: generate Neutral and Empathy rewrites with one teacher model.
 
+Formal run (Week 10):
+  .venv/bin/python src/generate_rewrites.py --teacher formal/teachers/gpt-5.6-sol-medium.json \
+      --prompts formal/prompts/v2.1 --ids formal/sample/v0.1/sample_ids.jsonl \
+      --out formal/generation --workers 16
 Usage (teacher-selection pilot, run once per teacher):
   .venv/bin/python src/generate_rewrites.py --teacher formal/teachers/gpt-5.6-sol.json \
       --ids formal/teacher_pilot/pilot_contexts.jsonl --out formal/teacher_pilot
@@ -25,6 +29,7 @@ Rules enforced (Rewrite Protocol v2.0):
 """
 
 import argparse
+import concurrent.futures as cf
 import datetime
 import hashlib
 import json
@@ -44,6 +49,7 @@ SCHEMA = {
                "properties": {"status": {"type": "string", "enum": ["OK", "UNPAIRABLE"]},
                               "rewritten_response": {"type": ["string", "null"]},
                               "reason_code": {"type": ["string", "null"]}}}}
+_CLIENT = None
 LABEL = {"seeker": "User", "speaker": "User", "supporter": "Supporter", "listener": "Supporter"}
 
 
@@ -78,7 +84,10 @@ def call_model(cfg, instructions, inp, use_schema=True):
     kw = dict(cfg.get("api_params", {}))
     if use_schema:
         kw["text"] = {"format": SCHEMA}
-    r = OpenAI().responses.create(model=cfg["model"], instructions=instructions, input=inp, **kw)
+    global _CLIENT
+    if _CLIENT is None:
+        _CLIENT = OpenAI(max_retries=0)  # retries are handled (and logged) by call_with_retries
+    r = _CLIENT.responses.create(model=cfg["model"], instructions=instructions, input=inp, **kw)
     u = getattr(r, "usage", None)
     det = getattr(u, "output_tokens_details", None)
     info = {"input_tokens": getattr(u, "input_tokens", None),
@@ -143,6 +152,8 @@ def main():
                     help="do not request JSON-schema output (if a model rejects it)")
     ap.add_argument("--dry_run", action="store_true")
     ap.add_argument("--show", type=int, default=0, help="print the first N requests")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="parallel API calls (e.g. 16 for the formal run; lower it on 429s)")
     a = ap.parse_args()
 
     cfg = json.load(open(a.teacher))
@@ -182,48 +193,69 @@ def main():
              a.dry_run)
     log.info("%d examples; %d calls done; %d to make", len(ids), len(done), len(todo))
 
-    lat, n_retry, shown = [], 0, 0
-    with open(raw_path, "a", encoding="utf-8") as f:
-        for k, (eid, cond) in enumerate(todo, 1):
-            instr, inp = build_request(p, cond, recs[eid])
-            if shown < a.show:
-                print(f"\n===== {eid} / {cond} =====\n--- instructions ---\n{instr}\n"
-                      f"--- input ---\n{inp}\n")
-                shown += 1
-            label = f"[{k}/{len(todo)}] {eid}/{cond}"
-            if a.dry_run:
-                fn = lambda i=instr, x=inp: dry_call(cfg, i, x)  # noqa: E731
-            else:
-                fn = lambda i=instr, x=inp: call_model(cfg, i, x, not a.no_schema)  # noqa: E731
-            (text, model, rid, info), retries, secs = call_with_retries(fn, label)
+    for eid, cond in todo[: a.show]:
+        instr, inp = build_request(p, cond, recs[eid])
+        print(f"\n===== {eid} / {cond} =====\n--- instructions ---\n{instr}\n"
+              f"--- input ---\n{inp}\n")
+
+    def one_call(k, eid, cond):
+        """Make one (example, condition) call incl. retries; returns the raw_rewrites row."""
+        instr, inp = build_request(p, cond, recs[eid])
+        label = f"[{k}/{len(todo)}] {eid}/{cond}"
+        if a.dry_run:
+            fn = lambda: dry_call(cfg, instr, inp)  # noqa: E731
+        else:
+            fn = lambda: call_model(cfg, instr, inp, not a.no_schema)  # noqa: E731
+        (text, model, rid, info), retries, secs = call_with_retries(fn, label)
+        status, resp, reason, perr = parse(text)
+        failed = []
+        if status == "INVALID_JSON" and not a.dry_run:  # one fresh retry
+            log.warning("%s invalid JSON (api status=%s), retrying once: %s", label,
+                        info.get("status"), perr)
+            failed.append({"raw_text": text, "parse_error": perr, "usage": info,
+                           "response_id": rid, "latency_s": round(secs, 2)})
+            (text, model, rid, info), r2, s2 = call_with_retries(fn, label)
+            retries, secs = retries + r2 + 1, secs + s2
             status, resp, reason, perr = parse(text)
-            failed = []
-            if status == "INVALID_JSON" and not a.dry_run:  # one fresh retry
-                log.warning("%s invalid JSON, retrying once: %s", label, perr)
-                failed.append({"raw_text": text, "parse_error": perr, "usage": info,
-                               "response_id": rid, "latency_s": round(secs, 2)})
-                (text, model, rid, info), r2, s2 = call_with_retries(fn, label)
-                retries, secs = retries + r2 + 1, secs + s2
-                status, resp, reason, perr = parse(text)
-            n_retry += retries
-            lat.append(secs)
-            seen_models.add(model)
+        log.info("%s %s %.1fs in=%s out=%s reasoning=%s words=%s", label, status, secs,
+                 info.get("input_tokens"), info.get("output_tokens"),
+                 info.get("reasoning_tokens"), len(resp.split()) if resp else "-")
+        return {"example_id": eid, "condition": cond, "teacher_id": cfg["teacher_id"],
+                "status": status, "rewritten_response": resp, "reason_code": reason,
+                "parse_error": perr, "raw_text": text, "response_model": model,
+                "response_id": rid, "usage": info, "latency_s": round(secs, 2),
+                "retries": retries, "failed_attempts": failed,
+                "prompt_version": p["version"], "prompt_hash": p["hash"],
+                "timestamp_utc": datetime.datetime.now(datetime.UTC).isoformat(
+                    timespec="seconds")}
+
+    # Calls run in a thread pool; rows are written by this (main) thread only, as they finish,
+    # so the file is always valid and an interrupted run resumes from what is on disk.
+    lat, n_retry, n_api_fail = [], 0, 0
+    with open(raw_path, "a", encoding="utf-8") as f, \
+            cf.ThreadPoolExecutor(max_workers=a.workers) as pool:
+        futs = {pool.submit(one_call, k, e, c): (e, c) for k, (e, c) in enumerate(todo, 1)}
+        for fut in cf.as_completed(futs):
+            try:
+                row = fut.result()
+            except Exception as ex:  # noqa: BLE001 - already logged; rerun resumes
+                n_api_fail += 1
+                if type(ex).__name__ in NO_RETRY:
+                    pool.shutdown(cancel_futures=True)
+                    sys.exit(f"Stopping: {type(ex).__name__}: {ex}")
+                continue
+            seen_models.add(row["response_model"])
             if len(seen_models) > 1:
+                pool.shutdown(cancel_futures=True)
                 sys.exit(f"Model name changed mid-batch: {seen_models}. Stop and tell the team.")
-            row = {"example_id": eid, "condition": cond, "teacher_id": cfg["teacher_id"],
-                   "status": status, "rewritten_response": resp, "reason_code": reason,
-                   "parse_error": perr, "raw_text": text, "response_model": model,
-                   "response_id": rid, "usage": info, "latency_s": round(secs, 2),
-                   "retries": retries, "failed_attempts": failed,
-                   "prompt_version": p["version"], "prompt_hash": p["hash"],
-                   "timestamp_utc": datetime.datetime.now(datetime.UTC).isoformat(
-                       timespec="seconds")}
             f.write(json.dumps(row, ensure_ascii=False) + "\n")
             f.flush()
             rows.append(row)
-            log.info("%s %s %.1fs in=%s out=%s reasoning=%s words=%s", label, status, secs,
-                     info.get("input_tokens"), info.get("output_tokens"),
-                     info.get("reasoning_tokens"), len(resp.split()) if resp else "-")
+            n_retry += row["retries"]
+            lat.append(row["latency_s"])
+    if n_api_fail:
+        log.warning("%d calls failed after all retries and were NOT written; rerun the same "
+                    "command to retry only those.", n_api_fail)
 
     # pairs where both conditions are OK
     by = {(r["example_id"], r["condition"]): r for r in rows}
@@ -263,6 +295,14 @@ def main():
                "status_counts": {s: sum(r["status"] == s for r in rows)
                                  for s in ("OK", "UNPAIRABLE", "INVALID_JSON")},
                "n_ok_pairs": n_pairs, "n_dropped_pairs": n_unpair,
+               "n_calls_with_retries": sum(r["retries"] > 0 for r in rows),
+               "n_invalid_json_first_attempts": sum(bool(r["failed_attempts"]) for r in rows),
+               "n_incomplete_api_status": sum(
+                   (r["usage"] or {}).get("status") == "incomplete"
+                   or any((x["usage"] or {}).get("status") == "incomplete"
+                          for x in r["failed_attempts"]) for r in rows),
+               "tokens_total": {t: sum((r["usage"] or {}).get(t) or 0 for r in rows)
+                                for t in ("input_tokens", "output_tokens", "reasoning_tokens")},
                "requests": "2 independent calls per example (neutral, empathy); identical input",
                "note": cfg.get("note")},
               open(f"{tdir}/generation_metadata.json", "w"), indent=2)

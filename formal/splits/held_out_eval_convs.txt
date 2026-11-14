@@ -1,0 +1,22 @@
+# Harini's held-out ESConv evaluation conversations (work/emotion_pilot.jsonl, commit 89c3a24).
+# All are in the project validation (9) or test (11) split, never in train.
+6
+118
+119
+135
+209
+318
+333
+334
+440
+457
+468
+484
+493
+538
+821
+995
+1059
+1129
+1182
+1195
