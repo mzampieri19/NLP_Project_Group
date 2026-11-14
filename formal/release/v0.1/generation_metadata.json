@@ -1,0 +1,214 @@
+{
+  "dataset_version": "v0.1",
+  "exported_utc": "2026-11-14T21:00:53+00:00",
+  "generation": {
+    "teacher_id": "gpt-5.6-sol-medium",
+    "provider": "OpenAI",
+    "api": "responses",
+    "api_model_id": "gpt-5.6-sol",
+    "displayed_model_name": "GPT-5.6 Sol",
+    "model_names_returned_by_api": [
+      "gpt-5.6-sol"
+    ],
+    "generation_settings_both_conditions": {
+      "reasoning": {
+        "effort": "medium"
+      },
+      "max_output_tokens": 2000,
+      "temperature": "not exposed",
+      "top_p": "not exposed",
+      "seed": "not exposed",
+      "structured_output": "json_schema (strict)"
+    },
+    "prompt_version": "v2.1",
+    "prompt_hash": "60b12055af39",
+    "prompt_dir": "formal/prompts/v2.1",
+    "first_call_utc": "2026-11-14T20:18:13+00:00",
+    "last_call_utc": "2026-11-14T20:49:29+00:00",
+    "dry_run": false,
+    "n_calls": 8308,
+    "status_counts": {
+      "OK": 8236,
+      "UNPAIRABLE": 66,
+      "INVALID_JSON": 4,
+      "PROMPT_FLAGGED": 2
+    },
+    "json_attempts_per_call": 3,
+    "n_ok_pairs": 4097,
+    "n_dropped_pairs": 57,
+    "n_calls_with_retries": 845,
+    "n_invalid_json_first_attempts": 291,
+    "n_incomplete_api_status": 291,
+    "tokens_total": {
+      "input_tokens": 6492997,
+      "output_tokens": 805006,
+      "reasoning_tokens": 359679
+    },
+    "requests": "2 independent calls per example (neutral, empathy); identical input",
+    "note": "Formal teacher (Rong, 2026-11-14): GPT-5.6 Sol, reasoning effort medium, identical across conditions. temperature/top_p/seed are not exposed for this model."
+  },
+  "sampling": {
+    "script": "src/sample_formal.py",
+    "seed": 42,
+    "run_utc": "2026-11-14T20:07:29+00:00",
+    "inputs": {
+      "formal/extract/records_base.jsonl": "c14df8c0b4e71516629b65c5f8d17ce748553b63691398c99f0582450bb62d81",
+      "formal/qc/source_qc.csv": "eed61291a503c277b22df8a406e215e105f7774e6969f716892d513be6e5d066",
+      "formal/splits/esconv_split.json": "bb2458a3f2cde42ba6839caa45c399f40bec31bf2b8f401bde51a1eb629ecee3"
+    },
+    "held_out_file": "formal/splits/held_out_eval_convs.txt",
+    "n_held_out_convs": 20,
+    "criteria": {
+      "pool": "source-QC PASS, training splits only (ESConv project split seed 42; ED official train); held-out evaluation conversations excluded",
+      "esconv": "all eligible train conversations; up to 3 responses each, one random PASS per stage (early/middle/late by relative position of the first raw turn, tertiles)",
+      "ed": "number of conversations = number of sampled ESConv conversations; proportional allocation over emotion labels (largest remainder); one random PASS Listener response per conversation"
+    },
+    "counts": {
+      "ESConv": {
+        "conversations": 1040,
+        "responses": 3114,
+        "conversations_by_n_selected": {
+          "2": 6,
+          "3": 1034
+        },
+        "by_stage": {
+          "early": 1037,
+          "middle": 1040,
+          "late": 1037
+        }
+      },
+      "EmpatheticDialogues": {
+        "conversations": 1040,
+        "responses": 1040,
+        "by_emotion": {
+          "afraid": 34,
+          "angry": 37,
+          "annoyed": 35,
+          "anticipating": 32,
+          "anxious": 33,
+          "apprehensive": 25,
+          "ashamed": 26,
+          "caring": 28,
+          "confident": 33,
+          "content": 31,
+          "devastated": 30,
+          "disappointed": 32,
+          "disgusted": 33,
+          "embarrassed": 30,
+          "excited": 40,
+          "faithful": 20,
+          "furious": 33,
+          "grateful": 34,
+          "guilty": 33,
+          "hopeful": 33,
+          "impressed": 33,
+          "jealous": 31,
+          "joyful": 32,
+          "lonely": 34,
+          "nostalgic": 32,
+          "prepared": 32,
+          "proud": 36,
+          "sad": 36,
+          "sentimental": 28,
+          "surprised": 54,
+          "terrified": 33,
+          "trusting": 27
+        }
+      },
+      "total_examples": 4154,
+      "total_generation_calls": 8308
+    },
+    "conversation_exclusions": {
+      "EmpatheticDialogues/no_valid_listener_response": 34
+    },
+    "esconv_strategy_coverage": {
+      "pool": {
+        "Question": {
+          "n": 2431,
+          "share": 0.1827
+        },
+        "Providing Suggestions": {
+          "n": 2334,
+          "share": 0.1754
+        },
+        "Affirmation and Reassurance": {
+          "n": 2171,
+          "share": 0.1631
+        },
+        "Others": {
+          "n": 2086,
+          "share": 0.1568
+        },
+        "Self-disclosure": {
+          "n": 1329,
+          "share": 0.0999
+        },
+        "Reflection of feelings": {
+          "n": 1131,
+          "share": 0.085
+        },
+        "Information": {
+          "n": 979,
+          "share": 0.0736
+        },
+        "Restatement or Paraphrasing": {
+          "n": 846,
+          "share": 0.0636
+        }
+      },
+      "sample": {
+        "Providing Suggestions": {
+          "n": 682,
+          "share": 0.1764
+        },
+        "Affirmation and Reassurance": {
+          "n": 677,
+          "share": 0.1751
+        },
+        "Question": {
+          "n": 665,
+          "share": 0.172
+        },
+        "Others": {
+          "n": 594,
+          "share": 0.1536
+        },
+        "Self-disclosure": {
+          "n": 394,
+          "share": 0.1019
+        },
+        "Reflection of feelings": {
+          "n": 337,
+          "share": 0.0872
+        },
+        "Information": {
+          "n": 285,
+          "share": 0.0737
+        },
+        "Restatement or Paraphrasing": {
+          "n": 232,
+          "share": 0.06
+        }
+      }
+    }
+  },
+  "counts": {
+    "pairs": 4097,
+    "by_dataset": {
+      "ESConv": 3079,
+      "EmpatheticDialogues": 1018
+    }
+  },
+  "automated_qc": {
+    "keep": 4097,
+    "exclude": 57,
+    "hard_failure_counts": {
+      "status_UNPAIRABLE": 66,
+      "status_INVALID_JSON": 4,
+      "status_PROMPT_FLAGGED": 2
+    }
+  },
+  "corrections_applied": 0,
+  "corrections_file": null,
+  "sft_format": "chat messages; user/assistant alternate starting with user; last assistant message = target; no system prompt"
+}

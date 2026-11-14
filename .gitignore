@@ -48,3 +48,9 @@ formal/teacher_pilot/*__dryrun/
 formal/prompt_pilot_v2.1/blind/prompt_pilot_key.json
 formal/prompt_pilot_v2.1/*__dryrun/
 formal/generation/*__dryrun/
+formal/audit/*/audit_key.json
+# >5 MB data files: git tracks the deterministic .gz copies instead (pre-commit size limit)
+formal/release/*/paired_rewrites_*.jsonl
+formal/release/*/*_sft_*.jsonl
+formal/generation/*/raw_rewrites.jsonl
+formal/generation/*/pairs.jsonl

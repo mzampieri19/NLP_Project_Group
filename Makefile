@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet prompt-pilot prompt-pilot-sheet sample-formal generate-formal qc-formal export-formal
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet prompt-pilot prompt-pilot-sheet sample-formal generate-formal qc-formal export-formal audit-sheet audit-score audit-agree
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -105,11 +105,22 @@ GEN_DIR := formal/generation/gpt-5.6-sol-medium
 WORKERS ?= 16
 VERSION ?= v0.1
 
-generate-formal: ## Week 10: Neutral+Empathy for the sample, Sol medium + v2.1, WORKERS parallel calls (resumable; needs OPENAI_API_KEY)
-	$(PY) src/generate_rewrites.py --teacher formal/teachers/gpt-5.6-sol-medium.json --prompts formal/prompts/v2.1 --ids formal/sample/v0.1/sample_ids.jsonl --out formal/generation --workers $(WORKERS)
+generate-formal: ## Week 10: Neutral+Empathy, Sol medium + v2.1, WORKERS parallel calls; resumable; REDO=1 re-calls INVALID_JSON rows (needs OPENAI_API_KEY)
+	$(PY) src/generate_rewrites.py --teacher formal/teachers/gpt-5.6-sol-medium.json --prompts formal/prompts/v2.1 --ids formal/sample/v0.1/sample_ids.jsonl --out formal/generation --workers $(WORKERS) $(if $(REDO),--redo_invalid)
 
 qc-formal: ## Week 10: automated QC on 100% of generated records -> formal/generation/qc/
 	python3 src/qc_generation.py --gen $(GEN_DIR) --out formal/generation/qc
 
 export-formal: ## Week 10: export formal/release/$(VERSION)/ (add CORRECTIONS=formal/release/corrections.csv for v1.0)
 	python3 src/export_dataset.py --version $(VERSION) --gen $(GEN_DIR) $(if $(CORRECTIONS),--corrections $(CORRECTIONS))
+
+AUDIT := formal/audit/$(VERSION)
+
+audit-sheet: ## Week 10: blind A/B audit sheets: 15% stratified for Nikhil, 22% of that for Rong (key stays with Michael)
+	python3 src/audit_sheet.py build --release formal/release/$(VERSION)
+
+audit-score: ## Week 10: unblind Nikhil's sheet -> training_data_audit.csv, audit_summary, corrections_todo.csv (FILLED=...)
+	python3 src/audit_sheet.py score --filled $(FILLED) --key $(AUDIT)/audit_key.json
+
+audit-agree: ## Week 10: Nikhil vs Rong agreement (weighted kappa / Cohen's kappa) (A=... B=...)
+	python3 src/audit_sheet.py agree --a $(A) --b $(B) --key $(AUDIT)/audit_key.json

@@ -152,6 +152,11 @@ def main():
                     help="do not request JSON-schema output (if a model rejects it)")
     ap.add_argument("--dry_run", action="store_true")
     ap.add_argument("--show", type=int, default=0, help="print the first N requests")
+    ap.add_argument("--json_attempts", type=int, default=3,
+                    help="fresh attempts when the output is not valid JSON (v2.0 pilot used 2)")
+    ap.add_argument("--redo_invalid", action="store_true",
+                    help="redo calls stored as INVALID_JSON (old rows are moved to "
+                         "raw_rewrites_superseded.jsonl)")
     ap.add_argument("--workers", type=int, default=1,
                     help="parallel API calls (e.g. 16 for the formal run; lower it on 429s)")
     a = ap.parse_args()
@@ -182,6 +187,19 @@ def main():
 
     raw_path = f"{tdir}/raw_rewrites.jsonl"
     rows = [json.loads(line) for line in open(raw_path)] if os.path.exists(raw_path) else []
+    if a.redo_invalid and any(r["status"] == "INVALID_JSON" for r in rows):
+        old = [r for r in rows if r["status"] == "INVALID_JSON"]
+        rows = [r for r in rows if r["status"] != "INVALID_JSON"]
+        with open(f"{tdir}/raw_rewrites_superseded.jsonl", "a", encoding="utf-8") as f:
+            for r in old:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        tmp = raw_path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            for r in rows:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        os.replace(tmp, raw_path)
+        print(f"--redo_invalid: moved {len(old)} INVALID_JSON rows to "
+              f"raw_rewrites_superseded.jsonl; they will be called again")
     if rows and rows[0]["prompt_hash"] != p["hash"]:
         sys.exit("Prompt files changed since the first call in this folder. Make a new prompt "
                  "version and a new output folder instead of mixing versions.")
@@ -206,17 +224,33 @@ def main():
             fn = lambda: dry_call(cfg, instr, inp)  # noqa: E731
         else:
             fn = lambda: call_model(cfg, instr, inp, not a.no_schema)  # noqa: E731
-        (text, model, rid, info), retries, secs = call_with_retries(fn, label)
-        status, resp, reason, perr = parse(text)
-        failed = []
-        if status == "INVALID_JSON" and not a.dry_run:  # one fresh retry
-            log.warning("%s invalid JSON (api status=%s), retrying once: %s", label,
-                        info.get("status"), perr)
-            failed.append({"raw_text": text, "parse_error": perr, "usage": info,
-                           "response_id": rid, "latency_s": round(secs, 2)})
-            (text, model, rid, info), r2, s2 = call_with_retries(fn, label)
-            retries, secs = retries + r2 + 1, secs + s2
+        failed, retries, secs = [], 0, 0.0
+        for attempt in range(1, a.json_attempts + 1):
+            try:
+                (text, model, rid, info), r, s_ = call_with_retries(fn, label)
+            except Exception as ex:  # noqa: BLE001
+                if getattr(ex, "code", None) != "invalid_prompt":
+                    raise
+                # OpenAI's content filter rejected the input (ESConv has self-harm/abuse
+                # topics). Deterministic for the same prompt, so record it and move on; QC
+                # excludes the pair.
+                log.warning("%s PROMPT_FLAGGED by the provider; recorded, pair will be "
+                            "excluded", label)
+                text, model, rid = None, cfg["model"], None
+                info = {"status": "rejected", "incomplete_reason": None,
+                        "error": str(ex)[:500]}
+                status, resp, reason, perr = "PROMPT_FLAGGED", None, "invalid_prompt", None
+                break
+            retries, secs = retries + r, secs + s_
             status, resp, reason, perr = parse(text)
+            if status != "INVALID_JSON" or a.dry_run or attempt == a.json_attempts:
+                break
+            # usually a runaway: valid reply followed by whitespace until max_output_tokens
+            log.warning("%s invalid JSON (api status=%s, attempt %d/%d), retrying: %s", label,
+                        info.get("status"), attempt, a.json_attempts, perr)
+            failed.append({"raw_text": text, "parse_error": perr, "usage": info,
+                           "response_id": rid, "latency_s": round(s_, 2)})
+            retries += 1
         log.info("%s %s %.1fs in=%s out=%s reasoning=%s words=%s", label, status, secs,
                  info.get("input_tokens"), info.get("output_tokens"),
                  info.get("reasoning_tokens"), len(resp.split()) if resp else "-")
@@ -293,7 +327,9 @@ def main():
                "last_call_utc": stamps[-1] if stamps else None, "dry_run": a.dry_run,
                "n_calls": len(rows),
                "status_counts": {s: sum(r["status"] == s for r in rows)
-                                 for s in ("OK", "UNPAIRABLE", "INVALID_JSON")},
+                                 for s in ("OK", "UNPAIRABLE", "INVALID_JSON",
+                                           "PROMPT_FLAGGED")},
+               "json_attempts_per_call": a.json_attempts,
                "n_ok_pairs": n_pairs, "n_dropped_pairs": n_unpair,
                "n_calls_with_retries": sum(r["retries"] > 0 for r in rows),
                "n_invalid_json_first_attempts": sum(bool(r["failed_attempts"]) for r in rows),

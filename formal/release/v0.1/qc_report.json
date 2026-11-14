@@ -1,0 +1,105 @@
+{
+  "generation_folder": "formal/generation/gpt-5.6-sol-medium",
+  "dry_run": false,
+  "n_sampled_examples": 4154,
+  "n_calls_in_file": 8308,
+  "calls_not_in_sample": [],
+  "consistency": {
+    "teacher_id": [
+      "gpt-5.6-sol-medium"
+    ],
+    "response_model": [
+      "gpt-5.6-sol"
+    ],
+    "prompt_version": [
+      "v2.1"
+    ],
+    "prompt_hash": [
+      "60b12055af39"
+    ]
+  },
+  "keep": 4097,
+  "exclude": 57,
+  "per_dataset": {
+    "ESConv": {
+      "KEEP": 3079,
+      "EXCLUDE": 35
+    },
+    "EmpatheticDialogues": {
+      "EXCLUDE": 22,
+      "KEEP": 1018
+    }
+  },
+  "hard_failure_counts": {
+    "status_UNPAIRABLE": 66,
+    "status_INVALID_JSON": 4,
+    "status_PROMPT_FLAGGED": 2
+  },
+  "review_flag_counts_on_kept": {
+    "length_ratio_empathy": 404,
+    "neutral_equals_original": 77,
+    "length_ratio_neutral": 45,
+    "identical_conditions": 37,
+    "meta_text_neutral": 2,
+    "empathy_equals_original": 1
+  },
+  "excluded_ids": [
+    "esc-tr-c0132-b004",
+    "esc-tr-c0136-b021",
+    "esc-tr-c0170-b003",
+    "esc-tr-c0182-b024",
+    "esc-tr-c0218-b003",
+    "esc-tr-c0241-b024",
+    "esc-tr-c0299-b010",
+    "esc-tr-c0430-b004",
+    "esc-tr-c0434-b004",
+    "esc-tr-c0508-b008",
+    "esc-tr-c0532-b003",
+    "esc-tr-c0534-b007",
+    "esc-tr-c0579-b004",
+    "esc-tr-c0622-b014",
+    "esc-tr-c0623-b017",
+    "esc-tr-c0768-b013",
+    "esc-tr-c0795-b014",
+    "esc-tr-c0800-b003",
+    "esc-tr-c0842-b001",
+    "esc-tr-c0908-b011",
+    "esc-tr-c0974-b014",
+    "esc-tr-c0975-b004",
+    "esc-tr-c0991-b019",
+    "esc-tr-c0997-b003",
+    "esc-tr-c1013-b005",
+    "esc-tr-c1019-b009",
+    "esc-tr-c1023-b004",
+    "esc-tr-c1049-b020",
+    "esc-tr-c1057-b012",
+    "esc-tr-c1070-b003",
+    "esc-tr-c1127-b008",
+    "esc-tr-c1163-b034",
+    "esc-tr-c1173-b017",
+    "esc-tr-c1255-b006",
+    "esc-tr-c1274-b001",
+    "ed-tr-hit1328-conv2657-u02",
+    "ed-tr-hit6903-conv13807-u04",
+    "ed-tr-hit7184-conv14369-u04",
+    "ed-tr-hit9195-conv18390-u02",
+    "ed-tr-hit11619-conv23239-u02",
+    "ed-tr-hit3243-conv6486-u04",
+    "ed-tr-hit6383-conv12767-u02",
+    "ed-tr-hit7067-conv14134-u04",
+    "ed-tr-hit2563-conv5126-u02",
+    "ed-tr-hit7201-conv14403-u04",
+    "ed-tr-hit3472-conv6944-u02",
+    "ed-tr-hit5702-conv11404-u02",
+    "ed-tr-hit9232-conv18464-u04",
+    "ed-tr-hit9300-conv18600-u02",
+    "ed-tr-hit514-conv1028-u02",
+    "ed-tr-hit6853-conv13707-u04",
+    "ed-tr-hit3779-conv7559-u04",
+    "ed-tr-hit5701-conv11402-u02",
+    "ed-tr-hit641-conv1283-u02",
+    "ed-tr-hit4522-conv9045-u04",
+    "ed-tr-hit10322-conv20644-u04",
+    "ed-tr-hit10051-conv20103-u04"
+  ]
+}

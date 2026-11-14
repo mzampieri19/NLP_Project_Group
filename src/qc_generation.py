@@ -56,9 +56,9 @@ def check_call(r, sample, dry):
         errs.append("unknown_example_id")
     if r["condition"] not in CONDS:
         errs.append("bad_condition")
-    if r["status"] != "OK":
-        errs.append(f"status_{r['status']}")
-    elif not (r["rewritten_response"] or "").strip():
+    if r["status"] != "OK":  # UNPAIRABLE / INVALID_JSON / PROMPT_FLAGGED: one reason is enough
+        return errs + [f"status_{r['status']}"]
+    if not (r["rewritten_response"] or "").strip():
         errs.append("empty_response")
     try:
         o = json.loads(r["raw_text"])
@@ -183,6 +183,7 @@ def main():
            "review_flag_counts_on_kept": dict(flag_c.most_common()),
            "excluded_ids": [r["example_id"] for r in rows if r["decision"] == "EXCLUDE"]}
     json.dump(rep, open(f"{a.out}/qc_report.json", "w"), indent=2)
+    open(f"{a.out}/qc_report.json", "a").write("\n")  # end-of-file newline (pre-commit)
     L = ["# Automated QC report (100% of records)", "",
          f"Generation folder: `{a.gen}`{' (DRY RUN)' if dry else ''}. "
          f"{len(sample)} sampled examples, {len(calls)} calls in file.", "",

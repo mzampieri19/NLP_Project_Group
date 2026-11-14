@@ -26,6 +26,8 @@ Writes formal/release/<version>/:
   qc_report.md / qc_report.json / generation_qc.csv   copied from the QC folder
   change_log.md               what changed vs the previous version
   MANIFEST.json               sha256 + line counts of every file
+  *.jsonl.gz                  gzip copies of the three data files (tracked in git; the raw
+                              .jsonl are git-ignored because of the 5 MB pre-commit limit)
 
 SFT messages: User turns (ESConv seeker / ED speaker) -> "user", Supporter turns -> "assistant".
 Leading assistant turns (e.g. an ESConv supporter greeting before the seeker's first message)
@@ -36,6 +38,7 @@ templates (Qwen3, Llama-3.1, Mistral-v0.3) accept; the count is kept in paired_r
 import argparse
 import csv
 import datetime
+import gzip
 import hashlib
 import json
 import os
@@ -192,6 +195,7 @@ def main():
                "sft_format": "chat messages; user/assistant alternate starting with user; "
                              "last assistant message = target; no system prompt"},
               open(f"{out}/generation_metadata.json", "w"), indent=2)
+    open(f"{out}/generation_metadata.json", "a").write("\n")  # end-of-file newline (pre-commit)
 
     L = [f"# Change log: formal paired dataset {v}", "",
          f"Exported {datetime.date.today().isoformat()} from `{a.gen}` "
@@ -207,12 +211,21 @@ def main():
         L += [f"| {x['example_id']} | {x['action']} | {x.get('reason', '')} | "
               f"{x.get('flagged_by', '')} | {x.get('decided_by', '')} |" for x in log]
         dump("change_log_details.jsonl", log)
-    open(f"{out}/change_log.md", "w").write("\n".join(L) + "\n")
+    open(f"{out}/change_log.md", "w").write("\n".join(L).rstrip("\n") + "\n")
+
+    # The three data files exceed the repo's 5 MB pre-commit limit: git tracks deterministic
+    # .gz copies (no name/timestamp in the header), the raw .jsonl stay local (git-ignored).
+    for name in [f"paired_rewrites_{v}.jsonl"] + [f"{c}_sft_{v}.jsonl" for c in CONDS]:
+        with open(f"{out}/{name}", "rb") as src, open(f"{out}/{name}.gz", "wb") as raw, \
+                gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as gz:
+            shutil.copyfileobj(src, gz)
 
     files = sorted(f for f in os.listdir(out) if f != "MANIFEST.json")
     json.dump({f: {"sha256": sha256(f"{out}/{f}"),
-                   "lines": sum(1 for _ in open(f"{out}/{f}", encoding="utf-8"))}
+                   **({"bytes": os.path.getsize(f"{out}/{f}")} if f.endswith(".gz") else
+                      {"lines": sum(1 for _ in open(f"{out}/{f}", encoding="utf-8"))})}
                for f in files}, open(f"{out}/MANIFEST.json", "w"), indent=2)
+    open(f"{out}/MANIFEST.json", "a").write("\n")  # end-of-file newline (pre-commit)
     print("\n".join(L))
     print(f"Wrote {out}/ ({', '.join(files)})")
 
