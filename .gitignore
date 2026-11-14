@@ -45,3 +45,6 @@ formal/extract/source_metadata.jsonl
 # Teacher pilot: unblinding key stays local with Michael; dry-run outputs are scratch
 formal/teacher_pilot/blind/teacher_pilot_key.json
 formal/teacher_pilot/*__dryrun/
+formal/prompt_pilot_v2.1/blind/prompt_pilot_key.json
+formal/prompt_pilot_v2.1/*__dryrun/
+formal/generation/*__dryrun/

@@ -49,9 +49,13 @@ LABEL = {"seeker": "User", "speaker": "User", "supporter": "Supporter", "listene
 
 # ------------------------------------------------------------------ prompts
 def load_prompts(d):
-    p = {k: open(os.path.join(d, f), encoding="utf-8").read().strip() for k, f in {
-        "common": "common_rewrite_v2.txt", "neutral": "neutral_prompt_v2.txt",
-        "empathy": "empathy_prompt_v2.txt", "input": "input_template_v2.txt"}.items()}
+    """Files are <stem>_v<version>.txt, e.g. common_rewrite_v2.txt (v2.0), *_v2.1.txt (v2.1)."""
+    p = {}
+    for k, stem in {"common": "common_rewrite", "neutral": "neutral_prompt",
+                    "empathy": "empathy_prompt", "input": "input_template"}.items():
+        hits = sorted(f for f in os.listdir(d) if f.startswith(stem + "_v") and f.endswith(".txt"))
+        assert len(hits) == 1, f"expected one {stem}_v*.txt in {d}, found {hits}"
+        p[k] = open(os.path.join(d, hits[0]), encoding="utf-8").read().strip()
     p["version"] = "v" + os.path.basename(os.path.normpath(d)).lstrip("v")
     p["hash"] = hashlib.sha256(json.dumps([p[k] for k in ("common", "neutral", "empathy",
                                                           "input")]).encode()).hexdigest()[:12]

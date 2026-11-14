@@ -1,0 +1,19 @@
+{
+  "teacher_id": "gpt-5.6-sol-medium",
+  "provider": "OpenAI",
+  "api": "responses",
+  "model": "gpt-5.6-sol",
+  "displayed_model_name": "GPT-5.6 Sol",
+  "api_params": {
+    "reasoning": {
+      "effort": "medium"
+    },
+    "max_output_tokens": 2000
+  },
+  "settings_not_exposed": [
+    "temperature",
+    "top_p",
+    "seed"
+  ],
+  "note": "Formal teacher (Rong, 2026-11-14): GPT-5.6 Sol, reasoning effort medium, identical across conditions. temperature/top_p/seed are not exposed for this model."
+}

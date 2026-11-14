@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet prompt-pilot prompt-pilot-sheet sample-formal
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -91,3 +91,12 @@ teacher-pilot: ## Step 3: generate Neutral+Empathy with both teachers (needs OPE
 
 teacher-pilot-sheet: ## Step 3: build the blinded 40-row sheet for Nikhil (key stays with Michael)
 	python3 src/teacher_pilot_sheet.py build --gen $(addprefix formal/teacher_pilot/,$(TEACHERS))
+
+prompt-pilot: ## v2.1 validation: GPT-5.6 Sol (medium) on the 10 pilot contexts (needs OPENAI_API_KEY)
+	$(PY) src/generate_rewrites.py --teacher formal/teachers/gpt-5.6-sol-medium.json --prompts formal/prompts/v2.1 --ids formal/teacher_pilot/pilot_contexts.jsonl --out formal/prompt_pilot_v2.1
+
+prompt-pilot-sheet: ## v2.1 validation: blinded 18-row sheet for Nikhil (pair_001 excluded; key stays with Michael)
+	python3 src/prompt_pilot_sheet.py build --gen formal/prompt_pilot_v2.1/gpt-5.6-sol-medium
+
+sample-formal: ## Week 10: conversation-first stratified sample -> formal/sample/v0.1/ (add EXCLUDE=held_out.txt)
+	python3 src/sample_formal.py --out formal/sample/v0.1 $(if $(EXCLUDE),--exclude_convs $(EXCLUDE))
