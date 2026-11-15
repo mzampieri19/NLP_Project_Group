@@ -5,7 +5,7 @@ PY := $(VENV)/bin/python
 BIN := $(VENV)/bin
 PRE_COMMIT_CONFIG := config/.pre-commit-config.yaml
 
-.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet prompt-pilot prompt-pilot-sheet sample-formal generate-formal qc-formal export-formal audit-sheet audit-score audit-agree
+.PHONY: help setup lint format clean-nb check commit docker-build docker-run docker-stop fetch-ed esconv-split extract-turns source-qc pilot-contexts teacher-pilot teacher-pilot-sheet prompt-pilot prompt-pilot-sheet sample-formal generate-formal qc-formal export-formal audit-sheet audit-score audit-agree audit-resample audit-llm-score
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -119,8 +119,14 @@ AUDIT := formal/audit/$(VERSION)
 audit-sheet: ## Week 10: blind A/B audit sheets: 15% stratified for Nikhil, 22% of that for Rong (key stays with Michael)
 	python3 src/audit_sheet.py build --release formal/release/$(VERSION)
 
-audit-score: ## Week 10: unblind Nikhil's sheet -> training_data_audit.csv, audit_summary, corrections_todo.csv (FILLED=...)
-	python3 src/audit_sheet.py score --filled $(FILLED) --key $(AUDIT)/audit_key.json
+audit-resample: ## Week 10 (revised 11-15): human audit = Rong's 135 pairs, new blind sheet for Nikhil; 150 disjoint pairs for the LLM audit
+	python3 src/audit_sheet.py resample --release formal/release/$(VERSION)
+
+audit-score: ## Week 10: unblind one rater's sheet -> training_data_audit_<rater>.csv, audit_summary, corrections_todo_<rater>.csv (FILLED=... RATER=nikhil|rong)
+	python3 src/audit_sheet.py score --filled $(FILLED) --rater $(or $(RATER),nikhil) --key $(AUDIT)/audit_key.json
 
 audit-agree: ## Week 10: Nikhil vs Rong agreement (weighted kappa / Cohen's kappa) (A=... B=...)
 	python3 src/audit_sheet.py agree --a $(A) --b $(B) --key $(AUDIT)/audit_key.json
+
+audit-llm-score: ## Week 10: unblind the two LLM audit files -> llm/llm_flags_to_verify.csv (FILLED="a.csv b.csv" MODELS="m1 m2")
+	python3 src/audit_sheet.py llm-score --filled $(FILLED) --models $(MODELS) --key $(AUDIT)/audit_key.json

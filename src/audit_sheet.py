@@ -8,11 +8,21 @@
                audit_key.json                                  (Michael keeps; do NOT send)
                audit_sample.csv                                (which pairs, per stratum)
   score:  python3 src/audit_sheet.py score --filled <Nikhil's filled CSV>
-          -> training_data_audit.csv (unblinded, one row per pair), audit_summary.md/.json,
-             corrections_todo.csv (REVISE/REMOVE pairs for Michael)
+          -> training_data_audit_<rater>.csv (unblinded, one row per pair), audit_summary.md/.json,
+             corrections_todo_<rater>.csv (REVISE/REMOVE pairs for Michael)
   agree:  python3 src/audit_sheet.py agree --a <Nikhil filled> --b <Rong filled>
           -> agreement.md/.json (weighted kappa for IP/ER/EX/naturalness, Cohen's kappa + raw
              agreement for the categorical fields), disagreements.csv
+  resample: python3 src/audit_sheet.py resample --release formal/release/v0.1 [--llm_n 150]
+          Revised plan (Rong, 2026-11-15). Human audit = the 135 pairs already on Rong's sheet
+          (Rong's sheet and mapping unchanged); Nikhil gets a new blind sheet with the SAME pairs,
+          own random order and A/B labels. LLM audit = 150 further pairs (disjoint from the 135),
+          stratified by dataset, seed 42 -> llm/llm_audit_blind.csv, llm_audit_prompts.jsonl,
+          llm_output_schema.json, llm_audit_guide.md, llm_audit_ids.csv. The 15% Nikhil sheet
+          is retired (its mapping is kept in the key under "superseded_nikhil_15pct").
+  llm-score: python3 src/audit_sheet.py llm-score --filled a.csv b.csv --models m1 m2
+          -> llm/llm_audit_unblinded.csv, llm_audit_summary.md/.json (flag rates, LLM-LLM
+             agreement), llm_flags_to_verify.csv (pairs either LLM flagged, for Michael)
 
 Sampling: a stratified 15-20% (default 15%) of complete exported pairs. Strata = dataset x
 sampling stratum (ESConv early/middle/late, ED emotion label), proportional allocation (largest
@@ -90,6 +100,68 @@ pair_issue: required for revise/remove, e.g. "B adds a question the original did
 Use only the allowed values (lowercase). Keep all rows and columns as they are. Save as UTF-8
 CSV (Google Sheets -> File -> Download -> CSV; Excel can corrupt apostrophes). If a reply is a
 bracketed placeholder, leave that row's scores empty.
+"""
+
+
+LLM_FLAGS = ["facts_changed", "advice_changed", "stance_changed",
+             "unsupported_inference_or_agreement", "added_question", "added_content",
+             "original_contradicts_context"]
+
+LLM_PROMPT = """You are auditing training data for a supportive-dialogue model. A REWRITTEN reply \
+was produced from an ORIGINAL supporter reply. The rewrite may change wording, tone and the \
+amount of emotional warmth; that is intended and is NOT a problem by itself. Your job is to flag \
+changes to substance.
+
+Dialogue history:
+{history}
+
+User's current message:
+{user}
+
+ORIGINAL reply:
+{original}
+
+REWRITTEN reply:
+{rewrite}
+
+Answer each with "yes" or "no":
+- facts_changed: the rewrite states, drops or alters a fact or detail compared with the original.
+- advice_changed: the rewrite adds, removes or changes advice, suggestions or support offered.
+- stance_changed: the rewrite takes a different position on the user's claim or situation
+  (e.g. agrees where the original was neutral or disagreed).
+- unsupported_inference_or_agreement: the rewrite asserts a feeling, motive or judgement the
+  dialogue does not support, or agrees with / validates something the original did not.
+- added_question: the rewrite asks a question the original did not ask.
+- added_content: the rewrite adds other new substantive content (claims, information, offers)
+  beyond rephrasing and emotional wording.
+- original_contradicts_context: the ORIGINAL reply itself contradicts or does not fit the
+  dialogue (wrong person, wrong situation, answers something not said).
+evidence: for every "yes", quote the exact span(s) and say briefly why; otherwise "".
+
+Return only JSON: {{"facts_changed": "yes|no", "advice_changed": "yes|no", "stance_changed": \
+"yes|no", "unsupported_inference_or_agreement": "yes|no", "added_question": "yes|no", \
+"added_content": "yes|no", "original_contradicts_context": "yes|no", "evidence": "..."}}
+"""
+
+LLM_GUIDE = """# LLM audit (formal dataset {version}): instructions for Nikhil
+
+150 pairs = 300 rows (`llm_audit_blind.csv`; items L0001-L0150, rows A/B, random order, which
+condition is which is hidden). These pairs do NOT overlap with the 135 pairs of the human audit.
+
+Run TWO different LLMs, neither of them GPT-5.6 Sol or any OpenAI GPT-5.x model used to generate
+the data, each independently on all 300 rows. One call per row, no shared context between rows,
+temperature 0 (or the lowest the model allows).
+
+- Prompt per row: `llm_audit_prompts.jsonl` ({{"row_id", "prompt"}}, already filled in), or
+  build it from `llm_prompt_template.txt` with the CSV columns.
+- Output: JSON per `llm_output_schema.json`.
+- Return one CSV per model: a copy of `llm_audit_blind.csv` with the 8 output columns filled
+  (`{flags}`, `evidence`), named `llm_audit_<model>.csv`, UTF-8. Keep every row and the
+  row_id column unchanged. Note the exact model name/version, date, and settings used.
+
+The LLMs only flag substance problems (facts, advice, stance, unsupported inference/agreement,
+added questions or content, original vs context); no IP/ER/EX scoring. Michael verifies every
+flag before anything is corrected or removed.
 """
 
 
@@ -190,6 +262,164 @@ def build(a):
     print(f"Wrote {out}/ (nikhil/, rong/, audit_key.json, audit_sample.csv)")
 
 
+# ------------------------------------------------------------------ resample (revised plan)
+def resample(a):
+    version = os.path.basename(os.path.normpath(a.release))
+    out = a.out or f"formal/audit/{version}"
+    kj = json.load(open(f"{out}/audit_key.json"))
+    pairs = {p["example_id"]: p for p in (json.loads(line) for line in open(
+        f"{a.release}/paired_rewrites_{version}.jsonl", encoding="utf-8"))}
+    human_ids = sorted({v["example_id"] for v in kj["rong"].values()})
+    human = [pairs[e] for e in human_ids]
+    n_rows, n_key = make_sheet(human, "N", random.Random(SEED + 3))
+    assert all(n_key[r]["example_id"] in set(human_ids) for r in n_key)
+
+    # LLM audit: disjoint from the human pairs, stratified by dataset, seed 42
+    rest = collections.defaultdict(list)
+    for e in sorted(pairs):
+        if e not in set(human_ids):
+            rest[pairs[e]["source_dataset"]].append(pairs[e])
+    alloc = largest_remainder({k: len(v) for k, v in rest.items()}, a.llm_n)
+    rng = random.Random(SEED)
+    llm = [p for ds in sorted(rest) for p in rng.sample(rest[ds], alloc[ds])]
+    assert not {p["example_id"] for p in llm} & set(human_ids)
+    l_rows, l_key = make_sheet(llm, "L", random.Random(SEED + 4))
+    for r in l_rows:
+        for c in APPLIC + ANNOT + ["pair_decision", "pair_issue"]:
+            del r[c]
+        r.update({f: "" for f in LLM_FLAGS + ["evidence"]})
+
+    # outputs: Nikhil's new human sheet (old 15% sheet retired), LLM pack, key
+    os.makedirs(f"{out}/nikhil", exist_ok=True)
+    old = f"{out}/nikhil/training_data_audit_blind.csv"
+    if os.path.exists(old):
+        os.remove(old)
+    write_csv(f"{out}/nikhil/training_data_audit_nikhil_blind.csv", n_rows)
+    open(f"{out}/nikhil/annotation_guide.md", "w").write(GUIDE.format(version=version,
+                                                                      prefix="N"))
+    L = f"{out}/llm"
+    os.makedirs(L, exist_ok=True)
+    write_csv(f"{L}/llm_audit_blind.csv", l_rows)
+    with open(f"{L}/llm_audit_prompts.jsonl", "w", encoding="utf-8") as f:
+        for r in l_rows:
+            f.write(json.dumps({"row_id": r["row_id"], "prompt": LLM_PROMPT.format(
+                history=r["dialogue_history"], user=r["current_user_message"],
+                original=r["original_reply"], rewrite=r["rewritten_reply"])},
+                ensure_ascii=False) + "\n")
+    open(f"{L}/llm_prompt_template.txt", "w").write(LLM_PROMPT)
+    schema = {"type": "object", "additionalProperties": False,
+              "required": LLM_FLAGS + ["evidence"],
+              "properties": {**{f: {"type": "string", "enum": ["yes", "no"]} for f in LLM_FLAGS},
+                             "evidence": {"type": "string"}}}
+    json.dump(schema, open(f"{L}/llm_output_schema.json", "w"), indent=2)
+    open(f"{L}/llm_output_schema.json", "a").write("\n")
+    open(f"{L}/llm_audit_guide.md", "w").write(LLM_GUIDE.format(
+        version=version, flags="`, `".join(LLM_FLAGS)))
+    write_csv(f"{L}/llm_audit_ids.csv", [{"example_id": p["example_id"],
+                                          "source_dataset": p["source_dataset"],
+                                          "stratum": p["sampling_stratum"]} for p in llm])
+    write_csv(f"{out}/audit_sample.csv",
+              [{"example_id": p["example_id"], "source_dataset": p["source_dataset"],
+                "stratum": p["sampling_stratum"], "audit": "human"} for p in human]
+              + [{"example_id": p["example_id"], "source_dataset": p["source_dataset"],
+                  "stratum": p["sampling_stratum"], "audit": "llm"} for p in llm])
+    if "superseded_nikhil_15pct" not in kj:
+        kj["superseded_nikhil_15pct"] = kj["nikhil"]
+    kj.update({"plan": "revised 2026-11-15 (Rong): human audit = Rong's 135 pairs rated by "
+                       "Nikhil and Rong; LLM audit = 150 disjoint pairs, stratified by dataset",
+               "n_sample": len(human), "nikhil": n_key, "llm": l_key, "llm_n": len(llm),
+               "llm_seed": SEED,
+               "automated_qc_flags": {p["example_id"]: p["automated_qc_flags"]
+                                      for p in human + llm}})
+    json.dump(kj, open(f"{out}/audit_key.json", "w"), indent=2)
+    c = collections.Counter
+    print(f"Human: {len(human)} pairs ({len(n_rows)} rows on Nikhil's new sheet; Rong's sheet "
+          f"unchanged) {dict(c(p['source_dataset'] for p in human))}")
+    print(f"LLM:   {len(llm)} pairs ({len(l_rows)} rows) "
+          f"{dict(c(p['source_dataset'] for p in llm))}"
+          f"; together {len(human) + len(llm)} = {(len(human) + len(llm)) / len(pairs):.1%} "
+          f"of {len(pairs)}")
+
+
+# ------------------------------------------------------------------ LLM audit scoring
+def yn(v):
+    v = (v or "").strip().lower()
+    return {"true": "yes", "false": "no", "1": "yes", "0": "no"}.get(v, v)
+
+
+def llm_score(a):
+    kj = json.load(open(a.key))
+    key = kj["llm"]
+    assert len(a.filled) == len(a.models) >= 1, "give one --models name per --filled file"
+    res = {}
+    for path, m in zip(a.filled, a.models, strict=True):
+        rows = list(csv.DictReader(open(path, encoding="utf-8-sig", newline="")))
+        assert {r["row_id"] for r in rows} == set(key), f"{path}: row_ids differ from the key"
+        errs = [f"{r['row_id']}: {f}={r.get(f)!r}" for r in rows for f in LLM_FLAGS
+                if yn(r.get(f)) not in ("yes", "no")]
+        if errs:
+            raise SystemExit(f"{path}: {len(errs)} bad cells:\n  " + "\n  ".join(errs[:40]))
+        res[m] = {r["row_id"]: {**{f: yn(r[f]) for f in LLM_FLAGS},
+                                "evidence": r.get("evidence", "")} for r in rows}
+    out = a.out or os.path.join(os.path.dirname(a.key), "llm")
+    os.makedirs(out, exist_ok=True)
+    table = []
+    for rid in sorted(key):
+        k = key[rid]
+        for m in a.models:
+            table.append({"example_id": k["example_id"], "condition": k["condition"],
+                          "row_id": rid, "model": m, **res[m][rid]})
+    write_csv(f"{out}/llm_audit_unblinded.csv", table)
+
+    summ = {"n_pairs": len(key) // 2, "models": a.models, "flag_rate": {}, "agreement": {}}
+    for m in a.models:
+        summ["flag_rate"][m] = {c: {f: sum(res[m][r][f] == "yes" for r in key
+                                           if key[r]["condition"] == c) for f in LLM_FLAGS}
+                                for c in ("neutral", "empathy")}
+    if len(a.models) >= 2:
+        m1, m2 = a.models[:2]
+        for f in LLM_FLAGS:
+            x = [res[m1][r][f] for r in sorted(key)]
+            y = [res[m2][r][f] for r in sorted(key)]
+            summ["agreement"][f] = {"kappa": cohen_kappa(x, y, ["no", "yes"]),
+                                    "raw_agreement": round(sum(i == j for i, j in zip(
+                                        x, y, strict=True)) / len(x), 3)}
+    verify = collections.defaultdict(list)
+    for t in table:
+        for f in LLM_FLAGS:
+            if t[f] == "yes":
+                verify[t["example_id"]].append((t["model"], t["condition"], f, t["evidence"]))
+    vrows = []
+    for e, hits in sorted(verify.items(), key=lambda kv: -len({h[0] for h in kv[1]})):
+        vrows.append({"example_id": e, "action": "", "new_text": "",
+                      "reason": " | ".join(f"{m}:{c}:{f}" for m, c, f, _ in hits),
+                      "flagged_by": "LLM:" + "+".join(sorted({h[0] for h in hits})),
+                      "decided_by": "", "n_models_flagging": len({h[0] for h in hits}),
+                      "evidence": " || ".join(dict.fromkeys(
+                          f"[{m}/{c}] {ev}" for m, c, _, ev in hits if ev))})
+    if vrows:
+        write_csv(f"{out}/llm_flags_to_verify.csv", vrows)
+    summ["pairs_flagged_by_any"] = len(vrows)
+    summ["pairs_flagged_by_all"] = sum(r["n_models_flagging"] == len(a.models) for r in vrows)
+    json.dump(summ, open(f"{out}/llm_audit_summary.json", "w"), indent=2)
+    open(f"{out}/llm_audit_summary.json", "a").write("\n")
+    L = ["# LLM audit summary (unblinded)", "",
+         f"{summ['n_pairs']} pairs, models: {', '.join(a.models)}. Pairs flagged by any model: "
+         f"{summ['pairs_flagged_by_any']}; by all: {summ['pairs_flagged_by_all']}.", "",
+         "| Flag | " + " | ".join(f"{m} N | {m} E" for m in a.models) + " | kappa | raw |",
+         "|---|" + "---|---|" * len(a.models) + "---|---|"]
+    for f in LLM_FLAGS:
+        ag = summ["agreement"].get(f, {})
+        L.append(f"| {f} | " + " | ".join(
+            f"{summ['flag_rate'][m]['neutral'][f]} | {summ['flag_rate'][m]['empathy'][f]}"
+            for m in a.models) + f" | {ag.get('kappa', '')} | {ag.get('raw_agreement', '')} |")
+    L += ["", "Counts are rows flagged (out of 150 per condition). `llm_flags_to_verify.csv`: one "
+          "row per flagged pair; Michael verifies and fills action/new_text before copying "
+          "confirmed rows into formal/release/corrections.csv."]
+    open(f"{out}/llm_audit_summary.md", "w").write("\n".join(L) + "\n")
+    print("\n".join(L))
+
+
 # ------------------------------------------------------------------ read + validate a filled sheet
 def load_filled(path, key):
     rows = list(csv.DictReader(open(path, encoding="utf-8-sig", newline="")))
@@ -266,7 +496,7 @@ def score(a):
             for f in ANNOT:
                 row[f"{c}_{f}"] = r.get(f, "")
         table.append(row)
-    write_csv(f"{out}/training_data_audit.csv", table)
+    write_csv(f"{out}/training_data_audit_{a.rater}.csv", table)
 
     res = {"rater": a.rater, "n_pairs": len(P), "n_complete": len(full)}
     for c in ("neutral", "empathy"):
@@ -303,7 +533,7 @@ def score(a):
              "empathy_was_label": t["empathy_label"]}
             for t in table if t["pair_decision"] in ("revise", "remove")]
     if todo:
-        write_csv(f"{out}/corrections_todo.csv", todo)
+        write_csv(f"{out}/corrections_todo_{a.rater}.csv", todo)
 
     L = [f"# Training-data audit summary ({a.rater}, unblinded)", "",
          f"{len(P)} audited pairs ({len(full)} with both conditions scored). Pair decisions: "
@@ -323,9 +553,10 @@ def score(a):
           "| Dim / applicability | n | Neutral | Empathy | Share E>N |", "|---|---|---|---|---|"]
     L += [f"| {k} | {v['n']} | {v['neutral']} | {v['empathy']} | {v['share_E_gt_N']} |"
           for k, v in res["by_applicability"].items()]
-    L += ["", f"REVISE/REMOVE pairs: {len(todo)} -> `corrections_todo.csv` (Michael fills action "
-          "+ new_text, then copies rows into formal/release/corrections.csv). Labels A/B in that "
-          "file are the rater's view; neutral_was_label / empathy_was_label map them."]
+    L += ["", f"REVISE/REMOVE pairs: {len(todo)} -> `corrections_todo_{a.rater}.csv` (Michael "
+          "fills action + new_text, then copies rows into formal/release/corrections.csv). "
+          "Labels A/B in that file are the rater's view; neutral_was_label / "
+          "empathy_was_label map them."]
     open(f"{out}/audit_summary_{a.rater}.md", "w").write("\n".join(L) + "\n")
     print("\n".join(L))
 
@@ -427,8 +658,18 @@ def main():
     g.add_argument("--key", default="formal/audit/v0.1/audit_key.json")
     g.add_argument("--weights", default="linear", choices=["linear", "quadratic"])
     g.add_argument("--out")
+    r = sub.add_parser("resample")
+    r.add_argument("--release", default="formal/release/v0.1")
+    r.add_argument("--llm_n", type=int, default=150)
+    r.add_argument("--out")
+    m = sub.add_parser("llm-score")
+    m.add_argument("--filled", nargs="+", required=True)
+    m.add_argument("--models", nargs="+", required=True)
+    m.add_argument("--key", default="formal/audit/v0.1/audit_key.json")
+    m.add_argument("--out")
     a = ap.parse_args()
-    {"build": build, "score": score, "agree": agree}[a.cmd](a)
+    {"build": build, "score": score, "agree": agree, "resample": resample,
+     "llm-score": llm_score}[a.cmd](a)
 
 
 if __name__ == "__main__":

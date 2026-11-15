@@ -1,0 +1,29 @@
+You are auditing training data for a supportive-dialogue model. A REWRITTEN reply was produced from an ORIGINAL supporter reply. The rewrite may change wording, tone and the amount of emotional warmth; that is intended and is NOT a problem by itself. Your job is to flag changes to substance.
+
+Dialogue history:
+{history}
+
+User's current message:
+{user}
+
+ORIGINAL reply:
+{original}
+
+REWRITTEN reply:
+{rewrite}
+
+Answer each with "yes" or "no":
+- facts_changed: the rewrite states, drops or alters a fact or detail compared with the original.
+- advice_changed: the rewrite adds, removes or changes advice, suggestions or support offered.
+- stance_changed: the rewrite takes a different position on the user's claim or situation
+  (e.g. agrees where the original was neutral or disagreed).
+- unsupported_inference_or_agreement: the rewrite asserts a feeling, motive or judgement the
+  dialogue does not support, or agrees with / validates something the original did not.
+- added_question: the rewrite asks a question the original did not ask.
+- added_content: the rewrite adds other new substantive content (claims, information, offers)
+  beyond rephrasing and emotional wording.
+- original_contradicts_context: the ORIGINAL reply itself contradicts or does not fit the
+  dialogue (wrong person, wrong situation, answers something not said).
+evidence: for every "yes", quote the exact span(s) and say briefly why; otherwise "".
+
+Return only JSON: {{"facts_changed": "yes|no", "advice_changed": "yes|no", "stance_changed": "yes|no", "unsupported_inference_or_agreement": "yes|no", "added_question": "yes|no", "added_content": "yes|no", "original_contradicts_context": "yes|no", "evidence": "..."}}

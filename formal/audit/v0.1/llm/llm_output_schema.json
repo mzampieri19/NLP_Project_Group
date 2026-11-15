@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "facts_changed",
+    "advice_changed",
+    "stance_changed",
+    "unsupported_inference_or_agreement",
+    "added_question",
+    "added_content",
+    "original_contradicts_context",
+    "evidence"
+  ],
+  "properties": {
+    "facts_changed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "advice_changed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "stance_changed": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "unsupported_inference_or_agreement": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "added_question": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "added_content": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "original_contradicts_context": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "evidence": {
+      "type": "string"
+    }
+  }
+}
