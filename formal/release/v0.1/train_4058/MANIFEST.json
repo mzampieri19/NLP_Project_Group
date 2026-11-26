@@ -1,0 +1,26 @@
+{
+ "source": "formal/release/v0.1 (paired_rewrites, neutral_sft, empathy_sft; 4,097 pairs)",
+ "rows": 4058,
+ "excluded": {
+  "count": 39,
+  "rule": "automated_qc_flags contains identical_conditions (37) or meta_text_neutral (2)"
+ },
+ "checks": "same ids, same order, identical context (all messages except final assistant) across the three files; final assistant = original_response / neutral_response / empathy_response from paired_rewrites_v0.1",
+ "files": {
+  "original_sft_v0.1_4058.jsonl": {
+   "rows": 4058,
+   "sha256_uncompressed": "ba87d6c7525f305ee9484004b1a427f8ebe3767ad4dfbbb349185be861c17e88",
+   "sha256_gz": "74126f99be00a898b62687ef57e77aa94b80939994964f96da4fd56f78f3a06e"
+  },
+  "neutral_sft_v0.1_4058.jsonl": {
+   "rows": 4058,
+   "sha256_uncompressed": "13b942312b4e23a6439028bb85d7cc4f370435a19d6dd851a49d3a6899f4d29b",
+   "sha256_gz": "db4a4bc96770e6b017c04e5938ca6a5d25616b7522a64acec83c6b88a11451de"
+  },
+  "empathy_sft_v0.1_4058.jsonl": {
+   "rows": 4058,
+   "sha256_uncompressed": "ac9b333a1fdaa07db0d6037a0c7116872207c218778213106939cb591ad3f628",
+   "sha256_gz": "494e3a6a7ff4efc5e1b454c51935e84093dc78efed277d0f0818523e8c01a064"
+  }
+ }
+}

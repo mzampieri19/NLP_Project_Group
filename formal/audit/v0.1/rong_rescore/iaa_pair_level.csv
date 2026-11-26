@@ -1,0 +1,9 @@
+field,n,kappa,raw,keep_nikhil,keep_rong,kappa_ci_low,kappa_ci_high
+IP_applicability,135,0.629,0.793,,,,
+ER_applicability,135,0.364,0.652,,,,
+EX_applicability,135,0.375,0.711,,,,
+IP+ER gap (empathy-neutral),135,0.589,0.563,,,0.488,0.68
+"rule keep (gap>=1, no substance flag)",135,0.377,0.711,0.681,0.6,,
+rule keep (gap>=1 only),135,0.782,0.933,0.815,0.807,0.63,0.905
+"rule keep (gap>=2, no substance flag)",135,0.382,0.696,0.43,0.437,,
+rule keep (gap>=2 only),135,0.551,0.778,0.533,0.578,0.405,0.684
